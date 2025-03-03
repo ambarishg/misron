@@ -29,7 +29,7 @@ const CoInnovationServices = () => {
     {
       title: "Ideation Workshops",
       description:
-        "Collaborate with our experts and partners to generate innovative ideas and concepts for new products and services.",
+        "Collaborate with our experts and partners to generate innovative ideas and concepts for new products.",
       features: [
         "Facilitated brainstorming sessions",
         "Design thinking methodologies",
@@ -41,7 +41,7 @@ const CoInnovationServices = () => {
     {
       title: "Joint Development",
       description:
-        "Co-create and develop new products and services with our engineering and design teams.",
+        "Co-create and develop new products with our engineering and design teams.",
       features: [
         "Agile development methodologies",
         "Shared resources and expertise",
@@ -77,7 +77,7 @@ const CoInnovationServices = () => {
     {
       title: "Pilot Programs",
       description:
-        "Test new products and services with our customers in a real-world environment.",
+        "Test new products with our customers in a real-world environment.",
       features: [
         "Access to our customer base",
         "Feedback and insights from real users",
@@ -137,12 +137,12 @@ const CoInnovationServices = () => {
           fontWeight="bold"
           color={headingColor}
         >
-          Co-Innovation and Co-Creation Services
+          Co-Innovation and Co-Creating Products
         </Heading>
 
         <Text textAlign="center" fontSize="xl" color={textColor}>
           Partner with us to unlock new possibilities and create groundbreaking
-          products and services together.
+          products together.
         </Text>
 
         {/* Services Grid */}
@@ -266,7 +266,7 @@ const CoInnovationServices = () => {
             color={textColor}
           >
             Contact us today to discuss how we can co-innovate and co-create
-            amazing products and services.
+            amazing products.
           </Text>
           <Button
             as={RouterLink}
