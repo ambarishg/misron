@@ -55,7 +55,7 @@ const About = () => {
             About Misron
           </Heading>
           <Text fontSize="lg" color={textColor} mt={4}>
-            Empowering organizations with innovative data and AI solutions.
+            Empowering organizations with innovative data and AI products.
           </Text>
         </MotionBox>
 
@@ -78,11 +78,11 @@ const About = () => {
           </Heading>
           <Text fontSize="lg" color={textColor} lineHeight="tall">
           &quot;Misron&quot; is a Bengali word that signifies a harmonious combination or blend. We
-            embrace this concept, firmly believing that the most innovative solutions emerge
+            embrace this concept, firmly believing that the most innovative products emerge
             from the fusion of diverse perspectives and specialized expertise. This name
             embodies our dedication to seamlessly integrating state-of-the-art technology with
             profound industry insights, enabling us to deliver transformative and impactful
-            solutions for our valued clients.
+            products for our valued clients.
           </Text>
           <Text fontSize="sm" color={textColor} mt={4}>
             Bengali is a language spoken in the Indian subcontinent, particularly in the region of Bengal,India and Bangladesh.
@@ -110,7 +110,7 @@ const About = () => {
           </Heading>
           <Text fontSize="lg" color={textColor} lineHeight="tall">
             At Misron , we are committed to empowering organizations through
-            innovative data and AI-driven solutions. Our mission is to unlock the full
+            innovative data and AI-driven products. Our mission is to unlock the full
             potential of data, enabling businesses to achieve transformative growth,
             operational excellence, and a sustainable competitive advantage in their respective
             sectors.
@@ -137,7 +137,7 @@ const About = () => {
           <Text fontSize="lg" color={textColor} mb={6} lineHeight="tall">
             With a proven track record in data science, machine learning, and artificial
             intelligence, our team of experienced professionals specializes in delivering
-            tailored solutions to address complex business challenges. Our core competencies
+            tailored products to address complex business challenges. Our core competencies
             include:
           </Text>
           <UnorderedList spacing={4} fontSize="lg" pl={6}>
@@ -155,7 +155,7 @@ const About = () => {
             </ListItem>
             <ListItem display="flex" alignItems="center">
               <Icon as={FaDatabase} color={iconColor} mr={3} boxSize={6} /> {/* Increased icon size */}
-              Scalable big data processing and management solutions.
+              Scalable big data processing and management products.
             </ListItem>
             
           </UnorderedList>
@@ -182,7 +182,7 @@ const About = () => {
             We pride ourselves on a client-centric methodology that fosters close
             collaboration to thoroughly understand your unique challenges and objectives. By
             combining industry expertise with advanced technology, we design and implement
-            customized solutions that deliver measurable results and drive sustainable success.
+            customized products that deliver measurable results and drive sustainable success.
           </Text>
         </MotionBox>
 
