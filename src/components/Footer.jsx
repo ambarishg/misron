@@ -7,9 +7,9 @@ const Footer = () => {
       <Flex maxW="container.xl" mx="auto" px={4} direction={{ base: "column", md: "row" }} justify="space-between">
         <VStack align="start" mb={{ base: 6, md: 0 }}>
           <Text fontSize="xl" fontWeight="bold" mb={2}>
-            Misron Consulting
+            Misron
           </Text>
-          <Text fontSize="sm">Empowering businesses with cutting-edge Data and AI solutions.</Text>
+          <Text fontSize="sm">Empowering businesses with cutting-edge Data and AI products.</Text>
         </VStack>
         <VStack align="start" mb={{ base: 6, md: 0 }}>
           <Text fontSize="lg" fontWeight="semibold" mb={2}>
@@ -21,8 +21,8 @@ const Footer = () => {
           <Link to="/about" style={{ textDecoration: 'none', color: 'inherit', _hover: { color: 'brand.200' } }}>
             About
           </Link>
-          <Link to="/services" style={{ textDecoration: 'none', color: 'inherit', _hover: { color: 'brand.200' } }}>
-            Services
+          <Link to="/searchassistant" style={{ textDecoration: 'none', color: 'inherit', _hover: { color: 'brand.200' } }}>
+            Products
           </Link>
           <Link to="/contact" style={{ textDecoration: 'none', color: 'inherit', _hover: { color: 'brand.200' } }}>
             Contact
