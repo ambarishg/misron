@@ -55,7 +55,7 @@ import {
           <Box width="50%" mx="auto" textAlign="center">
             <Text mt={2} color={textColor} fontSize="md">
               {/* Centered Text */}
-              AI Bee Health is an innovative solution leveraging advanced deep
+              AI Bee Health is an innovative product leveraging advanced deep
               learning models to detect and predict bee diseases, ensuring
               healthier bee colonies and optimized honey production. This product
               represents our commitment to sustainable agriculture and

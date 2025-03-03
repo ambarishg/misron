@@ -18,7 +18,7 @@ const Home = () => {
             </Text>
 
             <Text fontSize={{ base: "lg", md: "xl" }} mb={{ base: 6, md: 8 }} color="gray.600" lineHeight="tall">
-              Empowering Your Business with Advanced Data and AI Solutions <br/>
+              Empowering Your Business with Advanced Data and AI Products <br/>
 
             </Text>
             <Button 
@@ -111,7 +111,7 @@ const Home = () => {
             Why Choose Misron ?
           </Heading>
           <Text mb={{ base: 4, md: 8 }} color="gray.600" lineHeight="tall">
-            We combine deep expertise in data science and artificial intelligence to deliver innovative solutions that drive measurable business growth.
+            We combine deep expertise in data science and artificial intelligence to deliver innovative products that drive measurable business growth.
           </Text>
           <Link 
             as={RouterLink} 
@@ -138,7 +138,7 @@ const Home = () => {
             Ready to Harness the Power of Data and AI?
           </Heading>
           <Text mb={{base:"4",md:"8"}} lineHeight='tall'>
-            Contact us today to discover how we can help transform your business through innovative solutions.
+            Contact us today to discover how we can help transform your business through innovative products.
           </Text>
           <Button 
             as={RouterLink} 
