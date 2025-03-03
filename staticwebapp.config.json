@@ -1,0 +1,33 @@
+{
+    "navigationFallback": {
+      "rewrite": "index.html",
+      "exclude": ["/static/images/*.{png,jpg,gif}", "/static/css/*"]
+    },
+    "mimeTypes": {
+      ".json": "text/json"
+    },
+    "routes": [
+      {
+        "route": "https://misronconsulting.com/*",
+        "redirect": "https://www.misronconsulting.com",
+        "statusCode": 301
+      },
+     {
+        "route": "http://misronconsulting.com/*",
+        "redirect": "https://www.misronconsulting.com",
+        "statusCode": 301
+      },
+      {
+        "route": "http://www.misronconsulting.com/*",
+        "redirect": "https://www.misronconsulting.com",
+        "statusCode": 301
+      },
+      {
+        "route": "misronconsulting.com/*",
+        "redirect": "https://www.misronconsulting.com",
+        "statusCode": 301
+      }
+  
+    ]
+  }
+  
