@@ -70,7 +70,8 @@ const Home = () => {
             {
               title: "AI Bee Health",
               description:
-                "AI Bee Health is an innovative solution leveraging advanced deep learning models to detect and predict bee diseases, ensuring healthier bee colonies and optimized honey production. This product represents our commitment to sustainable agriculture and technological innovation.",
+                "AI Bee Health is an innovative solution leveraging advanced deep learning models to detect and predict bee diseases, ensuring healthier bee colonies and optimized honey production. This product represents our commitment to sustainable agriculture and technological innovation. \
+                This is done in collaboration with our BEE partner, WildFlower Bee Farm",
             },
              
             ].map((service, index) => (

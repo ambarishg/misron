@@ -80,12 +80,12 @@ const Header = () => {
  
           <Link
             as={RouterLink}
-            to="/projects"
+            to="/ai-bee-health"
             mr={6}
             onClick={onToggle}
             _hover={{ color: "brand.200" }}
           >
-            Customer Stories
+            AI Bee Health
           </Link>
           <Link as={RouterLink} to="/contact" _hover={{ color: "brand.200" }}>
             Contact
