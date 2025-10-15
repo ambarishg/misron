@@ -24,6 +24,9 @@ const Footer = () => {
           <Link to="/searchassistant" style={{ textDecoration: 'none', color: 'inherit', _hover: { color: 'brand.200' } }}>
             Products
           </Link>
+          <Link to="/ask-hank" style={{ textDecoration: 'none', color: 'inherit', _hover: { color: 'brand.200' } }}>
+            Ask Hank
+          </Link>
           <Link to="/contact" style={{ textDecoration: 'none', color: 'inherit', _hover: { color: 'brand.200' } }}>
             Contact
           </Link>

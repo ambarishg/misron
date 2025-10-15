@@ -1,116 +1,242 @@
 import {
-    Box,
-    Image,
-    Text,
-    Flex,
-    Heading,
-    useColorModeValue,
-    Stack,
-  } from "@chakra-ui/react";
-  import ReactPlayer from "react-player";
-  import { FaYoutube, FaExternalLinkAlt } from "react-icons/fa";
-  import { IconButton } from "@chakra-ui/react";
-  
-  function Projects() {
-    const bg = useColorModeValue("white", "gray.800");
-    const textColor = useColorModeValue("gray.700", "gray.300");
-    const headingColor = useColorModeValue("blue.600", "blue.400");
-    const borderColor = useColorModeValue("gray.200", "gray.700");
-  
-    return (
-      <Box
-        bg={bg}
-        borderWidth="1px"
-        borderRadius="xl"
-        overflow="hidden"
-        borderColor={borderColor}
-        textAlign="center" // Center all content within the box
-      >
-        <Image
-          src="./aibeehealth.png"
-          alt="AI Bee Health"
-          objectFit="contain"
-          height={{ base: "80px", md: "150px" }} // Adjusted height
-          width="auto" // Allow width to adjust based on height and aspect ratio
-          mx="auto" // Center the image
-        />
-  
-        <Box p={6}>
-          <Flex align="center" justify="center" mb={4}>
-            {/* Centered Heading */}
-            <Heading
-              mt={1}
+  Box,
+  Button,
+  Container,
+  Divider,
+  Heading,
+  HStack,
+  Icon,
+  Image,
+  SimpleGrid,
+  Stack,
+  Text,
+  VStack,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import ReactPlayer from "react-player";
+import { FaExternalLinkAlt, FaYoutube } from "react-icons/fa";
+import { FiActivity, FiAward, FiShield } from "react-icons/fi";
+import { Link as RouterLink } from "react-router-dom";
+
+const impactHighlights = [
+  {
+    icon: FiActivity,
+    title: "Predictive Health Insights",
+    description:
+      "Early detection models forecast colony health issues before they escalate, empowering commercial apiaries to intervene proactively.",
+  },
+  {
+    icon: FiShield,
+    title: "Field-Ready Design",
+    description:
+      "Edge-ready architecture and resilient data pipelines ensure reliability in remote farming environments with limited connectivity.",
+  },
+  {
+    icon: FiAward,
+    title: "Sustainable Outcomes",
+    description:
+      "Supports pollination stability and yield improvement initiatives while aligning agricultural innovation with environmental stewardship.",
+  },
+];
+
+const resultMetrics = [
+  {
+    value: "75%",
+    label: "Model Accuracy Across Key Diseases",
+  },
+  {
+    value: "6 Weeks",
+    label: "Time to MVP from Discovery Workshop",
+  },
+  {
+    value: "24/7",
+    label: "Monitoring Coverage for Partner Apiaries",
+  },
+];
+
+const Projects = () => {
+  const cardBg = useColorModeValue("white", "gray.800");
+  const cardBorder = useColorModeValue("gray.200", "gray.700");
+  const accentText = useColorModeValue("brand.600", "brand.200");
+
+  return (
+    <Box bg={useColorModeValue("gray.50", "gray.900")} py={{ base: 12, md: 20 }}>
+      <Container maxW="container.xl">
+        <Stack
+          direction={{ base: "column", lg: "row" }}
+          spacing={{ base: 10, lg: 16 }}
+          align={{ base: "flex-start", lg: "center" }}
+        >
+          <VStack align="start" spacing={6} flex={1}>
+            <Text
+              textTransform="uppercase"
               fontWeight="semibold"
-              as="h3"
-              lineHeight="tight"
-              color={headingColor}
-              fontSize={{ base: "xl", md: "2xl" }}
-              textAlign="center" // Center heading text
+              letterSpacing="widest"
+              color={accentText}
             >
+              Flagship Product Case Study
+            </Text>
+            <Heading as="h1" size={{ base: "2xl", md: "3xl" }} fontWeight="extrabold">
               AI Bee Health
             </Heading>
-          </Flex>
-  
-          {/* Text within the same bounds as the video */}
-          <Box width="50%" mx="auto" textAlign="center">
-            <Text mt={2} color={textColor} fontSize="md">
-              {/* Centered Text */}
-              AI Bee Health is an innovative product leveraging advanced deep
-              learning models to detect and predict bee diseases, ensuring
-              healthier bee colonies and optimized honey production. This product
-              represents our commitment to sustainable agriculture and
-              technological innovation.
+            <Text fontSize={{ base: "md", md: "lg" }} color={useColorModeValue("gray.600", "gray.300")}>
+              In partnership with Wildflower Bee Farm, Misron engineered an AI-driven monitoring
+              platform that detects and predicts bee diseases. The solution blends computer vision,
+              edge analytics, and intuitive dashboards crafted for field technicians and research teams.
             </Text>
+            <HStack spacing={4} flexWrap="wrap">
+              <Button
+                as="a"
+                href="https://aibeehealth.ca"
+                target="_blank"
+                rel="noopener noreferrer"
+                colorScheme="brand"
+                rightIcon={<FaExternalLinkAlt />}
+              >
+                Visit AI Bee Health
+              </Button>
+              <Button
+                as="a"
+                href="https://www.youtube.com/watch?v=hDdE1aI0mOM"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="outline"
+                colorScheme="brand"
+                rightIcon={<FaYoutube />}
+              >
+                Watch Product Overview
+              </Button>
+            </HStack>
+          </VStack>
+          <Box flex={1} display="flex" justifyContent="center">
+            <Image
+              src="./aibeehealth.png"
+              alt="AI Bee Health Dashboard"
+              maxW={{ base: "260px", md: "340px" }}
+              borderRadius="lg"
+              boxShadow="lg"
+            />
           </Box>
-  
-          {/* YouTube Video Player */}
-          <Box
-            mt={2}
-            width="50%"
-            mx="auto"
-            position="relative"
-            paddingTop="calc(50% * 9 / 16)"
-          >
-            {/* 16:9 aspect ratio */}
+        </Stack>
+
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }} mt={{ base: 12, md: 16 }}>
+          {impactHighlights.map((item) => (
+            <VStack
+              key={item.title}
+              align="start"
+              spacing={4}
+              bg={cardBg}
+              borderWidth={1}
+              borderColor={cardBorder}
+              borderRadius="xl"
+              p={{ base: 6, md: 8 }}
+              boxShadow="md"
+            >
+              <Icon as={item.icon} boxSize={8} color={accentText} />
+              <Heading size="md" color={accentText}>
+                {item.title}
+              </Heading>
+              <Text color={useColorModeValue("gray.600", "gray.300")} lineHeight="tall">
+                {item.description}
+              </Text>
+            </VStack>
+          ))}
+        </SimpleGrid>
+
+        <Box
+          mt={{ base: 12, md: 16 }}
+          borderRadius="2xl"
+          overflow="hidden"
+          boxShadow="xl"
+          bg={cardBg}
+          borderWidth={1}
+          borderColor={cardBorder}
+        >
+          <Box position="relative" paddingTop="56.25%">
             <ReactPlayer
               url="https://www.youtube.com/watch?v=hDdE1aI0mOM"
               width="100%"
               height="100%"
+              controls
               style={{ position: "absolute", top: 0, left: 0 }}
-              controls={true}
             />
           </Box>
-          <Stack
-            mt={2}
-            direction="row"
-            spacing={4}
-            align="center"
-            justify="center"
-          >
-            <IconButton
-              aria-label="Watch on YouTube"
-              icon={<FaYoutube />}
-              size="lg"
-              colorScheme="red"
-              onClick={() =>
-                window.open(
-                  "https://www.youtube.com/watch?v=hDdE1aI0mOM",
-                  "_blank"
-                )
-              }
-            />
-            <IconButton
-              aria-label="Learn More"
-              icon={<FaExternalLinkAlt />}
-              size="lg"
-              colorScheme="blue"
-              onClick={() => window.open("https://aibeehealth.ca", "_blank")}
-            />
+          <Stack direction={{ base: "column", md: "row" }} spacing={0}>
+            <Box flex={2} p={{ base: 6, md: 8 }}>
+              <Heading size="lg" mb={3} color={accentText}>
+                From Hive to Insight
+              </Heading>
+              <Text color={useColorModeValue("gray.600", "gray.300")} lineHeight="tall">
+                A proprietary model ensemble classifies bees, monitors activity levels, and prescribes
+                interventions, all surfaced through a single mission-control view for beekeepers and
+                research partners.
+              </Text>
+            </Box>
+            <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
+            <VStack
+              flex={1}
+              spacing={5}
+              p={{ base: 6, md: 8 }}
+              align="stretch"
+              bg={useColorModeValue("brand.50", "gray.800")}
+            >
+              {resultMetrics.map((metric) => (
+                <Box key={metric.label}>
+                  <Heading size="2xl" color={accentText} fontWeight="extrabold">
+                    {metric.value}
+                  </Heading>
+                  <Text color={useColorModeValue("gray.600", "gray.300")} fontSize="sm" textTransform="uppercase">
+                    {metric.label}
+                  </Text>
+                </Box>
+              ))}
+            </VStack>
           </Stack>
         </Box>
-      </Box>
-    );
-  }
-  
-  export default Projects;
-  
+
+        <Box
+          mt={{ base: 12, md: 16 }}
+          borderRadius="xl"
+          bg={cardBg}
+          borderWidth={1}
+          borderColor={cardBorder}
+          p={{ base: 8, md: 12 }}
+          boxShadow="lg"
+        >
+          <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 8, md: 12 }}>
+            <VStack align="start" spacing={4} flex={2}>
+              <Heading size="lg" color={accentText}>
+                Collaboration Blueprint
+              </Heading>
+              <Text color={useColorModeValue("gray.600", "gray.300")} lineHeight="tall">
+                Misron's boutique engineering squad partnered closely with Wildflower Bee Farm's field
+                experts to frame success metrics, gather observational data, and iterate quickly on model
+                performance. The result is an assistant that speaks the language of beekeepers while
+                surfacing insights trusted by research partners.
+              </Text>
+            </VStack>
+            <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
+            <VStack align="stretch" spacing={4} flex={1}>
+              <Text color={useColorModeValue("gray.500", "gray.400")} fontSize="sm" textTransform="uppercase">
+                Engagement Snapshot
+              </Text>
+              <Text color={useColorModeValue("gray.600", "gray.300")} lineHeight="tall">
+                - Discovery workshops with agritech stakeholders
+                <br />
+                - Rapid prototyping sprints with on-site validation
+                <br />
+                - Deployment playbooks enabling regional scaling
+              </Text>
+              <Button as={RouterLink} to="/contact" colorScheme="brand" rightIcon={<FaExternalLinkAlt />}>
+                Start a Project Conversation
+              </Button>
+            </VStack>
+          </Stack>
+        </Box>
+      </Container>
+    </Box>
+  );
+};
+
+export default Projects;
+

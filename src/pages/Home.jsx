@@ -2,6 +2,35 @@ import { Box, Button, Container, Heading, Image, Text, SimpleGrid, VStack, Link 
 import { Link as RouterLink } from "react-router-dom";
 
 const Home = () => {
+  const products = [
+    {
+      title: "AskHank.ca",
+      subtitle: "Ask Hank: Your Money Coach",
+      description:
+        "By Henry Svec. When you have a money or money relationship problem who can you trust? Private Q & A.",
+      href: "https://askhank.ca",
+      featured: true,
+    },
+    {
+      title: "AI Bee Health",
+      description:
+        "AI Bee Health is an innovative solution \
+        leveraging advanced deep learning models to \
+        detect and predict bee diseases, ensuring \
+        healthier bee colonies and optimized honey \
+        production. \
+        This product represents our commitment to \
+        sustainable agriculture and technological innovation. \
+        This is done in collaboration with our BEE partner, \
+        WildFlower Bee Farm",
+    },
+    {
+      title: "Misron Assistant",
+      description:
+        "Enables users to extract precise information from uploaded documents such as research papers, legal contracts, and financial statements. Unlike traditional search engines that rely on vast, unverified internet sources, this system focuses exclusively on user-supplied documents, ensuring trustworthiness and relevance. It highlights references for transparency and reveals discrepancies in conflicting data, enabling users to refine their sources.",
+    },
+  ];
+
   return (
     <Container maxW="container.xl" py={{ base: 6, md: 12 }} bg="gray.50">
       <VStack spacing={{ base: 12, md: 20 }}>
@@ -61,34 +90,42 @@ const Home = () => {
             Our Products
           </Heading>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 6, md: 8 }}>
-            {[
-             {
-              title: "Misron Assistant",
-              description:
-                "Enables users to extract precise information from uploaded documents such as research papers, legal contracts, and financial statements. Unlike traditional search engines that rely on vast, unverified internet sources, this system focuses exclusively on user-supplied documents, ensuring trustworthiness and relevance. It highlights references for transparency and reveals discrepancies in conflicting data, enabling users to refine their sources.",
-            },
-            {
-              title: "AI Bee Health",
-              description:
-                "AI Bee Health is an innovative solution leveraging advanced deep learning models to detect and predict bee diseases, ensuring healthier bee colonies and optimized honey production. This product represents our commitment to sustainable agriculture and technological innovation. \
-                This is done in collaboration with our BEE partner, WildFlower Bee Farm",
-            },
-             
-            ].map((service, index) => (
+            {products.map((product, index) => (
               <Box 
                 key={index} 
-                borderWidth={1} 
+                borderWidth={1}
                 borderRadius="lg" 
                 p={{ base: 4, md: 6 }} 
-                shadow="md" 
-                bg="white" 
+                shadow="md"
+                borderColor={product.featured ? "brand.600" : "gray.200"}
+                bg={product.featured ? "brand.50" : "white"} 
                 transition="all 0.3s" 
                 _hover={{ shadow: "xl", transform: "translateY(-10px)", bg: "blue.50" }}
               >
                 <Heading as="h3" size={{ base: "md", md: "lg" }} mb={{ base: 2, md: 4 }} color="blue.800" fontWeight="medium">
-                  {service.title}
+                  {product.title}
                 </Heading>
-                <Text fontSize={{ base: "sm", md: "md" }} color="gray.600" lineHeight="tall">{service.description}</Text>
+                {product.subtitle && (
+                  <Text fontSize={{ base: "sm", md: "md" }} color="gray.500" fontWeight="semibold" mb={2}>
+                    {product.subtitle}
+                  </Text>
+                )}
+                <Text fontSize={{ base: "sm", md: "md" }} color="gray.600" lineHeight="tall">
+                  {product.description}
+                </Text>
+                {product.href && (
+                  <Link
+                    href={product.href}
+                    isExternal
+                    color="brand.700"
+                    fontWeight="semibold"
+                    mt={4}
+                    display="inline-block"
+                    _hover={{ color: "brand.800", textDecoration: "underline" }}
+                  >
+                    Visit askHank.ca
+                  </Link>
+                )}
               </Box>
             ))}
           </SimpleGrid>

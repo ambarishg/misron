@@ -69,13 +69,14 @@ const Header = () => {
           >
             Innovation
           </Link>
+         
           <Link
             as={RouterLink}
-            to="/searchassistant"
+            to="/ask-hank"
             mr={6}
             _hover={{ color: "brand.200" }}
           >
-            Products
+            Ask Hank
           </Link>
  
           <Link
@@ -86,6 +87,14 @@ const Header = () => {
             _hover={{ color: "brand.200" }}
           >
             AI Bee Health
+          </Link>
+           <Link
+            as={RouterLink}
+            to="/searchassistant"
+            mr={6}
+            _hover={{ color: "brand.200" }}
+          >
+            Misron Assistant
           </Link>
           <Link as={RouterLink} to="/contact" _hover={{ color: "brand.200" }}>
             Contact
@@ -112,6 +121,12 @@ const Header = () => {
             </Link>
             <Link as={RouterLink} to="/coinnovationservices" onClick={onToggle}>
               Innovation
+            </Link>
+            <Link as={RouterLink} to="/searchassistant" onClick={onToggle}>
+              Products
+            </Link>
+            <Link as={RouterLink} to="/ask-hank" onClick={onToggle}>
+              Ask Hank
             </Link>
 
             <Link as={RouterLink} to="/projects" onClick={onToggle}>
