@@ -25,9 +25,6 @@ const capabilityLinks = [
 
 const companyLinks = [
   { label: "About Misron", to: "/about" },
-  { label: "Customer Stories", to: "/projects" },
-  { label: "Partners", to: "/partners" },
-  { label: "Contact", to: "/contact" },
 ];
 
 const Footer = () => {
