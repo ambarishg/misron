@@ -1,201 +1,373 @@
-import { Box, Button, Container, Heading, Image, Text, SimpleGrid, VStack, Link } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Container,
+  Divider,
+  Heading,
+  HStack,
+  Icon,
+  Image,
+  Link,
+  SimpleGrid,
+  Stack,
+  Text,
+  VStack,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import { CheckCircleIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import { Link as RouterLink } from "react-router-dom";
 
+const products = [
+  {
+    title: "AskHank.ca",
+    subtitle: "Ask Hank: Your Money Coach",
+    description:
+      "Private, confidential money coaching with Henry Svec. Navigate sensitive financial decisions with trusted, one-to-one guidance.",
+    href: "https://askhank.ca",
+    featured: true,
+  },
+  {
+    title: "AI Bee Health",
+    description:
+      "Edge-first disease detection and forecasting platform purpose-built with Wildflower Bee Farm to preserve colony vitality and yield.",
+  },
+  {
+    title: "Misron Assistant",
+    description:
+      "Secure, document-grounded research assistant delivering traceable insights, compliance-ready summaries, and executive briefings in minutes.",
+  },
+];
+
+const differentiators = [
+  {
+    title: "Boutique Engineering Rigor",
+    detail:
+      "Specialised squads delivering enterprise-grade architecture with the pace of a startup studio.",
+  },
+  {
+    title: "Strategy Through Delivery",
+    detail:
+      "From discovery workshops to product operations, we steward initiatives end-to-end.",
+  },
+  {
+    title: "Provable Outcomes",
+    detail:
+      "Engagements anchored in measurable KPIs—adoption, efficiency, user sentiment, and revenue impact.",
+  },
+];
+
+const capabilities = [
+  {
+    title: "Data Products & Platforms",
+    description:
+      "Composable data estates, governed pipelines, and analytics experiences that unlock intelligent decisioning.",
+  },
+  {
+    title: "Applied AI & Automation",
+    description:
+      "Operational AI that is explainable, auditable, and tuned to your business language and risk profile.",
+  },
+  {
+    title: "Industry Partnerships",
+    description:
+      "Co-innovation programs with sector experts spanning fintech, healthcare, agritech, and professional services.",
+  },
+];
+
+const engagementMilestones = [
+  {
+    phase: "01 · Discover",
+    detail: "Co-create the product thesis, user stories, and success metrics with executive stakeholders.",
+  },
+  {
+    phase: "02 · Design & Validate",
+    detail: "Prototype high-value journeys, validate data feasibility, and stress-test governance needs.",
+  },
+  {
+    phase: "03 · Build & Launch",
+    detail: "Deliver secure, scalable solutions with progressive rollouts, observability, and enablement.",
+  },
+  {
+    phase: "04 · Evolve",
+    detail: "Operate a continuous improvement loop with telemetry-led enhancements and new revenue plays.",
+  },
+];
+
+const credibilitySignals = [
+  "Trusted by innovation leaders across North America and India.",
+  "Engineers with experience spanning Fortune 500 enterprises and venture-backed scaleups.",
+  "Partner-first mindset with transparent collaboration and measurable impact.",
+];
+
 const Home = () => {
-  const products = [
-    {
-      title: "AskHank.ca",
-      subtitle: "Ask Hank: Your Money Coach",
-      description:
-        "By Henry Svec. When you have a money or money relationship problem who can you trust? Private Q & A.",
-      href: "https://askhank.ca",
-      featured: true,
-    },
-    {
-      title: "AI Bee Health",
-      description:
-        "AI Bee Health is an innovative solution \
-        leveraging advanced deep learning models to \
-        detect and predict bee diseases, ensuring \
-        healthier bee colonies and optimized honey \
-        production. \
-        This product represents our commitment to \
-        sustainable agriculture and technological innovation. \
-        This is done in collaboration with our BEE partner, \
-        WildFlower Bee Farm",
-    },
-    {
-      title: "Misron Assistant",
-      description:
-        "Enables users to extract precise information from uploaded documents such as research papers, legal contracts, and financial statements. Unlike traditional search engines that rely on vast, unverified internet sources, this system focuses exclusively on user-supplied documents, ensuring trustworthiness and relevance. It highlights references for transparency and reveals discrepancies in conflicting data, enabling users to refine their sources.",
-    },
-  ];
+  const heroBg = useColorModeValue("linear(to-r, brand.900, brand.700)", "linear(to-r, brand.800, brand.600)");
+  const heroOverlay = useColorModeValue("rgba(16, 42, 67, 0.85)", "rgba(15, 36, 58, 0.75)");
+  const cardBg = useColorModeValue("white", "gray.800");
+  const cardBorder = useColorModeValue("gray.200", "gray.700");
+  const accent = useColorModeValue("brand.600", "brand.200");
 
   return (
-    <Container maxW="container.xl" py={{ base: 6, md: 12 }} bg="gray.50">
-      <VStack spacing={{ base: 12, md: 20 }}>
-        {/* Welcome Section */}
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 6, md: 10 }} alignItems="center">
-          {/* Text Section */}
-          <Box textAlign={{ base: "center", md: "left" }}>
-            <Heading as="h1" size={{ base: "xl", md: "2xl" }} mb={{ base: 4, md: 6 }} color="blue.800" fontWeight="bold">
-              Welcome to Misron 
-            </Heading>
-
-            <Text as="span" fontSize={{base:"md",md:"lg"}} fontStyle="italic" color="gray.500">
-              A boutique digital engineering firm
-            </Text>
-
-            <Text fontSize={{ base: "lg", md: "xl" }} mb={{ base: 6, md: 8 }} color="gray.600" lineHeight="tall">
-              Empowering Your Business with Advanced Data and AI Products <br/>
-
-            </Text>
-            <Button 
-              as={RouterLink} 
-              to="/contact" 
-              colorScheme="blue" 
-              size={{ base: "md", md: "lg" }} 
-              variant="solid"
-              _hover={{ transform: "scale(1.05)", boxShadow: "lg" }}
-              transition="all 0.2s"
-            >
-              Get Started
-            </Button>
-          </Box>
-
-            <Box
-            textAlign="center"
-            borderRadius="md"
-            overflow="hidden"
-            boxShadow="md"
-            bg="white"
-            display="flex"          // Enable Flexbox
-            justifyContent="center" // Center horizontally
-            alignItems="center"     // Center vertically
+    <Box bg={useColorModeValue("gray.50", "gray.900")}>
+      {/* Hero */}
+      <Box
+        position="relative"
+        overflow="hidden"
+        py={{ base: 16, md: 24 }}
+        bgGradient={heroBg}
+        color="white"
+      >
+        <Box position="absolute" inset={0} bg={heroOverlay} opacity={0.85} />
+        <Container maxW="container.xl" position="relative">
+          <Stack
+            direction={{ base: "column", lg: "row" }}
+            spacing={{ base: 10, lg: 16 }}
+            align={{ base: "flex-start", lg: "center" }}
           >
-            <Image
-              src="/MISRONLOGO.png"
-              alt="MISRON Consulting Logo"
-              width={{ base: '80%', md: '60%', lg: '50%' }}
-              height="auto"
-              objectFit="contain"
-              borderRadius="md"
-            />
-        </Box>
+            <VStack align="start" spacing={6} flex={1}>
+              <Text textTransform="uppercase" letterSpacing="widest" fontWeight="semibold" color="accent.200">
+                Boutique Digital Engineering
+              </Text>
+              <Heading as="h1" size={{ base: "2xl", md: "3xl" }} fontWeight="extrabold" lineHeight="shorter">
+                Building trustworthy data & AI products
+              </Heading>
+              <Text fontSize={{ base: "md", md: "xl" }} maxW="3xl" lineHeight="tall" color="accent.100">
+                Misron partners with leadership teams to orchestrate secure, measurable digital programmes—from
+                strategic design through to production operations.
+              </Text>
+              <HStack spacing={4} flexWrap="wrap">
+                <Button
+                  as={RouterLink}
+                  to="/contact"
+                  colorScheme="accent"
+                  size="lg"
+                  fontWeight="semibold"
+                  rightIcon={<ArrowForwardIcon />}
+                >
+                  Book a Working Session
+                </Button>
+                <Button
+                  as={RouterLink}
+                  to="/about"
+                  variant="outline"
+                  colorScheme="whiteAlpha"
+                  size="lg"
+                >
+                  Learn About Misron
+                </Button>
+              </HStack>
+            </VStack>
+            <Box
+              flex={1}
+              bg="whiteAlpha.100"
+              borderRadius="2xl"
+              p={{ base: 6, md: 8 }}
+              backdropFilter="blur(8px)"
+            >
+              <VStack align="start" spacing={5}>
+                <Heading size="md" color="accent.100">
+                  Why teams choose Misron
+                </Heading>
+                <VStack align="start" spacing={3}>
+                  {credibilitySignals.map((item) => (
+                    <HStack key={item} spacing={3} align="start">
+                      <Icon as={CheckCircleIcon} color="accent.200" mt={1} />
+                      <Text color="accent.100" lineHeight="tall">
+                        {item}
+                      </Text>
+                    </HStack>
+                  ))}
+                </VStack>
+              </VStack>
+            </Box>
+          </Stack>
+        </Container>
+      </Box>
+
+      <Container maxW="container.xl" py={{ base: 16, md: 20 }}>
+        {/* Differentiators */}
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }} mb={{ base: 16, md: 20 }}>
+          {differentiators.map((item) => (
+            <Box
+              key={item.title}
+              bg={cardBg}
+              borderRadius="xl"
+              borderWidth={1}
+              borderColor={cardBorder}
+              p={{ base: 6, md: 8 }}
+              boxShadow="md"
+            >
+              <Heading size="md" color={accent} mb={3}>
+                {item.title}
+              </Heading>
+              <Text color={useColorModeValue("gray.600", "gray.300")} lineHeight="tall">
+                {item.detail}
+              </Text>
+            </Box>
+          ))}
         </SimpleGrid>
 
-        {/* Services Section */}
-        <Box>
-          <Heading as="h2" size={{ base: "lg", md: "xl" }} mb={{ base: 6, md: 8 }} textAlign="center" color="blue.800" fontWeight="semibold">
-            Our Products
+        {/* Featured Products */}
+        <VStack align="start" spacing={{ base: 6, md: 8 }} mb={{ base: 16, md: 20 }}>
+          <Heading size={{ base: "lg", md: "xl" }} color={accent}>
+            Flagship Products
           </Heading>
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 6, md: 8 }}>
-            {products.map((product, index) => (
-              <Box 
-                key={index} 
+          <Text color={useColorModeValue("gray.600", "gray.300")} maxW="3xl" lineHeight="tall">
+            Product studios, venture teams, and enterprise innovators rely on Misron to bring differentiated data and
+            AI offerings to market. Explore a selection of active engagements.
+          </Text>
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }} width="100%">
+            {products.map((product) => (
+              <VStack
+                key={product.title}
+                align="start"
+                spacing={4}
+                bg={product.featured ? "brand.50" : cardBg}
+                borderRadius="xl"
                 borderWidth={1}
-                borderRadius="lg" 
-                p={{ base: 4, md: 6 }} 
-                shadow="md"
-                borderColor={product.featured ? "brand.600" : "gray.200"}
-                bg={product.featured ? "brand.50" : "white"} 
-                transition="all 0.3s" 
-                _hover={{ shadow: "xl", transform: "translateY(-10px)", bg: "blue.50" }}
+                borderColor={product.featured ? accent : cardBorder}
+                p={{ base: 6, md: 7 }}
+                boxShadow={product.featured ? "xl" : "md"}
+                transition="transform 0.2s ease, box-shadow 0.2s ease"
+                _hover={{ transform: "translateY(-6px)", boxShadow: "xl" }}
               >
-                <Heading as="h3" size={{ base: "md", md: "lg" }} mb={{ base: 2, md: 4 }} color="blue.800" fontWeight="medium">
+                <Heading size="md" color={accent}>
                   {product.title}
                 </Heading>
                 {product.subtitle && (
-                  <Text fontSize={{ base: "sm", md: "md" }} color="gray.500" fontWeight="semibold" mb={2}>
+                  <Text fontWeight="semibold" color={useColorModeValue("gray.500", "gray.300")}>
                     {product.subtitle}
                   </Text>
                 )}
-                <Text fontSize={{ base: "sm", md: "md" }} color="gray.600" lineHeight="tall">
+                <Text color={useColorModeValue("gray.600", "gray.300")} lineHeight="tall">
                   {product.description}
                 </Text>
                 {product.href && (
                   <Link
                     href={product.href}
                     isExternal
-                    color="brand.700"
+                    color={accent}
                     fontWeight="semibold"
-                    mt={4}
-                    display="inline-block"
-                    _hover={{ color: "brand.800", textDecoration: "underline" }}
+                    _hover={{ textDecoration: "underline" }}
                   >
                     Visit askHank.ca
                   </Link>
                 )}
+                {!product.href && (
+                  <Button
+                    as={RouterLink}
+                    to={product.title === "Misron Assistant" ? "/searchassistant" : "/ai-bee-health"}
+                    variant="link"
+                    color={accent}
+                    fontWeight="semibold"
+                    rightIcon={<ArrowForwardIcon />}
+                  >
+                    View solution
+                  </Button>
+                )}
+              </VStack>
+            ))}
+          </SimpleGrid>
+        </VStack>
+
+        {/* Capabilities */}
+        <VStack align="start" spacing={{ base: 6, md: 8 }} mb={{ base: 16, md: 20 }}>
+          <Heading size={{ base: "lg", md: "xl" }} color={accent}>
+            What We Deliver
+          </Heading>
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }} width="100%">
+            {capabilities.map((item) => (
+              <Box
+                key={item.title}
+                bg={cardBg}
+                borderRadius="xl"
+                borderWidth={1}
+                borderColor={cardBorder}
+                p={{ base: 6, md: 7 }}
+                boxShadow="md"
+              >
+                <Heading size="md" color={accent} mb={3}>
+                  {item.title}
+                </Heading>
+                <Text color={useColorModeValue("gray.600", "gray.300")} lineHeight="tall">
+                  {item.description}
+                </Text>
               </Box>
             ))}
           </SimpleGrid>
-        </Box>
+        </VStack>
 
-
-       
-
-        
-        {/* Why Choose Us Section */}
-        <Box 
-          textAlign="center" 
-          maxW="800px" 
-          mx="auto"
-          bgGradient="linear(to-r, blue.50, white)"
-          p={{ base: 6, md: 8 }}
-          borderRadius="lg"
-          boxShadow="md"
-        >
-          <Heading as="h2" size={{ base: "lg", md: "xl" }} mb={{ base: 4, md: 6 }} color="blue.800" fontWeight="semibold">
-            Why Choose Misron ?
+        {/* Engagement Process */}
+        <VStack align="start" spacing={{ base: 6, md: 8 }}>
+          <Heading size={{ base: "lg", md: "xl" }} color={accent}>
+            A Partnership Blueprint
           </Heading>
-          <Text mb={{ base: 4, md: 8 }} color="gray.600" lineHeight="tall">
-            We combine deep expertise in data science and artificial intelligence to deliver innovative products that drive measurable business growth.
+          <Text color={useColorModeValue("gray.600", "gray.300")} maxW="3xl" lineHeight="tall">
+            Each engagement follows a transparent delivery cadence, ensuring stakeholders have clarity and control
+            at every stage while momentum stays high.
           </Text>
-          <Link 
-            as={RouterLink} 
-            to="/about" 
-            color="blue.500" 
-            fontWeight="semibold"
-            _hover={{ textDecoration: "underline", color:"blue.600"}}
-          >
-            Discover More About Us
-          </Link>
-        </Box>
+          <SimpleGrid columns={{ base: 1, md: 4 }} spacing={{ base: 6, md: 6 }} width="100%">
+            {engagementMilestones.map((milestone) => (
+              <VStack
+                key={milestone.phase}
+                align="start"
+                spacing={3}
+                bg={cardBg}
+                borderRadius="xl"
+                borderWidth={1}
+                borderColor={cardBorder}
+                p={{ base: 5, md: 6 }}
+              >
+                <Text fontSize="sm" fontWeight="bold" color={accent}>
+                  {milestone.phase}
+                </Text>
+                <Text color={useColorModeValue("gray.600", "gray.300")} lineHeight="tall">
+                  {milestone.detail}
+                </Text>
+              </VStack>
+            ))}
+          </SimpleGrid>
+        </VStack>
+      </Container>
 
-        {/* Call-to-Action Section */}
-        <Box 
-          bgGradient="linear(to-r, blue.500, blue.600)" 
-          p={{ base: 6, md: 8 }} 
-          borderRadius="lg"
-          width="full"
-          boxShadow="lg"
-          textAlign="center"
-          color="white"
-        >
-          <Heading as="h2" size={{ base:"lg", md:"xl"}} mb={{base:"4",md:"6"}} fontWeight='semibold'>
-            Ready to Harness the Power of Data and AI?
-          </Heading>
-          <Text mb={{base:"4",md:"8"}} lineHeight='tall'>
-            Contact us today to discover how we can help transform your business through innovative products.
-          </Text>
-          <Button 
-            as={RouterLink} 
-            to="/contact"
-            colorScheme='whiteAlpha'
-            size={{base:'md',md:'lg'}}
-            _hover={{
-              transform:'scale(1.05)',
-              bg:'white',
-              color:'blue.600'
-            }}
-            transition='all .2s'
-          >
-            Contact Us
-          </Button>
-        </Box>
-      </VStack>
-    </Container>
+      {/* Final CTA */}
+      <Box bg={useColorModeValue("brand.900", "brand.800")} color="white" py={{ base: 12, md: 16 }}>
+        <Container maxW="container.xl">
+          <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 6, md: 10 }} align="center">
+            <VStack align="start" spacing={3} flex={1}>
+              <Heading size={{ base: "lg", md: "xl" }}>
+                Ready to bring your next product to market with confidence?
+              </Heading>
+              <Text color="accent.100" lineHeight="tall">
+                Let’s align on outcomes, architecture, and go-to-market. We will assemble the right specialists
+                and get to work.
+              </Text>
+            </VStack>
+            <HStack spacing={4}>
+              <Button
+                as={RouterLink}
+                to="/contact"
+                colorScheme="accent"
+                size="lg"
+                fontWeight="semibold"
+              >
+                Start the Conversation
+              </Button>
+              <Button
+                as={RouterLink}
+                to="/coinnovationservices"
+                variant="outline"
+                colorScheme="whiteAlpha"
+                size="lg"
+              >
+                View Services
+              </Button>
+            </HStack>
+          </Stack>
+        </Container>
+      </Box>
+    </Box>
   );
-}
+};
 
 export default Home;
+

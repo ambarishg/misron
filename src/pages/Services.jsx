@@ -1,171 +1,299 @@
-import { Box, Container, Heading, Text, SimpleGrid, VStack, UnorderedList, ListItem, Button, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Container,
+  Divider,
+  Heading,
+  HStack,
+  Icon,
+  SimpleGrid,
+  Stack,
+  Text,
+  VStack,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
-import { motion } from "framer-motion";
+import { CheckCircleIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+import {
+  FaDatabase,
+  FaBrain,
+  FaRobot,
+  FaCogs,
+  FaShieldAlt,
+  FaChartLine,
+  FaNetworkWired,
+  FaUsersCog,
+} from "react-icons/fa";
 
-const MotionBox = motion(Box);
+const serviceGroups = [
+  {
+    title: "Data Foundations",
+    description:
+      "Modern, governed data estates that unlock trusted decisioning and accelerate product development.",
+    icon: FaDatabase,
+    capabilities: [
+      "Data strategy, maturity assessments, and target-state architecture.",
+      "Data lakehouse, warehouse, and mesh implementations with observability baked in.",
+      "Batch, streaming, and event-driven pipelines customised for regulatory needs.",
+      "Metadata, lineage, and quality frameworks enabling compliance confidence.",
+    ],
+  },
+  {
+    title: "Applied AI & ML Engineering",
+    description:
+      "Specialised machine learning teams delivering models that are explainable, auditable, and production-ready.",
+    icon: FaBrain,
+    capabilities: [
+      "Use-case discovery and financial modelling to prioritise impact.",
+      "Model development spanning predictive, NLP, CV, and generative techniques.",
+      "MLOps toolchains with CI/CD, monitoring, drift detection, and model governance.",
+      "Responsible AI reviews covering bias mitigation, ethics, and human-in-the-loop design.",
+    ],
+  },
+  {
+    title: "Automation & Experience Engineering",
+    description:
+      "Human-centric automation that embeds intelligence into customer and employee journeys.",
+    icon: FaRobot,
+    capabilities: [
+      "Conversational AI, knowledge assistants, and workflow automation.",
+      "Computer vision solutions for field operations, manufacturing, and digital twins.",
+      "Augmented analytics and decision-support experiences integrated with core systems.",
+      "Change management, enablement, and adoption strategies to ensure sustained value.",
+    ],
+  },
+];
+
+const accelerators = [
+  {
+    title: "Governed Delivery",
+    description:
+      "Program leadership, PMO integration, and agile rituals designed for regulated industries.",
+    icon: FaUsersCog,
+  },
+  {
+    title: "Security & Compliance",
+    description:
+      "Zero-trust architectures, data protection, and compliance controls aligned with global standards.",
+    icon: FaShieldAlt,
+  },
+  {
+    title: "Performance & Scaling",
+    description:
+      "FinOps, capacity planning, and load strategies that keep solutions reliable and cost-efficient.",
+    icon: FaChartLine,
+  },
+  {
+    title: "Integration Fabric",
+    description:
+      "API ecosystems, event hubs, and connector frameworks that interoperate with your partners and platforms.",
+    icon: FaNetworkWired,
+  },
+];
+
+const engagementSteps = [
+  {
+    phase: "1 · Assess & Align",
+    detail: "Joint discovery sessions translate strategic priorities into a scoped roadmap with measurable outcomes.",
+  },
+  {
+    phase: "2 · Design & Prototype",
+    detail: "Architectural blueprints and rapid prototypes validate feasibility, governance, and business desirability.",
+  },
+  {
+    phase: "3 · Build & Launch",
+    detail: "Cross-functional squads deliver production systems with continuous user testing and telemetry.",
+  },
+  {
+    phase: "4 · Operate & Evolve",
+    detail: "Managed optimisation, enablement, and enhancement cycles keep solutions resilient and relevant.",
+  },
+];
 
 const Services = () => {
-  const services = [
-    {
-      title: "Data Engineering",
-      description: "Build robust, scalable, and efficient data pipelines to power your data-driven decisions.",
-      features: [
-        "Design and implementation of ETL/ELT pipelines",
-        "Data warehouse and data lake architecture",
-        "Real-time data streaming solutions",
-        "Data integration from multiple sources",
-        "Data quality and governance frameworks",
-      ],
-    },
-    {
-      title: "Data Analytics",
-      description: "Transform raw data into actionable insights with advanced analytics solutions.",
-      features: [
-        "Data cleaning and preprocessing",
-        "Exploratory data analysis",
-        "Interactive dashboards and visualizations",
-        "Predictive analytics and reporting",
-      ],
-    },
-    {
-      title: "Machine Learning",
-      description: "Leverage machine learning to solve complex problems and make accurate predictions.",
-      features: [
-        "Custom ML model development",
-        "Model training and optimization",
-        "Automated machine learning (AutoML)",
-        "Model deployment and monitoring",
-      ],
-    },
-    {
-      title: "AI Consulting",
-      description: "Expert guidance on integrating AI into your business processes and strategy.",
-      features: [
-        "AI readiness assessment",
-        "AI strategy development",
-        "Use case identification and prioritization",
-        "AI ethics and governance",
-      ],
-    },
-    {
-      title: "Natural Language Processing",
-      description: "Unlock insights from text data and enhance human-computer interactions.",
-      features: [
-        "Text classification and sentiment analysis",
-        "Named entity recognition",
-        "Chatbot and virtual assistant development",
-        "Language translation and summarization",
-      ],
-    },
-    {
-      title: "Computer Vision",
-      description: "Enable machines to interpret and analyze visual data for automation and decision-making.",
-      features: [
-        "Object detection and recognition",
-        "Image and video analysis",
-        "Facial recognition and biometric systems",
-        "Augmented reality (AR) solutions",
-        "Real-time video processing and analytics",
-      ],
-    },
-    {
-      title: "Generative AI",
-      description: "Harness the power of generative AI to create innovative solutions and automate creative processes.",
-      features: [
-        "Text generation and content creation",
-        "Image and video synthesis",
-        "AI-driven design and art generation",
-        "Personalized recommendation systems",
-        "Fine-tuning and deployment of generative models",
-      ],
-    },
-    
-  ];
-
+  const pageBg = useColorModeValue("gray.50", "gray.900");
   const cardBg = useColorModeValue("white", "gray.800");
-  const cardBorder = useColorModeValue("gray.200", "gray.700");
-  const headingColor = useColorModeValue("brand.600", "brand.200");
+  const borderColor = useColorModeValue("gray.200", "gray.700");
+  const accent = useColorModeValue("brand.600", "brand.200");
   const textColor = useColorModeValue("gray.600", "gray.300");
 
   return (
-    <Container maxW="container.xl" py={{ base: 8, md: 16 }}>
-      <VStack spacing={{ base: 8, md: 16 }} align="stretch">
-        {/* Page Heading */}
-        <Heading
-          as="h1"
-          size={{ base: "xl", md: "2xl" }}
-          textAlign="center"
-          fontWeight="bold"
-          color={headingColor}
-        >
-          Our Services
-        </Heading>
-
-        {/* Services Grid */}
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={{ base: 6, md: 10 }}>
-          {services.map((service, index) => (
-            <MotionBox
-              key={index}
-              borderWidth={1}
-              borderRadius="lg"
-              p={{ base: 6, md: 8 }}
-              shadow="md"
-              bg={cardBg}
-              borderColor={cardBorder}
-              whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
-            >
-              <VStack align="start" spacing={{ base: 3, md: 4 }}>
-                <Heading as="h2" size={{ base: "lg", md: "xl" }} color={headingColor}>
-                  {service.title}
+    <Box bg={pageBg} minH="100vh">
+      {/* Hero */}
+      <Box bgGradient="linear(to-r, brand.900, brand.700)" color="white" py={{ base: 16, md: 24 }}>
+        <Container maxW="container.xl">
+          <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 8, md: 14 }} align="center">
+            <VStack align="start" spacing={6} flex={2}>
+              <Text textTransform="uppercase" letterSpacing="widest" fontWeight="semibold" color="accent.200">
+                Services
+              </Text>
+              <Heading as="h1" size={{ base: "2xl", md: "3xl" }} fontWeight="extrabold">
+                Strategy through delivery for trusted data & AI products
+              </Heading>
+              <Text fontSize={{ base: "md", md: "xl" }} maxW="3xl" lineHeight="tall" color="accent.100">
+                Misron embeds with your leadership, product, and engineering teams to modernise data estates, build responsible AI, and orchestrate automation that delivers measurable business outcomes.
+              </Text>
+              <HStack spacing={4} flexWrap="wrap">
+                <Button as={RouterLink} to="/contact" colorScheme="accent" size="lg" fontWeight="semibold" rightIcon={<ArrowForwardIcon />}>
+                  Schedule a Consultation
+                </Button>
+                <Button as={RouterLink} to="/coinnovationservices" variant="outline" colorScheme="whiteAlpha" size="lg">
+                  Explore Co-Innovation
+                </Button>
+              </HStack>
+            </VStack>
+            <Box flex={1} bg="whiteAlpha.100" borderRadius="2xl" p={{ base: 6, md: 8 }} backdropFilter="blur(10px)">
+              <VStack align="start" spacing={4}>
+                <Heading size="md" color="accent.200">
+                  Engagement Highlights
                 </Heading>
-                <Text fontSize={{ base: "md", md: "lg" }} color={textColor}>
-                  {service.description}
-                </Text>
-                <Heading as="h3" size={{ base: "md", md: "lg" }} color="brand.500">
-                  Key Features:
-                </Heading>
-                <UnorderedList spacing={2} color={textColor}>
-                  {service.features.map((feature, featureIndex) => (
-                    <ListItem key={featureIndex} fontSize={{ base: "sm", md: "md" }}>
-                      {feature}
-                    </ListItem>
+                <VStack align="start" spacing={3}>
+                  {[
+                    "Cross-functional squads with data, ML, product, and change specialists.",
+                    "Modular frameworks built for regulated industries and fast-growth ventures.",
+                    "Transparent delivery governance with business and technology stakeholders.",
+                  ].map((item) => (
+                    <HStack key={item} align="start" spacing={3}>
+                      <Icon as={CheckCircleIcon} color="accent.200" mt={1} />
+                      <Text color="accent.100" lineHeight="tall">
+                        {item}
+                      </Text>
+                    </HStack>
                   ))}
-                </UnorderedList>
+                </VStack>
               </VStack>
-            </MotionBox>
-          ))}
-        </SimpleGrid>
+            </Box>
+          </Stack>
+        </Container>
+      </Box>
 
-        {/* Call to Action Section */}
-        <Box textAlign="center" mt={{ base: 8, md: 16 }}>
-          <Heading
-            as="h2"
-            size={{ base: "lg", md: "xl" }}
-            mb={{ base: 4, md: 6 }}
-            fontWeight="bold"
-            color={headingColor}
-          >
-            Ready to Get Started?
+      <Container maxW="container.xl" py={{ base: 16, md: 20 }}>
+        {/* Services */}
+        <VStack align="start" spacing={{ base: 6, md: 8 }} mb={{ base: 16, md: 20 }}>
+          <Heading size={{ base: "lg", md: "xl" }} color={accent}>
+            Core Service Domains
           </Heading>
-          <Text fontSize={{ base: "md", md: "lg" }} mb={{ base: 4, md: 6 }} color={textColor}>
-            Contact us today to learn how our services can drive your business forward.
-          </Text>
-          <Button
-            as={RouterLink}
-            to="/contact"
-            colorScheme="brand"
-            size={{ base: "md", md: "lg" }}
-            px={{ base: 6, md: 8 }}
-            py={{ base: 4, md: 6 }}
-            fontSize={{ base: "md", md: "lg" }}
-            fontWeight="bold"
-          >
-            Contact Us
-          </Button>
-        </Box>
-      </VStack>
-    </Container>
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }} width="100%">
+            {serviceGroups.map((group) => (
+              <VStack
+                key={group.title}
+                align="start"
+                spacing={4}
+                bg={cardBg}
+                borderRadius="xl"
+                borderWidth={1}
+                borderColor={borderColor}
+                p={{ base: 6, md: 8 }}
+                boxShadow="md"
+              >
+                <HStack spacing={3}>
+                  <Icon as={group.icon} boxSize={7} color={accent} />
+                  <Heading size="md" color={accent}>
+                    {group.title}
+                  </Heading>
+                </HStack>
+                <Text color={textColor} lineHeight="tall">
+                  {group.description}
+                </Text>
+                <VStack align="start" spacing={3} color={textColor}>
+                  {group.capabilities.map((item) => (
+                    <HStack key={item} align="start" spacing={3}>
+                      <Icon as={CheckCircleIcon} boxSize={4} color={accent} mt={1} />
+                      <Text lineHeight="tall">{item}</Text>
+                    </HStack>
+                  ))}
+                </VStack>
+              </VStack>
+            ))}
+          </SimpleGrid>
+        </VStack>
+
+        {/* Accelerators */}
+        <VStack align="start" spacing={{ base: 6, md: 8 }} mb={{ base: 16, md: 20 }}>
+          <Heading size={{ base: "lg", md: "xl" }} color={accent}>
+            Accelerators That Sustain Momentum
+          </Heading>
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={{ base: 6, md: 8 }} width="100%">
+            {accelerators.map((item) => (
+              <Box
+                key={item.title}
+                bg={cardBg}
+                borderRadius="xl"
+                borderWidth={1}
+                borderColor={borderColor}
+                p={{ base: 6, md: 7 }}
+                boxShadow="sm"
+              >
+                <HStack spacing={3} mb={3}>
+                  <Icon as={item.icon} boxSize={6} color={accent} />
+                  <Heading size="sm" color={accent}>
+                    {item.title}
+                  </Heading>
+                </HStack>
+                <Text color={textColor} lineHeight="tall">
+                  {item.description}
+                </Text>
+              </Box>
+            ))}
+          </SimpleGrid>
+        </VStack>
+
+        {/* Engagement Steps */}
+        <VStack align="start" spacing={{ base: 6, md: 8 }}>
+          <Heading size={{ base: "lg", md: "xl" }} color={accent}>
+            Partnership Rhythm
+          </Heading>
+          <SimpleGrid columns={{ base: 1, md: 4 }} spacing={{ base: 6, md: 6 }} width="100%">
+            {engagementSteps.map((step) => (
+              <VStack
+                key={step.phase}
+                align="start"
+                spacing={3}
+                bg={cardBg}
+                borderRadius="xl"
+                borderWidth={1}
+                borderColor={borderColor}
+                p={{ base: 5, md: 6 }}
+                boxShadow="sm"
+              >
+                <Text fontWeight="bold" color={accent}>
+                  {step.phase}
+                </Text>
+                <Text color={textColor} lineHeight="tall">
+                  {step.detail}
+                </Text>
+              </VStack>
+            ))}
+          </SimpleGrid>
+        </VStack>
+      </Container>
+
+      {/* CTA */}
+      <Box bg={useColorModeValue("brand.900", "brand.800")} color="white" py={{ base: 12, md: 16 }}>
+        <Container maxW="container.xl">
+          <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 6, md: 10 }} align="center">
+            <VStack align="start" spacing={3} flex={1}>
+              <Heading size={{ base: "lg", md: "xl" }}>
+                Let’s architect a roadmap that delivers clarity and confidence.
+              </Heading>
+              <Text color="accent.100" lineHeight="tall">
+                Share your goals, timelines, and constraints—we’ll configure a boutique squad ready to move with you from discovery to scale.
+              </Text>
+            </VStack>
+            <HStack spacing={4}>
+              <Button as={RouterLink} to="/contact" colorScheme="accent" size="lg" fontWeight="semibold">
+                Talk to Misron
+              </Button>
+              <Button as={RouterLink} to="/projects" variant="outline" colorScheme="whiteAlpha" size="lg">
+                View Case Studies
+              </Button>
+            </HStack>
+          </Stack>
+        </Container>
+      </Box>
+    </Box>
   );
 };
 
 export default Services;
+

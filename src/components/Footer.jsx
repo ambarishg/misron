@@ -1,48 +1,107 @@
-import { Box, Flex, Text, VStack } from "@chakra-ui/react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+﻿import {
+  Box,
+  Container,
+  Divider,
+  Flex,
+  Heading,
+  HStack,
+  Icon,
+  Link,
+  SimpleGrid,
+  Text,
+  VStack,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
+import { FaLinkedin, FaEnvelope } from "react-icons/fa";
+
+const capabilityLinks = [
+  { label: "Data Platforms", to: "/services" },
+  { label: "Applied AI", to: "/searchassistant" },
+  { label: "Co-Innovation", to: "/coinnovationservices" },
+  { label: "Ask Hank", to: "/ask-hank" },
+  { label: "AI Bee Health", to: "/ai-bee-health" },
+];
+
+const companyLinks = [
+  { label: "About Misron", to: "/about" },
+  { label: "Customer Stories", to: "/projects" },
+  { label: "Partners", to: "/partners" },
+  { label: "Contact", to: "/contact" },
+];
 
 const Footer = () => {
+  const bg = useColorModeValue("brand.900", "gray.900");
+  const borderColor = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");
+  const muted = useColorModeValue("whiteAlpha.700", "whiteAlpha.700");
+
   return (
-    <Box bg="brand.900" color="white" py={8}>
-      <Flex maxW="container.xl" mx="auto" px={4} direction={{ base: "column", md: "row" }} justify="space-between">
-        <VStack align="start" mb={{ base: 6, md: 0 }}>
-          <Text fontSize="xl" fontWeight="bold" mb={2}>
-            Misron
-          </Text>
-          <Text fontSize="sm">Empowering businesses with cutting-edge Data and AI products.</Text>
-        </VStack>
-        <VStack align="start" mb={{ base: 6, md: 0 }}>
-          <Text fontSize="lg" fontWeight="semibold" mb={2}>
-            Quick Links
-          </Text>
-          <Link to="/" style={{ textDecoration: 'none', color: 'inherit', _hover: { color: 'brand.200' } }}>
-            Home
-          </Link>
-          <Link to="/about" style={{ textDecoration: 'none', color: 'inherit', _hover: { color: 'brand.200' } }}>
-            About
-          </Link>
-          <Link to="/searchassistant" style={{ textDecoration: 'none', color: 'inherit', _hover: { color: 'brand.200' } }}>
-            Products
-          </Link>
-          <Link to="/ask-hank" style={{ textDecoration: 'none', color: 'inherit', _hover: { color: 'brand.200' } }}>
-            Ask Hank
-          </Link>
-          <Link to="/contact" style={{ textDecoration: 'none', color: 'inherit', _hover: { color: 'brand.200' } }}>
-            Contact
-          </Link>
-        </VStack>
-        <VStack align="start">
-          <Text fontSize="lg" fontWeight="semibold" mb={2}>
-            Contact Us
-          </Text>
-          <Text>SaltLake Kolkata India</Text>
-          <Text>Phone: (91) 62893290271</Text>
-          <Text>Email: misron@misronconsulting.com</Text>
-        </VStack>
-      </Flex>
-      <Text mt={8} textAlign="center" fontSize="sm">
-        &copy; {new Date().getFullYear()} Misron Consulting. All rights reserved.
-      </Text>
+    <Box bg={bg} color="white" mt={12}>
+      <Container maxW="container.xl" py={{ base: 10, md: 16 }}>
+        <SimpleGrid columns={{ base: 1, md: 4 }} spacing={{ base: 8, md: 12 }}>
+          <VStack align="start" spacing={4}>
+            <Heading size="md">Misron</Heading>
+            <Text color={muted} lineHeight="tall">
+              Boutique engineering firm advancing data and AI products for regulated industries, ventures, and growth teams.
+            </Text>
+            <HStack spacing={4}>
+              <Link href="mailto:misron@misronconsulting.com" color="whiteAlpha.900" _hover={{ color: "accent.200" }}>
+                <Icon as={FaEnvelope} boxSize={5} />
+              </Link>
+              <Link href="https://www.linkedin.com" isExternal color="whiteAlpha.900" _hover={{ color: "accent.200" }}>
+                <Icon as={FaLinkedin} boxSize={5} />
+              </Link>
+            </HStack>
+          </VStack>
+
+          <VStack align="start" spacing={3}>
+            <Heading size="sm" textTransform="uppercase" letterSpacing="widest">
+              Capabilities
+            </Heading>
+            {capabilityLinks.map((item) => (
+              <Link key={item.label} as={RouterLink} to={item.to} color={muted} _hover={{ color: "accent.200" }}>
+                {item.label}
+              </Link>
+            ))}
+          </VStack>
+
+          <VStack align="start" spacing={3}>
+            <Heading size="sm" textTransform="uppercase" letterSpacing="widest">
+              Company
+            </Heading>
+            {companyLinks.map((item) => (
+              <Link key={item.label} as={RouterLink} to={item.to} color={muted} _hover={{ color: "accent.200" }}>
+                {item.label}
+              </Link>
+            ))}
+          </VStack>
+
+          <VStack align="start" spacing={3}>
+            <Heading size="sm" textTransform="uppercase" letterSpacing="widest">
+              Contact
+            </Heading>
+            <Text color={muted}>Salt Lake, Kolkata, India</Text>
+            <Text color={muted}>Phone: +91 62893 290271</Text>
+            <Link href="mailto:misron@misronconsulting.com" color="whiteAlpha.900" _hover={{ color: "accent.200" }}>
+              misron@misronconsulting.com
+            </Link>
+          </VStack>
+        </SimpleGrid>
+
+        <Divider my={10} borderColor={borderColor} />
+
+        <Flex direction={{ base: "column", md: "row" }} justify="space-between" align={{ base: "start", md: "center" }} gap={4}>
+          <Text color={muted}>{`\u00A9 ${new Date().getFullYear()} Misron Consulting. All rights reserved.`}</Text>
+          <HStack spacing={6} color={muted}>
+            <Link href="#" _hover={{ color: "accent.200" }}>
+              Privacy Policy
+            </Link>
+            <Link href="#" _hover={{ color: "accent.200" }}>
+              Terms of Use
+            </Link>
+          </HStack>
+        </Flex>
+      </Container>
     </Box>
   );
 };

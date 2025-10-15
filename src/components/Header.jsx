@@ -1,140 +1,114 @@
 import {
   Box,
   Flex,
+  HStack,
   Link,
-  useDisclosure,
-  VStack,
   IconButton,
-  Image, // Import the Image component
+  Image,
+  VStack,
+  useDisclosure,
+  Button,
+  Divider,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 
+const navLinks = [
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Services", to: "/services" },
+  { label: "Co-Innovation", to: "/coinnovationservices" },
+  { label: "Ask Hank", to: "/ask-hank" },
+  { label: "AI Bee Health", to: "/ai-bee-health" },
+  { label: "Misron Assistant", to: "/searchassistant" },
+];
 
 const Header = () => {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onToggle, onClose } = useDisclosure();
+  const location = useLocation();
+  const bg = useColorModeValue("rgba(16, 42, 67, 0.98)", "rgba(13, 32, 52, 0.98)");
+  const borderColor = useColorModeValue("whiteAlpha.200", "whiteAlpha.300");
+  const linkHover = useColorModeValue("brand.200", "brand.100");
+
+  const renderLink = (link) => {
+    const isActive = location.pathname === link.to;
+    return (
+      <Link
+        key={link.to}
+        as={RouterLink}
+        to={link.to}
+        fontSize="sm"
+        letterSpacing="wide"
+        textTransform="uppercase"
+        fontWeight={isActive ? "semibold" : "medium"}
+        color={isActive ? "accent.200" : "whiteAlpha.800"}
+        _hover={{ color: linkHover }}
+        onClick={onClose}
+      >
+        {link.label}
+      </Link>
+    );
+  };
 
   return (
-    <Box bg="brand.900" color="white">
+    <Box as="header" bg={bg} color="white" backdropFilter="blur(10px)" borderBottom="1px solid" borderColor={borderColor}>
       <Flex
         maxW="container.xl"
         mx="auto"
-        px={4}
-        py={6}
+        px={{ base: 4, md: 6 }}
+        py={{ base: 4, md: 5 }}
         align="center"
         justify="space-between"
       >
-        <Flex align="center">
-          <Link as={RouterLink} to="/">
-            <Image
-              src="./MISRONLOGO.png" // Use the imported logo
-              alt="Misron Logo"
-              height="50px" // Adjust the height as needed
-              mr={2} // Add some right margin for spacing
-            />
+        <HStack spacing={4} align="center">
+          <Link as={RouterLink} to="/" display="flex" alignItems="center">
+            <Image src="./MISRONLOGO.png" alt="Misron Logo" height="48px" objectFit="contain" />
           </Link>
           <Link
             as={RouterLink}
             to="/"
-            fontSize="2xl"
+            fontSize={{ base: "lg", md: "xl" }}
             fontWeight="bold"
-            _hover={{ color: "brand.200" }}
+            letterSpacing="wide"
+            _hover={{ color: linkHover }}
           >
             Misron
           </Link>
-        </Flex>
+        </HStack>
 
-        <Flex display={{ base: "none", md: "flex" }} alignItems="center">
-          <Link
+        <HStack spacing={8} display={{ base: "none", lg: "flex" }} align="center">
+          {navLinks.map(renderLink)}
+          <Button
             as={RouterLink}
-            to="/"
-            mr={6}
-            _hover={{ color: "brand.200" }}
+            to="/contact"
+            colorScheme="accent"
+            size="sm"
+            fontWeight="semibold"
           >
-            Home
-          </Link>
-          <Link
-            as={RouterLink}
-            to="/about"
-            mr={6}
-            _hover={{ color: "brand.200" }}
-          >
-            About
-          </Link>
-          <Link
-            as={RouterLink}
-            to="/coinnovationservices"
-            mr={6}
-            _hover={{ color: "brand.200" }}
-          >
-            Innovation
-          </Link>
-         
-          <Link
-            as={RouterLink}
-            to="/ask-hank"
-            mr={6}
-            _hover={{ color: "brand.200" }}
-          >
-            Ask Hank
-          </Link>
- 
-          <Link
-            as={RouterLink}
-            to="/ai-bee-health"
-            mr={6}
-            onClick={onToggle}
-            _hover={{ color: "brand.200" }}
-          >
-            AI Bee Health
-          </Link>
-           <Link
-            as={RouterLink}
-            to="/searchassistant"
-            mr={6}
-            _hover={{ color: "brand.200" }}
-          >
-            Misron Assistant
-          </Link>
-          <Link as={RouterLink} to="/contact" _hover={{ color: "brand.200" }}>
             Contact
-          </Link>
-        </Flex>
+          </Button>
+        </HStack>
+
         <IconButton
-          display={{ base: "block", md: "none" }}
+          aria-label="Toggle navigation"
+          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+          display={{ base: "flex", lg: "none" }}
           onClick={onToggle}
-          icon={isOpen ? <CloseIcon color="white" /> : <HamburgerIcon color="white" />}
           variant="ghost"
-          aria-label="Toggle menu"
-          _hover={{ bg: "brand.800" }}
+          color="white"
+          _hover={{ bg: "whiteAlpha.200" }}
         />
       </Flex>
-      {isOpen && (
-        <Box pb={4} display={{ md: "none" }}>
-          <VStack spacing={4} align="stretch" px={4}>
-            {/* Added px={4} here */}
-            <Link as={RouterLink} to="/" onClick={onToggle}>
-              Home
-            </Link>
-            <Link as={RouterLink} to="/about" onClick={onToggle}>
-              About
-            </Link>
-            <Link as={RouterLink} to="/coinnovationservices" onClick={onToggle}>
-              Innovation
-            </Link>
-            <Link as={RouterLink} to="/searchassistant" onClick={onToggle}>
-              Products
-            </Link>
-            <Link as={RouterLink} to="/ask-hank" onClick={onToggle}>
-              Ask Hank
-            </Link>
 
-            <Link as={RouterLink} to="/projects" onClick={onToggle}>
-              Customer Stories
-            </Link>
-            <Link as={RouterLink} to="/contact" onClick={onToggle}>
+      {isOpen && (
+        <Box display={{ lg: "none" }} borderTop="1px solid" borderColor={borderColor}>
+          <VStack align="stretch" px={6} py={4} spacing={4}>
+            {navLinks.map(renderLink)}
+            <Divider borderColor={borderColor} />
+            <Button as={RouterLink} to="/contact" colorScheme="accent" size="sm" onClick={onClose}>
               Contact
-            </Link>
+            </Button>
           </VStack>
         </Box>
       )}
