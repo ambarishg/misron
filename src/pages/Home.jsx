@@ -52,7 +52,7 @@ const differentiators = [
   {
     title: "Provable Outcomes",
     detail:
-      "Engagements anchored in measurable KPIs—adoption, efficiency, user sentiment, and revenue impact.",
+      "Engagements anchored in measurable KPIs - adoption, efficiency, user sentiment, and revenue impact.",
   },
 ];
 
@@ -76,27 +76,26 @@ const capabilities = [
 
 const engagementMilestones = [
   {
-    phase: "01 · Discover",
+    phase: "01 - Discover",
     detail: "Co-create the product thesis, user stories, and success metrics with executive stakeholders.",
   },
   {
-    phase: "02 · Design & Validate",
+    phase: "02 - Design & Validate",
     detail: "Prototype high-value journeys, validate data feasibility, and stress-test governance needs.",
   },
   {
-    phase: "03 · Build & Launch",
+    phase: "03 - Build & Launch",
     detail: "Deliver secure, scalable solutions with progressive rollouts, observability, and enablement.",
   },
   {
-    phase: "04 · Evolve",
+    phase: "04 - Evolve",
     detail: "Operate a continuous improvement loop with telemetry-led enhancements and new revenue plays.",
   },
 ];
 
 const credibilitySignals = [
   "Trusted by innovation leaders across North America and India.",
-  "Engineers with experience spanning Fortune 500 enterprises and venture-backed scaleups.",
-  "Partner-first mindset with transparent collaboration and measurable impact.",
+   "Partner-first mindset with transparent collaboration and measurable impact.",
 ];
 
 const Home = () => {
@@ -131,7 +130,7 @@ const Home = () => {
                 Building trustworthy data & AI products
               </Heading>
               <Text fontSize={{ base: "md", md: "xl" }} maxW="3xl" lineHeight="tall" color="accent.100">
-                Misron partners with leadership teams to orchestrate secure, measurable digital programmes—from
+                Misron partners with leadership teams to orchestrate secure, measurable digital programmes - from
                 strategic design through to production operations.
               </Text>
               <HStack spacing={4} flexWrap="wrap">
@@ -163,7 +162,7 @@ const Home = () => {
               p={{ base: 6, md: 8 }}
               backdropFilter="blur(8px)"
             >
-              <VStack align="start" spacing={5}>
+              <VStack align="start" spacing={6}>
                 <Heading size="md" color="accent.100">
                   Why teams choose Misron
                 </Heading>
@@ -338,7 +337,7 @@ const Home = () => {
                 Ready to bring your next product to market with confidence?
               </Heading>
               <Text color="accent.100" lineHeight="tall">
-                Let’s align on outcomes, architecture, and go-to-market. We will assemble the right specialists
+                Let's align on outcomes, architecture, and go-to-market. We will assemble the right specialists
                 and get to work.
               </Text>
             </VStack>
@@ -370,4 +369,11 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
+
+
+
+
 
