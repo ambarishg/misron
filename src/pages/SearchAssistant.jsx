@@ -13,6 +13,7 @@ import {
   Divider,
   Button,
   Link,
+  Image,
 } from "@chakra-ui/react";
 import {
   CheckCircleIcon,
@@ -139,6 +140,9 @@ const integrationHighlights = [
   "Audit logs capture every session to support governance and compliance.",
 ];
 
+const heroImage =
+  "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1680&q=80";
+
 const HighlightCard = ({ icon, title, description }) => (
   <VStack
     align="start"
@@ -202,8 +206,12 @@ const SearchAssistant = () => {
         py={{ base: 16, md: 24 }}
       >
         <Container maxW="container.xl">
-          <Stack direction={{ base: "column", lg: "row" }} spacing={{ base: 10, lg: 16 }}>
-            <VStack align="start" spacing={6} maxW="3xl">
+          <Stack
+            direction={{ base: "column", xl: "row" }}
+            spacing={{ base: 10, xl: 16 }}
+            align={{ base: "flex-start", xl: "stretch" }}
+          >
+            <VStack align="start" spacing={6} flex={1} maxW={{ base: "full", xl: "3xl" }}>
               <Heading as="h1" size={{ base: "2xl", md: "3xl" }} fontWeight="extrabold">
                 Misron Assistant
               </Heading>
@@ -234,27 +242,65 @@ const SearchAssistant = () => {
                 </Button>
               </HStack>
             </VStack>
-            <VStack
-              align="start"
-              spacing={5}
-              borderLeft={{ base: "none", lg: "1px solid rgba(255,255,255,0.3)" }}
-              pl={{ base: 0, lg: 8 }}
-            >
-              <Heading size="md" textTransform="uppercase" letterSpacing="wider">
-                Built for Boutique Precision
-              </Heading>
-              <List spacing={3}>
-                {["Document-grounded insights", "Traceable recommendations", "Human-in-the-loop control"].map(
-                  (item) => (
+            <VStack flex={1} spacing={{ base: 6, md: 8 }} align="stretch">
+              <Box position="relative" borderRadius="2xl" overflow="hidden" boxShadow="2xl">
+                <Image
+                  src={heroImage}
+                  alt="Knowledge leaders collaborating with secure AI workspace"
+                  objectFit="cover"
+                  width="100%"
+                  height="100%"
+                  maxH={{ base: "220px", md: "300px", xl: "360px" }}
+                />
+                <Box position="absolute" inset={0} bgGradient="linear(to-tr, blackAlpha.700, transparent)" />
+                <VStack
+                  position="absolute"
+                  bottom={{ base: 4, md: 6 }}
+                  left={{ base: 4, md: 6 }}
+                  align="start"
+                  spacing={2}
+                  color="white"
+                >
+                  <Text fontSize="sm" letterSpacing="widest" textTransform="uppercase">
+                    Secure Intelligence Rooms
+                  </Text>
+                  <Heading size="md" maxW="sm" lineHeight="short">
+                    Analysts validating every brief with source-backed evidence
+                  </Heading>
+                </VStack>
+              </Box>
+              <Box
+                borderRadius="xl"
+                borderWidth={1}
+                borderColor="whiteAlpha.400"
+                bg="whiteAlpha.200"
+                backdropFilter="blur(8px)"
+                p={{ base: 5, md: 6 }}
+              >
+                <Heading
+                  size="sm"
+                  textTransform="uppercase"
+                  letterSpacing="wider"
+                  color="whiteAlpha.900"
+                  mb={3}
+                >
+                  Built for Boutique Precision
+                </Heading>
+                <List spacing={3}>
+                  {[
+                    "Document-grounded insights",
+                    "Traceable recommendations",
+                    "Human-in-the-loop control",
+                  ].map((item) => (
                     <ListItem key={item}>
-                      <HStack spacing={3}>
-                        <Icon as={CheckCircleIcon} color="accent.300" />
-                        <Text>{item}</Text>
+                      <HStack spacing={3} align="start">
+                        <Icon as={CheckCircleIcon} color="accent.300" mt={1} />
+                        <Text color="whiteAlpha.900">{item}</Text>
                       </HStack>
                     </ListItem>
-                  )
-                )}
-              </List>
+                  ))}
+                </List>
+              </Box>
             </VStack>
           </Stack>
         </Container>
@@ -411,4 +457,3 @@ const SearchAssistant = () => {
 };
 
 export default SearchAssistant;
-

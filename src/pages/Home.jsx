@@ -99,6 +99,8 @@ const credibilitySignals = [
 ];
 
 const Home = () => {
+  const heroImage =
+    "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80";
   const heroBg = useColorModeValue("linear(to-r, brand.900, brand.700)", "linear(to-r, brand.800, brand.600)");
   const heroOverlay = useColorModeValue("rgba(16, 42, 67, 0.85)", "rgba(15, 36, 58, 0.75)");
   const cardBg = useColorModeValue("white", "gray.800");
@@ -155,27 +157,65 @@ const Home = () => {
                 </Button>
               </HStack>
             </VStack>
-            <Box
-              flex={1}
-              bg="whiteAlpha.100"
-              borderRadius="2xl"
-              p={{ base: 6, md: 8 }}
-              backdropFilter="blur(8px)"
-            >
-              <VStack align="start" spacing={6}>
-                <Heading size="md" color="accent.100">
-                  Why teams choose Misron
-                </Heading>
-                <VStack align="start" spacing={3}>
-                  {credibilitySignals.map((item) => (
-                    <HStack key={item} spacing={3} align="start">
-                      <Icon as={CheckCircleIcon} color="accent.200" mt={1} />
-                      <Text color="accent.100" lineHeight="tall">
-                        {item}
-                      </Text>
-                    </HStack>
-                  ))}
-                </VStack>
+            <Box flex={1}>
+              <VStack align="stretch" spacing={{ base: 6, md: 8 }}>
+                <Box
+                  position="relative"
+                  borderRadius="2xl"
+                  overflow="hidden"
+                  boxShadow="2xl"
+                >
+                  <Image
+                    src={heroImage}
+                    alt="Engineering leaders collaborating in a modern workspace"
+                    objectFit="cover"
+                    width="100%"
+                    height="100%"
+                    maxH={{ base: "240px", md: "320px", lg: "360px" }}
+                  />
+                  <Box
+                    position="absolute"
+                    inset={0}
+                    bgGradient="linear(to-br, blackAlpha.700, blackAlpha.300)"
+                  />
+                  <VStack
+                    position="absolute"
+                    bottom={{ base: 4, md: 6 }}
+                    left={{ base: 4, md: 6 }}
+                    align="start"
+                    spacing={2}
+                    color="white"
+                  >
+                    <Text fontSize="sm" letterSpacing="wider" textTransform="uppercase">
+                      Proven Engineering Leaders
+                    </Text>
+                    <Heading size="md" maxW="xs" lineHeight="short">
+                      Modern delivery rooms where strategy and execution align
+                    </Heading>
+                  </VStack>
+                </Box>
+                <Box
+                  bg="whiteAlpha.100"
+                  borderRadius="2xl"
+                  p={{ base: 6, md: 8 }}
+                  backdropFilter="blur(8px)"
+                >
+                  <VStack align="start" spacing={6}>
+                    <Heading size="md" color="accent.100">
+                      Why teams choose Misron
+                    </Heading>
+                    <VStack align="start" spacing={3}>
+                      {credibilitySignals.map((item) => (
+                        <HStack key={item} spacing={3} align="start">
+                          <Icon as={CheckCircleIcon} color="accent.200" mt={1} />
+                          <Text color="accent.100" lineHeight="tall">
+                            {item}
+                          </Text>
+                        </HStack>
+                      ))}
+                    </VStack>
+                  </VStack>
+                </Box>
               </VStack>
             </Box>
           </Stack>
@@ -369,8 +409,6 @@ const Home = () => {
 };
 
 export default Home;
-
-
 
 
 

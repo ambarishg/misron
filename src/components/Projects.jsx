@@ -55,6 +55,8 @@ const resultMetrics = [
 ];
 
 const Projects = () => {
+  const heroImage =
+    "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1680&q=80";
   const cardBg = useColorModeValue("white", "gray.800");
   const cardBorder = useColorModeValue("gray.200", "gray.700");
   const accentText = useColorModeValue("brand.600", "brand.200");
@@ -108,14 +110,48 @@ const Projects = () => {
               </Button>
             </HStack>
           </VStack>
-          <Box flex={1} display="flex" justifyContent="center">
-            <Image
-              src="./aibeehealth.png"
-              alt="AI Bee Health Dashboard"
-              maxW={{ base: "260px", md: "340px" }}
-              borderRadius="lg"
-              boxShadow="lg"
-            />
+          <Box flex={1}>
+            <VStack align="stretch" spacing={{ base: 6, md: 8 }}>
+              <Box position="relative" borderRadius="2xl" overflow="hidden" boxShadow="2xl">
+                <Image
+                  src={heroImage}
+                  alt="Beekeepers inspecting hive frames for colony health"
+                  width="100%"
+                  height="100%"
+                  objectFit="cover"
+                  maxH={{ base: "220px", md: "300px", lg: "340px" }}
+                />
+                <Box
+                  position="absolute"
+                  inset={0}
+                  bgGradient="linear(to-br, blackAlpha.700, transparent)"
+                />
+                <VStack
+                  position="absolute"
+                  bottom={{ base: 4, md: 6 }}
+                  left={{ base: 4, md: 6 }}
+                  align="start"
+                  spacing={1}
+                  color="white"
+                >
+                  <Text fontSize="xs" letterSpacing="widest" textTransform="uppercase">
+                    Bee Health Intelligence
+                  </Text>
+                  <Heading size="md" maxW="sm" lineHeight="short" fontWeight="semibold">
+                    Field teams diagnosing colony vitality to guide proactive interventions
+                  </Heading>
+                </VStack>
+              </Box>
+              <Box display="flex" justifyContent="center">
+                <Image
+                  src="./aibeehealth.png"
+                  alt="AI Bee Health Dashboard"
+                  maxW={{ base: "260px", md: "340px" }}
+                  borderRadius="lg"
+                  boxShadow="xl"
+                />
+              </Box>
+            </VStack>
           </Box>
         </Stack>
 
@@ -239,4 +275,3 @@ const Projects = () => {
 };
 
 export default Projects;
-

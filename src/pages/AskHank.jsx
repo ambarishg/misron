@@ -9,6 +9,8 @@ import {
   Icon,
   Button,
   Link,
+  Image,
+  Stack,
 } from "@chakra-ui/react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 import { Link as RouterLink } from "react-router-dom";
@@ -26,6 +28,9 @@ const AskHank = () => {
     "Clarifying debt, investment, and retirement decisions with expert insight",
   ];
 
+  const heroImage =
+    "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1600&q=80";
+
   return (
     <Box bg="gray.50" minH="100vh">
       <Box
@@ -34,35 +39,84 @@ const AskHank = () => {
         py={{ base: 12, md: 20 }}
       >
         <Container maxW="container.xl">
-          <VStack spacing={{ base: 6, md: 8 }} align="start">
-            <Heading as="h1" size={{ base: "xl", md: "2xl" }} fontWeight="bold">
-              AskHank.ca
-            </Heading>
-            <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl" lineHeight="tall">
-              Ask Hank: Your Money Coach by Henry Svec. When you face a money or money relationship problem, who can you trust? AskHank.ca offers a private Q&amp;A experience that puts discretion, expertise, and empathy first.
-            </Text>
-            <HStack spacing={{ base: 3, md: 4 }} wrap="wrap">
-              <Button
-                as={Link}
-                href="https://askhank.ca"
-                isExternal
-                colorScheme="accent"
-                size={{ base: "md", md: "lg" }}
-                fontWeight="semibold"
-              >
-                Visit askHank.ca
-              </Button>
-              <Button
-                as={RouterLink}
-                to="/contact"
-                variant="outline"
-                colorScheme="whiteAlpha"
-                size={{ base: "md", md: "lg" }}
-              >
-                Talk With Misron
-              </Button>
-            </HStack>
-          </VStack>
+          <Stack
+            direction={{ base: "column", lg: "row" }}
+            spacing={{ base: 10, lg: 16 }}
+            align={{ base: "flex-start", lg: "center" }}
+          >
+            <VStack spacing={{ base: 6, md: 8 }} align="start" flex={1}>
+              <Heading as="h1" size={{ base: "xl", md: "2xl" }} fontWeight="bold">
+                AskHank.ca
+              </Heading>
+              <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl" lineHeight="tall">
+                Ask Hank: Your Money Coach by Henry Svec. When you face a money or money relationship problem, who can you trust? AskHank.ca offers a private Q&amp;A experience that puts discretion, expertise, and empathy first.
+              </Text>
+              <HStack spacing={{ base: 3, md: 4 }} wrap="wrap">
+                <Button
+                  as={Link}
+                  href="https://askhank.ca"
+                  isExternal
+                  colorScheme="accent"
+                  size={{ base: "md", md: "lg" }}
+                  fontWeight="semibold"
+                >
+                  Visit askHank.ca
+                </Button>
+                <Button
+                  as={RouterLink}
+                  to="/contact"
+                  variant="outline"
+                  colorScheme="whiteAlpha"
+                  size={{ base: "md", md: "lg" }}
+                >
+                  Talk With Misron
+                </Button>
+              </HStack>
+            </VStack>
+            <Box flex={1} w="100%">
+              <VStack align="stretch" spacing={{ base: 6, md: 8 }}>
+                <Box position="relative" borderRadius="2xl" overflow="hidden" boxShadow="2xl">
+                  <Image
+                    src={heroImage}
+                    alt="Financial coach discussing plans with clients"
+                    objectFit="cover"
+                    width="100%"
+                    height="100%"
+                    maxH={{ base: "220px", md: "300px", lg: "360px" }}
+                  />
+                  <Box position="absolute" inset={0} bgGradient="linear(to-br, blackAlpha.700, transparent)" />
+                  <VStack
+                    position="absolute"
+                    bottom={{ base: 4, md: 6 }}
+                    left={{ base: 4, md: 6 }}
+                    align="start"
+                    spacing={2}
+                    color="white"
+                  >
+                    <Text fontSize="sm" letterSpacing="widest" textTransform="uppercase">
+                      Confidential Money Coaching
+                    </Text>
+                    <Heading size="md" maxW="sm" lineHeight="short">
+                      Guiding families through pivotal financial decisions with empathy
+                    </Heading>
+                  </VStack>
+                </Box>
+                <Box
+                  borderRadius="xl"
+                  borderWidth={1}
+                  borderColor="whiteAlpha.400"
+                  bg="whiteAlpha.200"
+                  backdropFilter="blur(6px)"
+                  p={{ base: 5, md: 6 }}
+                >
+                  <Text color="whiteAlpha.900" lineHeight="tall">
+                    Hank Svec blends decades of advisory experience with compassionate coaching so you can act on
+                    a plan that feels right for your relationships and long-term goals.
+                  </Text>
+                </Box>
+              </VStack>
+            </Box>
+          </Stack>
         </Container>
       </Box>
 
@@ -143,4 +197,3 @@ const AskHank = () => {
 };
 
 export default AskHank;
-
