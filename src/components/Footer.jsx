@@ -85,19 +85,6 @@ const Footer = () => {
           </VStack>
         </SimpleGrid>
 
-        <Divider my={10} borderColor={borderColor} />
-
-        <Flex direction={{ base: "column", md: "row" }} justify="space-between" align={{ base: "start", md: "center" }} gap={4}>
-          <Text color={muted}>{`\u00A9 ${new Date().getFullYear()} Misron. All rights reserved.`}</Text>
-          <HStack spacing={6} color={muted}>
-            <Link href="#" _hover={{ color: "accent.200" }}>
-              Privacy Policy
-            </Link>
-            <Link href="#" _hover={{ color: "accent.200" }}>
-              Terms of Use
-            </Link>
-          </HStack>
-        </Flex>
       </Container>
     </Box>
   );
