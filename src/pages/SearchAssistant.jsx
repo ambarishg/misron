@@ -442,11 +442,11 @@ const SearchAssistant = () => {
               </Button>
               <Button
                 as={Link}
-                href="mailto:misron@misronconsulting.com"
+                href="mailto:misron@misron.in"
                 variant="ghost"
                 colorScheme="brand"
               >
-                Email misron@misronconsulting.com
+                Email misron@misron.in
               </Button>
             </VStack>
           </Stack>

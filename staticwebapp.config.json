@@ -8,23 +8,23 @@
     },
     "routes": [
       {
-        "route": "https://misronconsulting.com/*",
-        "redirect": "https://www.misronconsulting.com",
+        "route": "https://misron@misron.in/*",
+        "redirect": "https://www.misron@misron.in",
         "statusCode": 301
       },
      {
-        "route": "http://misronconsulting.com/*",
-        "redirect": "https://www.misronconsulting.com",
+        "route": "http://misron@misron.in/*",
+        "redirect": "https://www.misron@misron.in",
         "statusCode": 301
       },
       {
-        "route": "http://www.misronconsulting.com/*",
-        "redirect": "https://www.misronconsulting.com",
+        "route": "http://www.misron@misron.in/*",
+        "redirect": "https://www.misron@misron.in",
         "statusCode": 301
       },
       {
-        "route": "misronconsulting.com/*",
-        "redirect": "https://www.misronconsulting.com",
+        "route": "misron@misron.in/*",
+        "redirect": "https://www.misron@misron.in",
         "statusCode": 301
       }
   

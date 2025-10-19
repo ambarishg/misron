@@ -42,7 +42,7 @@ const Footer = () => {
               Boutique engineering firm advancing data and AI products for regulated industries, ventures, and growth teams.
             </Text>
             <HStack spacing={4}>
-              <Link href="mailto:misron@misronconsulting.com" color="whiteAlpha.900" _hover={{ color: "accent.200" }}>
+              <Link href="mailto:misron@misron.in" color="whiteAlpha.900" _hover={{ color: "accent.200" }}>
                 <Icon as={FaEnvelope} boxSize={5} />
               </Link>
               <Link href="https://www.linkedin.com" isExternal color="whiteAlpha.900" _hover={{ color: "accent.200" }}>
@@ -78,9 +78,9 @@ const Footer = () => {
               Contact
             </Heading>
             <Text color={muted}>Salt Lake, Kolkata, India</Text>
-            <Text color={muted}>Phone: +91 62893 290271</Text>
-            <Link href="mailto:misron@misronconsulting.com" color="whiteAlpha.900" _hover={{ color: "accent.200" }}>
-              misron@misronconsulting.com
+            <Text color={muted}>Phone: +91 94773 98764</Text>
+            <Link href="mailto:misron@misron.in" color="whiteAlpha.900" _hover={{ color: "accent.200" }}>
+              misron@misron.in
             </Link>
           </VStack>
         </SimpleGrid>
@@ -88,7 +88,7 @@ const Footer = () => {
         <Divider my={10} borderColor={borderColor} />
 
         <Flex direction={{ base: "column", md: "row" }} justify="space-between" align={{ base: "start", md: "center" }} gap={4}>
-          <Text color={muted}>{`\u00A9 ${new Date().getFullYear()} Misron Consulting. All rights reserved.`}</Text>
+          <Text color={muted}>{`\u00A9 ${new Date().getFullYear()} Misron. All rights reserved.`}</Text>
           <HStack spacing={6} color={muted}>
             <Link href="#" _hover={{ color: "accent.200" }}>
               Privacy Policy

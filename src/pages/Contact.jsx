@@ -19,13 +19,13 @@ import { FiClock, FiMapPin, FiMessageSquare } from "react-icons/fi";
 const contactChannels = [
   {
     label: "Email",
-    value: "misron@misronconsulting.com",
+    value: "misron@misron.in",
     icon: EmailIcon,
     description: "Direct line to our engagement leads. Expect a response within one business day.",
   },
   {
     label: "Phone",
-    value: "+91 62893 290271",
+    value: "+91 94773 98764",
     icon: PhoneIcon,
     description: "Speak with a consultant to explore fit, scope, or partnership opportunities.",
   },
@@ -103,7 +103,7 @@ const Contact = () => {
                 colorScheme="brand"
                 rightIcon={<ArrowForwardIcon />}
                 as="a"
-                href="mailto:misron@misronconsulting.com"
+                href="mailto:misron@misron.in"
               >
                 Email Our Team
               </Button>
@@ -112,9 +112,9 @@ const Contact = () => {
                 variant="outline"
                 colorScheme="brand"
                 as="a"
-                href="tel:+9162893290271"
+                href="tel:+919477398764"
               >
-                Call +91 62893 290271
+                Call +91 94773 98764
               </Button>
             </HStack>
           </VStack>
@@ -238,7 +238,7 @@ const Contact = () => {
             <Divider />
             <Button
               as="a"
-              href="mailto:misron@misronconsulting.com?subject=Misron%20Consulting%20Inquiry"
+              href="mailto:misron@misron.in?subject=Misron%20Consulting%20Inquiry"
               colorScheme="brand"
               variant="solid"
               rightIcon={<ArrowForwardIcon />}
