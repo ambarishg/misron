@@ -66,24 +66,7 @@ const disciplines = [
   "Embedded delivery leadership and transformation coaching",
 ];
 
-const timeline = [
-  {
-    period: "2018 — Foundations",
-    highlight: "Legacy systems transformations for financial services and manufacturing enterprises.",
-  },
-  {
-    period: "2020 — Applied AI Focus",
-    highlight: "Launched specialised practices in NLP, computer vision, and decision intelligence.",
-  },
-  {
-    period: "2022 — Venture Collaborations",
-    highlight: "Co-innovated with founders on vertical SaaS, InsurTech, and digital health products.",
-  },
-  {
-    period: "Today — Boutique Engine",
-    highlight: "Trusted partner for leadership teams orchestrating data and AI products with high stakes and high expectations.",
-  },
-];
+
 
 const leadershipPrinciples = [
   {

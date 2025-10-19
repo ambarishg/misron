@@ -1,8 +1,6 @@
 ﻿import {
   Box,
   Container,
-  Divider,
-  Flex,
   Heading,
   HStack,
   Icon,
@@ -29,7 +27,6 @@ const companyLinks = [
 
 const Footer = () => {
   const bg = useColorModeValue("brand.900", "gray.900");
-  const borderColor = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");
   const muted = useColorModeValue("whiteAlpha.700", "whiteAlpha.700");
 
   return (
