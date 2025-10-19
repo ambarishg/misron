@@ -62,6 +62,18 @@ const serviceGroups = [
       "Change management, enablement, and adoption strategies to ensure sustained value.",
     ],
   },
+  {
+    title: "Agentic AI Orchestration",
+    description:
+      "Autonomous agent frameworks that collaborate with human teams to deliver continuous outcomes.",
+    icon: FaCogs,
+    capabilities: [
+      "Blueprints for multi-agent ecosystems aligned to business guardrails and KPIs.",
+      "Retriever-augmented workflows that blend enterprise knowledge with real-time signals.",
+      "Action connectors and tool integrations that let agents execute tasks safely.",
+      "Observation, alignment, and override controls to keep humans in command of outcomes.",
+    ],
+  },
 ];
 
 const accelerators = [
@@ -296,4 +308,3 @@ const Services = () => {
 };
 
 export default Services;
-
