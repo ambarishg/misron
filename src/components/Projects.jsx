@@ -83,7 +83,7 @@ const Projects = () => {
             </Heading>
             <Text fontSize={{ base: "md", md: "lg" }} color={useColorModeValue("gray.600", "gray.300")}>
               In partnership with Wildflower Bee Farm, Misron engineered an AI-driven monitoring
-              platform that detects and predicts bee types , bees , pollen bees , drones . The solution blends computer vision,
+              platform that detects and predicts bee types : bees,pollen bees,drones . The solution blends computer vision,
               and intuitive dashboards crafted for field technicians and research teams.
             </Text>
             <HStack spacing={4} flexWrap="wrap">
