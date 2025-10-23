@@ -1,4 +1,5 @@
 import {
+  Badge,
   Box,
   Button,
   Container,
@@ -25,16 +26,19 @@ const products = [
       "Private, confidential money coaching with Henry Svec. Navigate sensitive financial decisions with trusted, one-to-one guidance.",
     href: "https://askhank.ca",
     featured: true,
+    domain: { label: "Finance", colorScheme: "green" },
   },
   {
     title: "AI Bee Health",
     description:
       "Edge-first disease detection and forecasting platform purpose-built with Wildflower Bee Farm to preserve colony vitality and yield.",
+    domain: { label: "Sustainability and Ecology", colorScheme: "teal" },
   },
   {
     title: "Misron Assistant",
     description:
       "Secure, document-grounded research assistant delivering traceable insights, compliance-ready summaries, and executive briefings in minutes.",
+    domain: { label: "Enterprise", colorScheme: "purple" },
   },
 ];
 
@@ -268,10 +272,25 @@ const Home = () => {
                 boxShadow={product.featured ? "xl" : "md"}
                 transition="transform 0.2s ease, box-shadow 0.2s ease"
                 _hover={{ transform: "translateY(-6px)", boxShadow: "xl" }}
-              >
-                <Heading size="md" color={accent}>
-                  {product.title}
-                </Heading>
+                >
+                  {product.domain && (
+                    <Badge
+                      colorScheme={product.domain.colorScheme}
+                      variant="subtle"
+                      borderRadius="full"
+                      px={3}
+                      py={1}
+                      textTransform="uppercase"
+                      letterSpacing="wider"
+                      fontSize="xs"
+                      fontWeight="semibold"
+                    >
+                      {product.domain.label}
+                    </Badge>
+                  )}
+                  <Heading size="md" color={accent}>
+                    {product.title}
+                  </Heading>
                 {product.subtitle && (
                   <Text fontWeight="semibold" color={useColorModeValue("gray.500", "gray.300")}>
                     {product.subtitle}
@@ -409,9 +428,6 @@ const Home = () => {
 };
 
 export default Home;
-
-
-
 
 
 
