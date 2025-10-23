@@ -26,19 +26,40 @@ const products = [
       "Private, confidential money coaching with Henry Svec. Navigate sensitive financial decisions with trusted, one-to-one guidance.",
     href: "https://askhank.ca",
     featured: true,
-    domain: { label: "Finance", colorScheme: "green" },
+    domain: {
+      label: "Finance",
+      lightBg: "green.50",
+      darkBg: "green.900",
+      lightColor: "green.700",
+      darkColor: "green.200",
+      borderColor: "green.200",
+    },
   },
   {
     title: "AI Bee Health",
     description:
       "Edge-first disease detection and forecasting platform purpose-built with Wildflower Bee Farm to preserve colony vitality and yield.",
-    domain: { label: "Sustainability and Ecology", colorScheme: "teal" },
+    domain: {
+      label: "Sustainability and Ecology",
+      lightBg: "teal.50",
+      darkBg: "teal.900",
+      lightColor: "teal.700",
+      darkColor: "teal.200",
+      borderColor: "teal.200",
+    },
   },
   {
     title: "Misron Assistant",
     description:
       "Secure, document-grounded research assistant delivering traceable insights, compliance-ready summaries, and executive briefings in minutes.",
-    domain: { label: "Enterprise", colorScheme: "purple" },
+    domain: {
+      label: "Enterprise",
+      lightBg: "purple.50",
+      darkBg: "purple.900",
+      lightColor: "purple.700",
+      darkColor: "purple.200",
+      borderColor: "purple.200",
+    },
   },
 ];
 
@@ -275,8 +296,10 @@ const Home = () => {
                 >
                   {product.domain && (
                     <Badge
-                      colorScheme={product.domain.colorScheme}
-                      variant="subtle"
+                      bg={useColorModeValue(product.domain.lightBg, product.domain.darkBg)}
+                      color={useColorModeValue(product.domain.lightColor, product.domain.darkColor)}
+                      borderWidth={1}
+                      borderColor={useColorModeValue(product.domain.borderColor, "transparent")}
                       borderRadius="full"
                       px={3}
                       py={1}
@@ -284,6 +307,7 @@ const Home = () => {
                       letterSpacing="wider"
                       fontSize="xs"
                       fontWeight="semibold"
+                      boxShadow={useColorModeValue("0 1px 2px rgba(16, 24, 40, 0.08)", "none")}
                     >
                       {product.domain.label}
                     </Badge>
@@ -428,6 +452,5 @@ const Home = () => {
 };
 
 export default Home;
-
 
 
