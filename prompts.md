@@ -27,3 +27,7 @@ Make the dark color in the site a color which is aesthetic but black so that the
 
 Make the Footer more crisp and professional
 Make the Footer more crisp and minimalistic and not overbearing
+
+Make the Footer more shorter and more crisp and not occupying such real estate
+
+Alignment needs to improve
