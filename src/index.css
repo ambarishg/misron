@@ -2,7 +2,7 @@
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #102a43;
+  color: #111215;
   background: #f7f8fa;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,9 +23,9 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  color: #102a43;
+  color: #111215;
   background:
-    radial-gradient(circle at top left, rgba(188, 204, 220, 0.2), transparent 32%),
+    radial-gradient(circle at top left, rgba(31, 32, 37, 0.08), transparent 32%),
     linear-gradient(180deg, #f8fafc 0%, #f2f5f8 46%, #eef2f6 100%);
 }
 
@@ -40,6 +40,6 @@ img {
 }
 
 ::selection {
-  background: rgba(51, 78, 104, 0.2);
-  color: #102a43;
+  background: rgba(31, 32, 37, 0.16);
+  color: #111215;
 }

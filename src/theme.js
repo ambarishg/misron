@@ -9,22 +9,22 @@ const theme = extendTheme({
     "2xl": "28px",
   },
   shadows: {
-    outline: "0 0 0 3px rgba(16, 42, 67, 0.14)",
-    elevated: "0 18px 44px rgba(15, 23, 42, 0.08)",
-    crisp: "0 8px 24px rgba(15, 23, 42, 0.08)",
+    outline: "0 0 0 3px rgba(24, 24, 27, 0.14)",
+    elevated: "0 18px 44px rgba(9, 9, 11, 0.12)",
+    crisp: "0 8px 24px rgba(9, 9, 11, 0.1)",
   },
   colors: {
     brand: {
-      50: "#F2F6F9",
-      100: "#D9E2EC",
-      200: "#BCCCDC",
-      300: "#9FB3C8",
-      400: "#829AB1",
-      500: "#627D98",
-      600: "#486581",
-      700: "#334E68",
-      800: "#243B53",
-      900: "#102A43",
+      50: "#F6F6F7",
+      100: "#E7E7EA",
+      200: "#D1D1D6",
+      300: "#B0B1B8",
+      400: "#888A94",
+      500: "#656873",
+      600: "#4B4E58",
+      700: "#34363D",
+      800: "#1F2025",
+      900: "#111215",
     },
     accent: {
       50: "#F7F4EF",
@@ -49,7 +49,7 @@ const theme = extendTheme({
         minHeight: "100%",
       },
       body: {
-        color: "#102A43",
+        color: "#111215",
         bg: "linear-gradient(180deg, #F8FAFC 0%, #F2F5F8 46%, #EEF2F6 100%)",
       },
       "::placeholder": {
@@ -118,7 +118,7 @@ const theme = extendTheme({
             props.colorScheme === "whiteAlpha"
               ? "whiteAlpha.300"
               : props.colorScheme === "blackAlpha"
-                ? "rgba(16, 42, 67, 0.16)"
+                ? "rgba(17, 18, 21, 0.18)"
                 : "brand.200",
           color: props.colorScheme === "whiteAlpha" ? "white" : "brand.900",
           bg: props.colorScheme === "whiteAlpha" ? "whiteAlpha.50" : "rgba(255,255,255,0.72)",

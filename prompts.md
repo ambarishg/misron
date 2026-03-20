@@ -22,3 +22,8 @@ The links in the AI BEE Health page are not clearly visible
 
 The Visit ai bee health link
 Watch Overview  and Start a Project Conversation buttons need to be revisited so that they are legible and visible properly. They have been squashed
+
+Make the dark color in the site a color which is aesthetic but black so that the site looks very professional and sharp
+
+Make the Footer more crisp and professional
+Make the Footer more crisp and minimalistic and not overbearing
