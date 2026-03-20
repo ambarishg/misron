@@ -1,20 +1,20 @@
 import {
   Box,
-  Flex,
-  HStack,
-  Link,
-  IconButton,
-  Image,
-  VStack,
-  useDisclosure,
   Button,
   Divider,
-  useColorModeValue,
+  Flex,
+  HStack,
+  IconButton,
+  Image,
+  Link,
   Menu,
   MenuButton,
-  MenuList,
   MenuItem,
+  MenuList,
   Text,
+  VStack,
+  useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { Link as RouterLink, useLocation } from "react-router-dom";
@@ -35,14 +35,17 @@ const productLinks = [
 const Header = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
   const location = useLocation();
-  const bg = useColorModeValue("rgba(16, 42, 67, 0.98)", "rgba(13, 32, 52, 0.98)");
-  const borderColor = useColorModeValue("whiteAlpha.200", "whiteAlpha.300");
-  const linkHover = useColorModeValue("brand.200", "brand.100");
+  const bg = useColorModeValue("rgba(247, 248, 250, 0.96)", "rgba(16, 42, 67, 0.96)");
+  const borderColor = useColorModeValue("gray.200", "whiteAlpha.200");
+  const linkColor = useColorModeValue("gray.700", "whiteAlpha.800");
+  const mutedText = useColorModeValue("gray.500", "whiteAlpha.600");
+  const activeColor = useColorModeValue("brand.900", "white");
+  const hoverColor = useColorModeValue("brand.700", "white");
+  const mobileHoverBg = useColorModeValue("gray.100", "whiteAlpha.200");
   const menuBg = useColorModeValue("white", "gray.800");
   const menuColor = useColorModeValue("gray.800", "gray.100");
-  const menuHoverBg = useColorModeValue("brand.50", "brand.700");
-  const menuActiveBg = useColorModeValue("brand.100", "brand.600");
-  const menuHoverColor = useColorModeValue("brand.900", "white");
+  const menuHoverBg = useColorModeValue("gray.50", "brand.700");
+  const menuActiveBg = useColorModeValue("gray.100", "brand.600");
   const isProductActive = productLinks.some((link) => location.pathname === link.to);
 
   const renderLink = (link) => {
@@ -53,11 +56,11 @@ const Header = () => {
         as={RouterLink}
         to={link.to}
         fontSize="sm"
-        letterSpacing="wide"
+        letterSpacing="0.08em"
         textTransform="uppercase"
         fontWeight={isActive ? "semibold" : "medium"}
-        color={isActive ? "accent.200" : "whiteAlpha.800"}
-        _hover={{ color: linkHover }}
+        color={isActive ? activeColor : linkColor}
+        _hover={{ color: hoverColor }}
         onClick={onClose}
       >
         {link.label}
@@ -69,11 +72,11 @@ const Header = () => {
     <Box
       as="header"
       bg={bg}
-      color="white"
-      backdropFilter="blur(10px)"
+      backdropFilter="blur(8px)"
       borderBottom="1px solid"
       borderColor={borderColor}
-      position="relative"
+      position="sticky"
+      top={0}
       zIndex="popover"
     >
       <Flex
@@ -85,19 +88,25 @@ const Header = () => {
         justify="space-between"
       >
         <HStack spacing={4} align="center">
-          <Link as={RouterLink} to="/" display="flex" alignItems="center">
-            <Image src="./MISRONLOGO.png" alt="Misron Logo" height="48px" objectFit="contain" />
+          <Link as={RouterLink} to="/" display="flex" alignItems="center" onClick={onClose}>
+            <Image src="./MISRONLOGO.png" alt="Misron Logo" height="44px" objectFit="contain" />
           </Link>
-          <Link
-            as={RouterLink}
-            to="/"
-            fontSize={{ base: "lg", md: "xl" }}
-            fontWeight="bold"
-            letterSpacing="wide"
-            _hover={{ color: linkHover }}
-          >
-            Misron
-          </Link>
+          <Box>
+            <Link
+              as={RouterLink}
+              to="/"
+              fontSize={{ base: "lg", md: "xl" }}
+              fontWeight="bold"
+              letterSpacing="0.08em"
+              color={activeColor}
+              _hover={{ color: hoverColor }}
+            >
+              Misron
+            </Link>
+            <Text fontSize="xs" letterSpacing="0.14em" textTransform="uppercase" color={mutedText}>
+              Data and AI delivery
+            </Text>
+          </Box>
         </HStack>
 
         <HStack spacing={8} display={{ base: "none", lg: "flex" }} align="center">
@@ -108,12 +117,12 @@ const Header = () => {
               variant="ghost"
               rightIcon={<ChevronDownIcon />}
               fontSize="sm"
-              letterSpacing="wide"
+              letterSpacing="0.08em"
               textTransform="uppercase"
               fontWeight={isProductActive ? "semibold" : "medium"}
-              color={isProductActive ? "accent.200" : "whiteAlpha.800"}
-              _hover={{ color: linkHover }}
-              _active={{ color: linkHover }}
+              color={isProductActive ? activeColor : linkColor}
+              _hover={{ color: hoverColor, bg: "transparent" }}
+              _active={{ bg: "transparent" }}
             >
               Products
             </MenuButton>
@@ -124,12 +133,12 @@ const Header = () => {
                   as={RouterLink}
                   to={link.to}
                   fontSize="sm"
-                  letterSpacing="wide"
+                  letterSpacing="0.06em"
                   textTransform="uppercase"
                   fontWeight="medium"
-                  _hover={{ bg: menuHoverBg, color: menuHoverColor }}
-                  _focus={{ bg: menuHoverBg, color: menuHoverColor }}
-                  _active={{ bg: menuActiveBg, color: menuHoverColor }}
+                  _hover={{ bg: menuHoverBg }}
+                  _focus={{ bg: menuHoverBg }}
+                  _active={{ bg: menuActiveBg }}
                   onClick={onClose}
                 >
                   {link.label}
@@ -137,13 +146,7 @@ const Header = () => {
               ))}
             </MenuList>
           </Menu>
-          <Button
-            as={RouterLink}
-            to="/contact"
-            colorScheme="accent"
-            size="sm"
-            fontWeight="semibold"
-          >
+          <Button as={RouterLink} to="/contact" colorScheme="accent" size="sm">
             Contact
           </Button>
         </HStack>
@@ -154,23 +157,23 @@ const Header = () => {
           display={{ base: "flex", lg: "none" }}
           onClick={onToggle}
           variant="ghost"
-          color="white"
-          _hover={{ bg: "whiteAlpha.200" }}
+          color={activeColor}
+          _hover={{ bg: mobileHoverBg }}
         />
       </Flex>
 
       {isOpen && (
-        <Box display={{ lg: "none" }} borderTop="1px solid" borderColor={borderColor}>
+        <Box display={{ lg: "none" }} borderTop="1px solid" borderColor={borderColor} bg={menuBg}>
           <VStack align="stretch" px={6} py={4} spacing={4}>
             {primaryLinks.map(renderLink)}
             <Divider borderColor={borderColor} />
             <Box>
               <Text
                 fontSize="xs"
-                letterSpacing="widest"
+                letterSpacing="0.14em"
                 textTransform="uppercase"
-                fontWeight={isProductActive ? "semibold" : "medium"}
-                color={isProductActive ? "accent.200" : "whiteAlpha.600"}
+                fontWeight="semibold"
+                color={isProductActive ? activeColor : mutedText}
               >
                 Products
               </Text>
