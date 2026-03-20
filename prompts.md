@@ -17,3 +17,8 @@ Make the whole site more
 4. World Class
 
 The boxes in the site sometimes have lot of open spaces. make them crisp and professional and sharp. Increase the sharpness of the site
+
+The links in the AI BEE Health page are not clearly visible
+
+The Visit ai bee health link
+Watch Overview  and Start a Project Conversation buttons need to be revisited so that they are legible and visible properly. They have been squashed

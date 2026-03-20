@@ -59,6 +59,10 @@ const Projects = () => {
   const heroSubtext = useColorModeValue("gray.600", "gray.200");
   const cardShadow = useColorModeValue("0 14px 34px rgba(15, 23, 42, 0.07)", "dark-lg");
   const badgeBg = useColorModeValue("gray.100", "whiteAlpha.100");
+  const secondaryButtonBg = useColorModeValue("white", "whiteAlpha.120");
+  const secondaryButtonBorder = useColorModeValue("brand.300", "whiteAlpha.300");
+  const secondaryButtonColor = useColorModeValue("brand.900", "white");
+  const secondaryButtonHoverBg = useColorModeValue("brand.50", "whiteAlpha.200");
 
   return (
     <Box bg={pageBg}>
@@ -86,14 +90,26 @@ const Projects = () => {
                 A monitoring platform built with Wildflower Bee Farm to classify bee activity, detect disease patterns,
                 and support field decisions.
               </Text>
-              <HStack spacing={4} flexWrap="wrap">
+              <Stack
+                direction={{ base: "column", sm: "row" }}
+                spacing={3}
+                w="100%"
+                align={{ base: "stretch", sm: "flex-start" }}
+              >
                 <Button
                   as="a"
                   href="https://aibeehealth.ca"
                   target="_blank"
                   rel="noopener noreferrer"
                   colorScheme="accent"
+                  size="lg"
                   rightIcon={<FaExternalLinkAlt />}
+                  boxShadow="elevated"
+                  minH="52px"
+                  whiteSpace="normal"
+                  textAlign="center"
+                  justifyContent="center"
+                  w={{ base: "100%", sm: "auto" }}
                 >
                   Visit AI Bee Health
                 </Button>
@@ -104,11 +120,24 @@ const Projects = () => {
                   rel="noopener noreferrer"
                   variant="outline"
                   colorScheme="blackAlpha"
+                  size="lg"
                   rightIcon={<FaYoutube />}
+                  color={secondaryButtonColor}
+                  bg={secondaryButtonBg}
+                  borderColor={secondaryButtonBorder}
+                  minH="52px"
+                  whiteSpace="normal"
+                  textAlign="center"
+                  justifyContent="center"
+                  w={{ base: "100%", sm: "auto" }}
+                  _hover={{
+                    bg: secondaryButtonHoverBg,
+                    borderColor: "brand.500",
+                  }}
                 >
                   Watch Overview
                 </Button>
-              </HStack>
+              </Stack>
             </VStack>
             <Box
               flex={{ lg: "0 0 360px" }}
@@ -245,7 +274,18 @@ const Projects = () => {
                 <br />
                 Deployment playbooks for regional scaling
               </Text>
-              <Button as={RouterLink} to="/contact" colorScheme="accent" rightIcon={<FaExternalLinkAlt />}>
+              <Button
+                as={RouterLink}
+                to="/contact"
+                colorScheme="accent"
+                size="lg"
+                rightIcon={<FaExternalLinkAlt />}
+                minH="52px"
+                whiteSpace="normal"
+                textAlign="center"
+                justifyContent="center"
+                alignSelf={{ base: "stretch", md: "flex-start" }}
+              >
                 Start a Project Conversation
               </Button>
             </VStack>
