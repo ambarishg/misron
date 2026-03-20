@@ -1,7 +1,7 @@
 import {
+  Badge,
   Box,
   Container,
-  Divider,
   Heading,
   HStack,
   Icon,
@@ -16,20 +16,17 @@ import { FaChartLine, FaCogs, FaGlobe, FaHandshake, FaLightbulb, FaUsers } from 
 const identityStatements = [
   {
     title: "Boutique by Design",
-    detail:
-      "Independent, multi-disciplinary engineers and strategists who thrive in ambiguity and move at founder speed.",
+    detail: "Senior engineers and strategists working with focus, speed, and direct accountability.",
     icon: FaLightbulb,
   },
   {
     title: "Enterprise Credibility",
-    detail:
-      "Leaders from Fortune 500 innovation labs and venture-backed scaleups who understand regulated environments and rapid growth demands.",
+    detail: "Experience across regulated environments, operating complexity, and growth-stage execution.",
     icon: FaChartLine,
   },
   {
     title: "Global Perspective",
-    detail:
-      "Delivery hubs in India with partner networks across North America and Europe, enabling 24/7 momentum and cultural fluency.",
+    detail: "Delivery rooted in India with partnerships and context across North America and Europe.",
     icon: FaGlobe,
   },
 ];
@@ -37,85 +34,92 @@ const identityStatements = [
 const values = [
   {
     title: "Integrity in Execution",
-    description:
-      "Transparent communication, responsible AI practices, and measurable commitments anchored in your business reality.",
+    description: "Clear communication, realistic commitments, and strong governance through delivery.",
   },
   {
-    title: "Human-Centred Innovation",
-    description:
-      "Solutions shaped with real users, blending behavioural insights with technical excellence for adoption that lasts.",
+    title: "Human-Centered Design",
+    description: "Products shaped around how people actually work, decide, and adopt change.",
   },
   {
-    title: "Shared Wins",
-    description:
-      "We integrate with your teams, co-own milestones, and celebrate outcomes that elevate both organisations.",
+    title: "Shared Accountability",
+    description: "We work alongside client teams and stay close to the outcomes that matter.",
   },
   {
     title: "Continuous Learning",
-    description:
-      "Curiosity keeps us ahead—research sprints, guilds, and experimentation fuel better decisions and better products.",
+    description: "Research, iteration, and applied feedback improve both product quality and decision-making.",
   },
 ];
 
 const disciplines = [
-  "Data platforms & modern architecture",
-  "Machine learning engineering & MLOps",
-  "Responsible AI frameworks and governance",
+  "Data platforms and modern architecture",
+  "Machine learning engineering and MLOps",
+  "Responsible AI governance",
   "Automation, NLP, and computer vision",
-  "Product strategy, service design, and GTM enablement",
-  "Embedded delivery leadership and transformation coaching",
+  "Product strategy and service design",
+  "Embedded delivery leadership",
 ];
-
-
 
 const leadershipPrinciples = [
   {
     title: "Clarity First",
-    description:
-      "We start with articulation of the opportunity, constraints, and success metrics so teams move in lockstep.",
+    description: "We define the opportunity, constraints, and success measures before execution starts.",
     icon: FaCogs,
   },
   {
-    title: "Design With",
-    description:
-      "Stakeholders sit at the table—from field operators to executives—ensuring every solution honours context and ambition.",
+    title: "Design With Stakeholders",
+    description: "Decision-makers, operators, and end users stay part of the process throughout delivery.",
     icon: FaUsers,
   },
   {
     title: "Commit to Outcomes",
-    description:
-      "Roadmaps are coupled with accountability. We build the observability and governance needed to sustain value.",
+    description: "Roadmaps are tied to measurable progress, not just output volume.",
     icon: FaHandshake,
   },
 ];
 
 const About = () => {
   const bg = useColorModeValue("gray.50", "gray.900");
+  const heroBg = useColorModeValue("linear(to-br, #f4f6f8, #e9eef2)", "linear(to-br, brand.900, brand.800)");
   const cardBg = useColorModeValue("white", "gray.800");
   const textColor = useColorModeValue("gray.600", "gray.300");
-  const accent = useColorModeValue("brand.600", "brand.200");
+  const sectionLabel = useColorModeValue("brand.600", "accent.200");
+  const sectionTitle = useColorModeValue("brand.900", "white");
+  const accent = useColorModeValue("brand.700", "brand.200");
   const border = useColorModeValue("gray.200", "gray.700");
+  const heroText = useColorModeValue("brand.900", "white");
+  const heroSubtext = useColorModeValue("gray.600", "gray.200");
+  const cardShadow = useColorModeValue("0 10px 30px rgba(15, 23, 42, 0.06)", "dark-lg");
 
   return (
-    <Box bg={bg} minH="100vh" py={{ base: 12, md: 20 }}>
-      <Container maxW="container.xl">
-        {/* Hero */}
-        <VStack spacing={6} align="start" mb={{ base: 12, md: 16 }}>
-          <Text textTransform="uppercase" letterSpacing="wider" fontWeight="semibold" color={accent}>
-            About Misron
-          </Text>
-          <Heading as="h1" size={{ base: "2xl", md: "3xl" }} fontWeight="extrabold" lineHeight="shorter">
-            Engineering clarity and confidence into every data & AI journey
-          </Heading>
-          <Text fontSize={{ base: "md", md: "lg" }} color={textColor} maxW="3xl" lineHeight="tall">
-            Misron is a boutique engineering partner headquartered in India with global reach. We help organisations
-            turn complex data challenges into resilient, revenue-generating products that respect governance,
-            user trust, and speed to market.
-          </Text>
-        </VStack>
+    <Box bg={bg} minH="100vh">
+      <Box bgGradient={heroBg} borderBottom="1px solid" borderColor={border}>
+        <Container maxW="container.xl" py={{ base: 14, md: 20 }}>
+          <VStack spacing={6} align="start" maxW="3xl">
+            <Badge
+              px={3}
+              py={1}
+              borderRadius="full"
+              bg={useColorModeValue("brand.100", "whiteAlpha.200")}
+              color={heroText}
+              borderWidth="1px"
+              borderColor={useColorModeValue("brand.200", "whiteAlpha.300")}
+              letterSpacing="0.12em"
+              textTransform="uppercase"
+            >
+              About Misron
+            </Badge>
+            <Heading as="h1" size={{ base: "2xl", md: "3xl" }} lineHeight="shorter" color={heroText}>
+              A focused engineering partner for data and AI delivery
+            </Heading>
+            <Text fontSize={{ base: "lg", md: "xl" }} color={heroSubtext} lineHeight="tall">
+              Misron helps organizations turn complex data and AI programs into secure, usable, and commercially relevant products.
+            </Text>
+          </VStack>
+        </Container>
+      </Box>
 
-        {/* Identity */}
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }} mb={{ base: 12, md: 16 }}>
+      <Container maxW="container.xl" py={{ base: 16, md: 20 }}>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }} mb={{ base: 16, md: 20 }}>
           {identityStatements.map((item) => (
             <VStack
               key={item.title}
@@ -126,10 +130,10 @@ const About = () => {
               borderColor={border}
               borderRadius="xl"
               p={{ base: 6, md: 8 }}
-              boxShadow="md"
+              boxShadow={cardShadow}
             >
-              <Icon as={item.icon} boxSize={8} color={accent} />
-              <Heading size="md" color={accent}>
+              <Icon as={item.icon} boxSize={7} color={accent} />
+              <Heading size="md" color={sectionTitle}>
                 {item.title}
               </Heading>
               <Text color={textColor} lineHeight="tall">
@@ -139,36 +143,34 @@ const About = () => {
           ))}
         </SimpleGrid>
 
-        {/* Narrative */}
         <Box
           bg={cardBg}
-          borderRadius="xl"
+          borderRadius="2xl"
           borderWidth={1}
           borderColor={border}
-          p={{ base: 8, md: 12 }}
-          mb={{ base: 12, md: 16 }}
-          boxShadow="lg"
+          p={{ base: 8, md: 10 }}
+          mb={{ base: 16, md: 20 }}
+          boxShadow={cardShadow}
         >
           <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 6, md: 10 }}>
             <VStack align="start" spacing={4} flex={2}>
-              <Heading size="lg" color={accent}>
-                Blending intelligence, engineering, and empathy
+              <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel}>
+                Perspective
+              </Text>
+              <Heading size="lg" color={sectionTitle}>
+                Product thinking, engineering depth, and operational realism
               </Heading>
               <Text color={textColor} lineHeight="tall">
-                “Misron” originates from Bengali, meaning a purposeful blend. The name honours our belief that powerful
-                outcomes emerge when diverse disciplines, cultures, and perspectives converge. Our teams combine
-                product strategists, data scientists, ML engineers, and delivery leaders who co-create with clients
-                rather than deliver in isolation.
+                The name "Misron" comes from Bengali and speaks to purposeful blend. Our work brings together strategy,
+                engineering, and delivery leadership to solve problems that cut across business and technology.
               </Text>
               <Text color={textColor} lineHeight="tall">
-                We invest in understanding your industry rhythms, regulatory realities, and human stories before we write
-                a single line of code. That empathy—paired with technical depth—enables us to ship solutions that
-                stakeholders trust and champion.
+                We spend time understanding context before building. That includes operating constraints, governance needs,
+                user behavior, and commercial priorities.
               </Text>
             </VStack>
-            <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
             <VStack align="stretch" spacing={4} flex={1}>
-              <Heading size="md" color={accent}>
+              <Heading size="md" color={sectionTitle}>
                 Core Disciplines
               </Heading>
               {disciplines.map((item) => (
@@ -183,11 +185,15 @@ const About = () => {
           </Stack>
         </Box>
 
-        {/* Leadership Principles */}
-        <VStack align="start" spacing={{ base: 6, md: 8 }} mb={{ base: 12, md: 16 }}>
-          <Heading size={{ base: "lg", md: "xl" }} color={accent}>
-            How Misron Leads Engagements
-          </Heading>
+        <VStack align="start" spacing={{ base: 6, md: 8 }} mb={{ base: 16, md: 20 }}>
+          <Box>
+            <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
+              Engagement Style
+            </Text>
+            <Heading size={{ base: "lg", md: "xl" }} color={sectionTitle}>
+              How Misron leads delivery
+            </Heading>
+          </Box>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }} width="100%">
             {leadershipPrinciples.map((principle) => (
               <VStack
@@ -199,10 +205,10 @@ const About = () => {
                 borderWidth={1}
                 borderColor={border}
                 p={{ base: 6, md: 7 }}
-                boxShadow="md"
+                boxShadow={cardShadow}
               >
-                <Icon as={principle.icon} boxSize={7} color={accent} />
-                <Heading size="md" color={accent}>
+                <Icon as={principle.icon} boxSize={6} color={accent} />
+                <Heading size="md" color={sectionTitle}>
                   {principle.title}
                 </Heading>
                 <Text color={textColor} lineHeight="tall">
@@ -213,11 +219,15 @@ const About = () => {
           </SimpleGrid>
         </VStack>
 
-        {/* Values */}
-        <VStack align="start" spacing={{ base: 6, md: 8 }} mb={{ base: 12, md: 16 }}>
-          <Heading size={{ base: "lg", md: "xl" }} color={accent}>
-            Values That Shape Every Product
-          </Heading>
+        <VStack align="start" spacing={{ base: 6, md: 8 }}>
+          <Box>
+            <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
+              Values
+            </Text>
+            <Heading size={{ base: "lg", md: "xl" }} color={sectionTitle}>
+              Principles behind the work
+            </Heading>
+          </Box>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 6, md: 8 }} width="100%">
             {values.map((value) => (
               <Box
@@ -227,9 +237,9 @@ const About = () => {
                 borderWidth={1}
                 borderColor={border}
                 p={{ base: 6, md: 7 }}
-                boxShadow="md"
+                boxShadow={cardShadow}
               >
-                <Heading size="md" color={accent} mb={3}>
+                <Heading size="md" color={sectionTitle} mb={3}>
                   {value.title}
                 </Heading>
                 <Text color={textColor} lineHeight="tall">
@@ -239,11 +249,9 @@ const About = () => {
             ))}
           </SimpleGrid>
         </VStack>
-
-   </Container>
+      </Container>
     </Box>
   );
 };
 
 export default About;
-

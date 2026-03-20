@@ -7,3 +7,11 @@ Make the website more subtle and professional looking to make it look grounded a
 Message needs to be shorter , crisper , more professional and executive and grounded 
 
 The Services Page and the Coinnovation Page make it more professional and executive and grounded in terms of color and aesthetics
+
+Misron Assistant and the AskHank.ca make it more professional and executive and grounded in terms of color and aesthetics
+
+Make the whole site more
+1. Crisp
+2. Smart
+3. Professional
+4. World Class

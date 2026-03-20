@@ -1,8 +1,8 @@
 import {
+  Badge,
   Box,
   Button,
   Container,
-  Divider,
   Heading,
   HStack,
   Icon,
@@ -21,129 +21,135 @@ const contactChannels = [
     label: "Email",
     value: "misron@misron.in",
     icon: EmailIcon,
-    description: "Direct line to our engagement leads. Expect a response within one business day.",
+    description: "Direct line to engagement leads. Response within one business day.",
   },
   {
     label: "Phone",
     value: "+91 94773 98764",
     icon: PhoneIcon,
-    description: "Speak with a consultant to explore fit, scope, or partnership opportunities.",
+    description: "Speak with a consultant about scope, fit, or partnership needs.",
   },
   {
     label: "Studio",
     value: "Salt Lake, Kolkata, India",
     icon: FiMapPin,
-    description: "Schedule an on-site strategy session or hybrid workshop with our delivery team.",
+    description: "On-site and hybrid workshops available by appointment.",
   },
 ];
 
 const engagementMoments = [
   {
-    title: "Discovery & Alignment",
-    detail: "Clarify goals, success measures, and data estate readiness for AI-backed programs.",
+    title: "Discovery and Alignment",
+    detail: "Clarify goals, success measures, and operating constraints.",
   },
   {
     title: "Architecture Consultation",
-    detail: "Evaluate technical pathways from rapid prototypes to enterprise rollouts.",
+    detail: "Evaluate technical pathways from pilot to scaled rollout.",
   },
   {
     title: "Partnership Inquiries",
-    detail: "Explore co-innovation, investment partnerships, or go-to-market collaborations.",
+    detail: "Explore co-innovation, strategic collaboration, and go-to-market work.",
   },
 ];
 
 const Contact = () => {
   const toast = useToast();
+  const pageBg = useColorModeValue("gray.50", "gray.900");
+  const heroBg = useColorModeValue("linear(to-br, #f4f6f8, #e9eef2)", "linear(to-br, brand.900, brand.800)");
   const cardBg = useColorModeValue("white", "gray.800");
   const cardBorder = useColorModeValue("gray.200", "gray.700");
+  const accent = useColorModeValue("brand.700", "brand.200");
+  const sectionLabel = useColorModeValue("brand.600", "accent.200");
+  const sectionTitle = useColorModeValue("brand.900", "white");
+  const textColor = useColorModeValue("gray.600", "gray.300");
+  const heroText = useColorModeValue("brand.900", "white");
+  const heroSubtext = useColorModeValue("gray.600", "gray.200");
+  const cardShadow = useColorModeValue("0 10px 30px rgba(15, 23, 42, 0.06)", "dark-lg");
 
   const handleCopy = async (value) => {
     try {
       await navigator.clipboard.writeText(value);
       toast({
         title: "Details copied",
-        description: `${value} ready to share.`,
+        description: `${value} copied to clipboard.`,
         status: "success",
-        duration: 4000,
+        duration: 3000,
         isClosable: true,
       });
-    } catch (error) {
+    } catch {
       toast({
         title: "Copy unavailable",
         description: "Please copy the information manually.",
         status: "warning",
-        duration: 4000,
+        duration: 3000,
         isClosable: true,
       });
     }
   };
 
   return (
-    <Box bg={useColorModeValue("gray.50", "gray.900")} py={{ base: 12, md: 20 }}>
-      <Container maxW="container.xl">
-        <Stack
-          spacing={{ base: 8, md: 12 }}
-          direction={{ base: "column", md: "row" }}
-          align={{ base: "flex-start", md: "center" }}
-        >
-          <VStack align="start" spacing={6} flex={2}>
-            <Text textTransform="uppercase" letterSpacing="wider" color="brand.600" fontWeight="semibold">
-              Connect With Misron
-            </Text>
-            <Heading as="h1" size={{ base: "2xl", md: "3xl" }} fontWeight="extrabold">
-              Let's design your next intelligent product
-            </Heading>
-            <Text fontSize={{ base: "md", md: "lg" }} color={useColorModeValue("gray.600", "gray.300")} lineHeight="tall">
-              Whether you are validating a concept, modernizing a data estate, or launching a bespoke AI initiative,
-              our boutique engineering team is ready to partner from discovery through scale.
-            </Text>
-            <HStack spacing={4} flexWrap="wrap">
-              <Button
-                size="lg"
-                colorScheme="brand"
-                rightIcon={<ArrowForwardIcon />}
-                as="a"
-                href="mailto:misron@misron.in"
+    <Box bg={pageBg} minH="100vh">
+      <Box bgGradient={heroBg} borderBottom="1px solid" borderColor={cardBorder}>
+        <Container maxW="container.xl" py={{ base: 14, md: 20 }}>
+          <Stack spacing={{ base: 8, md: 12 }} direction={{ base: "column", lg: "row" }} align="stretch">
+            <VStack align="start" spacing={6} flex={1.2} maxW="2xl">
+              <Badge
+                px={3}
+                py={1}
+                borderRadius="full"
+                bg={useColorModeValue("brand.100", "whiteAlpha.200")}
+                color={heroText}
+                borderWidth="1px"
+                borderColor={useColorModeValue("brand.200", "whiteAlpha.300")}
+                letterSpacing="0.12em"
+                textTransform="uppercase"
               >
-                Email Our Team
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                colorScheme="brand"
-                as="a"
-                href="tel:+919477398764"
-              >
-                Call +91 94773 98764
-              </Button>
-            </HStack>
-          </VStack>
-          <Box
-            flex={1}
-            bg={cardBg}
-            borderRadius="xl"
-            borderWidth={1}
-            borderColor={cardBorder}
-            p={{ base: 6, md: 8 }}
-            boxShadow="lg"
-          >
-            <VStack align="start" spacing={4}>
-              <HStack spacing={3}>
-                <Icon as={FiClock} boxSize={6} color="brand.600" />
-                <Heading size="md" color={useColorModeValue("brand.700", "brand.200")}>
-                  Availability
-                </Heading>
-              </HStack>
-              <Text color={useColorModeValue("gray.600", "gray.300")} lineHeight="tall">
-                Monday - Friday | 9:00 - 18:00 IST
-                <br />
-                For clients across North America and Europe, we support aligned working hours on request.
+                Contact
+              </Badge>
+              <Heading as="h1" size={{ base: "2xl", md: "3xl" }} lineHeight="shorter" color={heroText}>
+                Start a direct conversation with Misron
+              </Heading>
+              <Text fontSize={{ base: "lg", md: "xl" }} color={heroSubtext} lineHeight="tall">
+                Whether you are shaping a new product, modernizing delivery, or exploring a partnership, we can align on the next step quickly.
               </Text>
+              <HStack spacing={4} flexWrap="wrap">
+                <Button size="lg" colorScheme="accent" rightIcon={<ArrowForwardIcon />} as="a" href="mailto:misron@misron.in">
+                  Email Our Team
+                </Button>
+                <Button size="lg" variant="outline" colorScheme="blackAlpha" as="a" href="tel:+919477398764">
+                  Call +91 94773 98764
+                </Button>
+              </HStack>
             </VStack>
-          </Box>
-        </Stack>
+            <Box
+              flex={1}
+              bg={cardBg}
+              borderRadius="2xl"
+              borderWidth={1}
+              borderColor={cardBorder}
+              p={{ base: 6, md: 8 }}
+              boxShadow={cardShadow}
+            >
+              <VStack align="start" spacing={4}>
+                <HStack spacing={3}>
+                  <Icon as={FiClock} boxSize={5} color={accent} />
+                  <Heading size="md" color={sectionTitle}>
+                    Availability
+                  </Heading>
+                </HStack>
+                <Text color={textColor} lineHeight="tall">
+                  Monday to Friday, 9:00 to 18:00 IST.
+                  <br />
+                  North America and Europe overlap hours available on request.
+                </Text>
+              </VStack>
+            </Box>
+          </Stack>
+        </Container>
+      </Box>
 
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }} mt={{ base: 12, md: 16 }}>
+      <Container maxW="container.xl" py={{ base: 16, md: 20 }}>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }}>
           {contactChannels.map((channel) => (
             <VStack
               key={channel.label}
@@ -154,61 +160,51 @@ const Contact = () => {
               borderWidth={1}
               borderColor={cardBorder}
               p={{ base: 6, md: 8 }}
-              boxShadow="md"
-              transition="transform 0.2s ease, box-shadow 0.2s ease"
-              _hover={{ transform: "translateY(-6px)", boxShadow: "xl" }}
+              boxShadow={cardShadow}
             >
               <HStack spacing={3}>
-                <Icon as={channel.icon} boxSize={6} color="brand.600" />
-                <Heading size="md" color={useColorModeValue("brand.700", "brand.200")}>
+                <Icon as={channel.icon} boxSize={5} color={accent} />
+                <Heading size="md" color={sectionTitle}>
                   {channel.label}
                 </Heading>
               </HStack>
-              <Text fontSize="lg" fontWeight="semibold" color={useColorModeValue("gray.700", "gray.100")}>
+              <Text fontSize="lg" fontWeight="semibold" color={sectionTitle}>
                 {channel.value}
               </Text>
-              <Text color={useColorModeValue("gray.600", "gray.300")} lineHeight="tall">
+              <Text color={textColor} lineHeight="tall">
                 {channel.description}
               </Text>
-              <Button
-                variant="ghost"
-                colorScheme="brand"
-                size="sm"
-                alignSelf="flex-start"
-                onClick={() => handleCopy(channel.value)}
-              >
+              <Button variant="ghost" colorScheme="brand" size="sm" alignSelf="flex-start" onClick={() => handleCopy(channel.value)}>
                 Copy details
               </Button>
             </VStack>
           ))}
         </SimpleGrid>
 
-        <Stack
-          direction={{ base: "column", md: "row" }}
-          spacing={{ base: 10, md: 16 }}
-          mt={{ base: 12, md: 16 }}
-          align="stretch"
-        >
+        <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 10, md: 16 }} mt={{ base: 16, md: 20 }} align="stretch">
           <VStack
             flex={2}
             align="start"
             spacing={5}
             bg={cardBg}
-            borderRadius="xl"
+            borderRadius="2xl"
             borderWidth={1}
             borderColor={cardBorder}
             p={{ base: 6, md: 8 }}
-            boxShadow="lg"
+            boxShadow={cardShadow}
           >
-            <Heading size="lg" color={useColorModeValue("brand.700", "brand.200")}>
+            <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel}>
               Engagement Touchpoints
+            </Text>
+            <Heading size="lg" color={sectionTitle}>
+              Common starting points
             </Heading>
             {engagementMoments.map((moment) => (
               <Box key={moment.title}>
-                <Text fontWeight="semibold" color={useColorModeValue("gray.700", "gray.100")}>
+                <Text fontWeight="semibold" color={sectionTitle}>
                   {moment.title}
                 </Text>
-                <Text color={useColorModeValue("gray.600", "gray.300")} lineHeight="tall">
+                <Text color={textColor} lineHeight="tall">
                   {moment.detail}
                 </Text>
               </Box>
@@ -219,30 +215,22 @@ const Contact = () => {
             align="stretch"
             spacing={4}
             bg={cardBg}
-            borderRadius="xl"
+            borderRadius="2xl"
             borderWidth={1}
             borderColor={cardBorder}
             p={{ base: 6, md: 8 }}
-            boxShadow="lg"
+            boxShadow={cardShadow}
           >
             <HStack spacing={3}>
-              <Icon as={FiMessageSquare} boxSize={6} color="brand.600" />
-              <Heading size="md" color={useColorModeValue("brand.700", "brand.200")}>
-                Prefer a curated intro?
+              <Icon as={FiMessageSquare} boxSize={5} color={accent} />
+              <Heading size="md" color={sectionTitle}>
+                Prefer a written brief?
               </Heading>
             </HStack>
-            <Text color={useColorModeValue("gray.600", "gray.300")} lineHeight="tall">
-              Share context, desired timelines, and how you would like to collaborate. We will align the
-              right engineering and strategy leads before our first session.
+            <Text color={textColor} lineHeight="tall">
+              Share context, timing, and what good looks like. We will align the right leads before the first session.
             </Text>
-            <Divider />
-            <Button
-              as="a"
-              href="mailto:misron@misron.in?subject=Misron%20Consulting%20Inquiry"
-              colorScheme="brand"
-              variant="solid"
-              rightIcon={<ArrowForwardIcon />}
-            >
+            <Button as="a" href="mailto:misron@misron.in?subject=Misron%20Consulting%20Inquiry" colorScheme="accent" rightIcon={<ArrowForwardIcon />}>
               Send a Brief
             </Button>
           </VStack>
