@@ -1,8 +1,8 @@
 import {
+  Badge,
   Box,
   Button,
   Container,
-  Divider,
   Heading,
   HStack,
   Icon,
@@ -13,65 +13,61 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
-import { CheckCircleIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon, CheckCircleIcon } from "@chakra-ui/icons";
 import {
-  FaDatabase,
   FaBrain,
-  FaRobot,
-  FaCogs,
-  FaShieldAlt,
   FaChartLine,
+  FaCogs,
+  FaDatabase,
   FaNetworkWired,
+  FaRobot,
+  FaShieldAlt,
   FaUsersCog,
 } from "react-icons/fa";
 
 const serviceGroups = [
   {
     title: "Data Foundations",
-    description:
-      "Modern, governed data estates that unlock trusted decisioning and accelerate product development.",
+    description: "Governed data platforms that support better decisions and faster product delivery.",
     icon: FaDatabase,
     capabilities: [
-      "Data strategy, maturity assessments, and target-state architecture.",
-      "Data lakehouse, warehouse, and mesh implementations with observability baked in.",
-      "Batch, streaming, and event-driven pipelines customised for regulatory needs.",
-      "Metadata, lineage, and quality frameworks enabling compliance confidence.",
+      "Data strategy and target-state architecture.",
+      "Lakehouse, warehouse, and mesh implementations.",
+      "Batch, streaming, and event-driven pipelines.",
+      "Lineage, quality, and governance controls.",
     ],
   },
   {
-    title: "Applied AI & ML Engineering",
-    description:
-      "Specialised machine learning teams delivering models that are explainable, auditable, and production-ready.",
+    title: "Applied AI and ML Engineering",
+    description: "Production-ready AI systems built with governance, explainability, and operational control.",
     icon: FaBrain,
     capabilities: [
-      "Use-case discovery and financial modelling to prioritise impact.",
-      "Model development spanning predictive, NLP, CV, and generative techniques.",
-      "MLOps toolchains with CI/CD, monitoring, drift detection, and model governance.",
-      "Responsible AI reviews covering bias mitigation, ethics, and human-in-the-loop design.",
+      "Use-case discovery and impact modelling.",
+      "Predictive, NLP, vision, and generative systems.",
+      "MLOps, monitoring, drift detection, and governance.",
+      "Responsible AI reviews and human oversight patterns.",
     ],
   },
   {
-    title: "Automation & Experience Engineering",
-    description:
-      "Human-centric automation that embeds intelligence into customer and employee journeys.",
+    title: "Automation and Experience Engineering",
+    description: "Automation that improves customer and employee workflows without adding operational noise.",
     icon: FaRobot,
     capabilities: [
-      "Conversational AI, knowledge assistants, and workflow automation.",
-      "Computer vision solutions for field operations, manufacturing, and digital twins.",
-      "Augmented analytics and decision-support experiences integrated with core systems.",
-      "Change management, enablement, and adoption strategies to ensure sustained value.",
+      "Knowledge assistants and workflow automation.",
+      "Vision systems for field and operations teams.",
+      "Decision-support and analytics experiences.",
+      "Enablement and adoption planning.",
     ],
   },
   {
     title: "Agentic AI Orchestration",
-    description:
-      "Autonomous agent frameworks that collaborate with human teams to deliver continuous outcomes.",
+    description: "Multi-agent systems aligned to business controls, tooling, and measurable outcomes.",
     icon: FaCogs,
     capabilities: [
-      "Blueprints for multi-agent ecosystems aligned to business guardrails and KPIs.",
-      "Retriever-augmented workflows that blend enterprise knowledge with real-time signals.",
-      "Action connectors and tool integrations that let agents execute tasks safely.",
-      "Observation, alignment, and override controls to keep humans in command of outcomes.",
+      "Multi-agent operating models and guardrails.",
+      "Retriever workflows grounded in enterprise data.",
+      "Tool integrations for safe task execution.",
+      "Observation, override, and alignment controls.",
     ],
   },
 ];
@@ -79,95 +75,134 @@ const serviceGroups = [
 const accelerators = [
   {
     title: "Governed Delivery",
-    description:
-      "Program leadership, PMO integration, and agile rituals designed for regulated industries.",
+    description: "Program leadership and delivery controls suited to regulated environments.",
     icon: FaUsersCog,
   },
   {
-    title: "Security & Compliance",
-    description:
-      "Zero-trust architectures, data protection, and compliance controls aligned with global standards.",
+    title: "Security and Compliance",
+    description: "Data protection, access control, and compliance patterns built in from the start.",
     icon: FaShieldAlt,
   },
   {
-    title: "Performance & Scaling",
-    description:
-      "FinOps, capacity planning, and load strategies that keep solutions reliable and cost-efficient.",
+    title: "Performance and Scaling",
+    description: "Capacity, reliability, and cost management for sustained production use.",
     icon: FaChartLine,
   },
   {
     title: "Integration Fabric",
-    description:
-      "API ecosystems, event hubs, and connector frameworks that interoperate with your partners and platforms.",
+    description: "APIs, events, and connectors that fit into existing partner and enterprise ecosystems.",
     icon: FaNetworkWired,
   },
 ];
 
 const engagementSteps = [
   {
-    phase: "1 · Assess & Align",
-    detail: "Joint discovery sessions translate strategic priorities into a scoped roadmap with measurable outcomes.",
+    phase: "01",
+    title: "Assess and Align",
+    detail: "Translate strategic priorities into a scoped roadmap with measurable outcomes.",
   },
   {
-    phase: "2 · Design & Prototype",
-    detail: "Architectural blueprints and rapid prototypes validate feasibility, governance, and business desirability.",
+    phase: "02",
+    title: "Design and Prototype",
+    detail: "Validate feasibility, governance, and business fit before scaling investment.",
   },
   {
-    phase: "3 · Build & Launch",
-    detail: "Cross-functional squads deliver production systems with continuous user testing and telemetry.",
+    phase: "03",
+    title: "Build and Launch",
+    detail: "Deliver production systems with testing, telemetry, and clear ownership.",
   },
   {
-    phase: "4 · Operate & Evolve",
-    detail: "Managed optimisation, enablement, and enhancement cycles keep solutions resilient and relevant.",
+    phase: "04",
+    title: "Operate and Improve",
+    detail: "Refine performance, adoption, and resilience through measured iteration.",
   },
+];
+
+const highlights = [
+  "Cross-functional teams across data, product, AI, and delivery.",
+  "Frameworks suited to regulated and operationally sensitive work.",
+  "Clear governance across business and technical stakeholders.",
 ];
 
 const Services = () => {
   const pageBg = useColorModeValue("gray.50", "gray.900");
+  const heroBg = useColorModeValue("linear(to-br, #f4f6f8, #e9eef2)", "linear(to-br, brand.900, brand.800)");
   const cardBg = useColorModeValue("white", "gray.800");
   const borderColor = useColorModeValue("gray.200", "gray.700");
-  const accent = useColorModeValue("brand.600", "brand.200");
+  const accent = useColorModeValue("brand.700", "brand.200");
+  const sectionLabel = useColorModeValue("brand.600", "accent.200");
+  const sectionTitle = useColorModeValue("brand.900", "white");
   const textColor = useColorModeValue("gray.600", "gray.300");
+  const heroText = useColorModeValue("brand.900", "white");
+  const heroSubtext = useColorModeValue("gray.600", "gray.200");
+  const cardShadow = useColorModeValue("0 10px 30px rgba(15, 23, 42, 0.06)", "dark-lg");
+  const badgeBg = useColorModeValue("gray.100", "whiteAlpha.100");
 
   return (
     <Box bg={pageBg} minH="100vh">
-      {/* Hero */}
-      <Box bgGradient="linear(to-r, brand.900, brand.700)" color="white" py={{ base: 16, md: 24 }}>
-        <Container maxW="container.xl">
-          <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 8, md: 14 }} align="center">
-            <VStack align="start" spacing={6} flex={2}>
-              <Text textTransform="uppercase" letterSpacing="widest" fontWeight="semibold" color="accent.200">
+      <Box bgGradient={heroBg} borderBottom="1px solid" borderColor={borderColor}>
+        <Container maxW="container.xl" py={{ base: 14, md: 20 }}>
+          <Stack direction={{ base: "column", lg: "row" }} spacing={{ base: 10, lg: 16 }} align="stretch">
+            <VStack align="start" spacing={6} flex={1.3} maxW="2xl">
+              <Badge
+                px={3}
+                py={1}
+                borderRadius="full"
+                bg={useColorModeValue("brand.100", "whiteAlpha.200")}
+                color={heroText}
+                borderWidth="1px"
+                borderColor={useColorModeValue("brand.200", "whiteAlpha.300")}
+                letterSpacing="0.12em"
+                textTransform="uppercase"
+              >
                 Services
-              </Text>
-              <Heading as="h1" size={{ base: "2xl", md: "3xl" }} fontWeight="extrabold">
-                Strategy through delivery for trusted data & AI products
+              </Badge>
+              <Heading as="h1" size={{ base: "2xl", md: "3xl" }} lineHeight="shorter" color={heroText}>
+                Delivery for data, AI, and operational systems
               </Heading>
-              <Text fontSize={{ base: "md", md: "xl" }} maxW="3xl" lineHeight="tall" color="accent.100">
-                Misron embeds with your leadership, product, and engineering teams to modernise data estates, build responsible AI, and orchestrate automation that delivers measurable business outcomes.
+              <Text fontSize={{ base: "lg", md: "xl" }} color={heroSubtext} lineHeight="tall">
+                Misron works with leadership teams to modernize data platforms, deploy AI responsibly, and improve
+                execution across critical workflows.
               </Text>
               <HStack spacing={4} flexWrap="wrap">
-                <Button as={RouterLink} to="/contact" colorScheme="accent" size="lg" fontWeight="semibold" rightIcon={<ArrowForwardIcon />}>
+                <Button
+                  as={RouterLink}
+                  to="/contact"
+                  colorScheme="accent"
+                  size="lg"
+                  rightIcon={<ArrowForwardIcon />}
+                >
                   Schedule a Consultation
                 </Button>
-                <Button as={RouterLink} to="/coinnovationservices" variant="outline" colorScheme="whiteAlpha" size="lg">
+                <Button as={RouterLink} to="/coinnovationservices" variant="outline" colorScheme="blackAlpha" size="lg">
                   Explore Co-Innovation
                 </Button>
               </HStack>
             </VStack>
-            <Box flex={1} bg="whiteAlpha.100" borderRadius="2xl" p={{ base: 6, md: 8 }} backdropFilter="blur(10px)">
-              <VStack align="start" spacing={4}>
-                <Heading size="md" color="accent.200">
-                  Engagement Highlights
-                </Heading>
-                <VStack align="start" spacing={3}>
-                  {[
-                    "Cross-functional squads with data, ML, product, and change specialists.",
-                    "Modular frameworks built for regulated industries and fast-growth ventures.",
-                    "Transparent delivery governance with business and technology stakeholders.",
-                  ].map((item) => (
+
+            <Box
+              flex={1}
+              bg={cardBg}
+              borderWidth="1px"
+              borderColor={borderColor}
+              borderRadius="2xl"
+              p={{ base: 6, md: 8 }}
+              boxShadow={cardShadow}
+            >
+              <VStack align="start" spacing={5}>
+                <Box>
+                  <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
+                    Engagement Highlights
+                  </Text>
+                  <Heading size="md" color={sectionTitle}>
+                    Delivery with clarity and control
+                  </Heading>
+                </Box>
+                <VStack align="start" spacing={4}>
+                  {highlights.map((item) => (
                     <HStack key={item} align="start" spacing={3}>
-                      <Icon as={CheckCircleIcon} color="accent.200" mt={1} />
-                      <Text color="accent.100" lineHeight="tall">
+                      <Icon as={CheckCircleIcon} color={accent} mt={1} />
+                      <Text color={textColor} lineHeight="tall">
                         {item}
                       </Text>
                     </HStack>
@@ -180,12 +215,16 @@ const Services = () => {
       </Box>
 
       <Container maxW="container.xl" py={{ base: 16, md: 20 }}>
-        {/* Services */}
         <VStack align="start" spacing={{ base: 6, md: 8 }} mb={{ base: 16, md: 20 }}>
-          <Heading size={{ base: "lg", md: "xl" }} color={accent}>
-            Core Service Domains
-          </Heading>
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }} width="100%">
+          <Box>
+            <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
+              Core Services
+            </Text>
+            <Heading size={{ base: "lg", md: "xl" }} color={sectionTitle}>
+              Delivery areas we lead
+            </Heading>
+          </Box>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 6, md: 8 }} width="100%">
             {serviceGroups.map((group) => (
               <VStack
                 key={group.title}
@@ -196,11 +235,11 @@ const Services = () => {
                 borderWidth={1}
                 borderColor={borderColor}
                 p={{ base: 6, md: 8 }}
-                boxShadow="md"
+                boxShadow={cardShadow}
               >
                 <HStack spacing={3}>
-                  <Icon as={group.icon} boxSize={7} color={accent} />
-                  <Heading size="md" color={accent}>
+                  <Icon as={group.icon} boxSize={6} color={accent} />
+                  <Heading size="md" color={sectionTitle}>
                     {group.title}
                   </Heading>
                 </HStack>
@@ -220,11 +259,15 @@ const Services = () => {
           </SimpleGrid>
         </VStack>
 
-        {/* Accelerators */}
         <VStack align="start" spacing={{ base: 6, md: 8 }} mb={{ base: 16, md: 20 }}>
-          <Heading size={{ base: "lg", md: "xl" }} color={accent}>
-            Accelerators That Sustain Momentum
-          </Heading>
+          <Box>
+            <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
+              Delivery Accelerators
+            </Text>
+            <Heading size={{ base: "lg", md: "xl" }} color={sectionTitle}>
+              Controls that sustain momentum
+            </Heading>
+          </Box>
           <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={{ base: 6, md: 8 }} width="100%">
             {accelerators.map((item) => (
               <Box
@@ -234,11 +277,11 @@ const Services = () => {
                 borderWidth={1}
                 borderColor={borderColor}
                 p={{ base: 6, md: 7 }}
-                boxShadow="sm"
+                boxShadow={cardShadow}
               >
                 <HStack spacing={3} mb={3}>
-                  <Icon as={item.icon} boxSize={6} color={accent} />
-                  <Heading size="sm" color={accent}>
+                  <Icon as={item.icon} boxSize={5} color={accent} />
+                  <Heading size="sm" color={sectionTitle}>
                     {item.title}
                   </Heading>
                 </HStack>
@@ -250,27 +293,34 @@ const Services = () => {
           </SimpleGrid>
         </VStack>
 
-        {/* Engagement Steps */}
         <VStack align="start" spacing={{ base: 6, md: 8 }}>
-          <Heading size={{ base: "lg", md: "xl" }} color={accent}>
-            Partnership Rhythm
-          </Heading>
-          <SimpleGrid columns={{ base: 1, md: 4 }} spacing={{ base: 6, md: 6 }} width="100%">
+          <Box>
+            <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
+              Engagement Model
+            </Text>
+            <Heading size={{ base: "lg", md: "xl" }} color={sectionTitle}>
+              A clear delivery cadence
+            </Heading>
+          </Box>
+          <SimpleGrid columns={{ base: 1, md: 2, xl: 4 }} spacing={{ base: 6, md: 6 }} width="100%">
             {engagementSteps.map((step) => (
               <VStack
                 key={step.phase}
                 align="start"
-                spacing={3}
+                spacing={4}
                 bg={cardBg}
                 borderRadius="xl"
                 borderWidth={1}
                 borderColor={borderColor}
                 p={{ base: 5, md: 6 }}
-                boxShadow="sm"
+                boxShadow={cardShadow}
               >
-                <Text fontWeight="bold" color={accent}>
-                  {step.phase}
-                </Text>
+                <Badge px={3} py={1} borderRadius="full" bg={badgeBg} color={accent}>
+                  Phase {step.phase}
+                </Badge>
+                <Heading size="sm" color={sectionTitle}>
+                  {step.title}
+                </Heading>
                 <Text color={textColor} lineHeight="tall">
                   {step.detail}
                 </Text>
@@ -280,24 +330,26 @@ const Services = () => {
         </VStack>
       </Container>
 
-      {/* CTA */}
       <Box bg={useColorModeValue("brand.900", "brand.800")} color="white" py={{ base: 12, md: 16 }}>
         <Container maxW="container.xl">
           <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 6, md: 10 }} align="center">
             <VStack align="start" spacing={3} flex={1}>
+              <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color="whiteAlpha.700">
+                Start a conversation
+              </Text>
               <Heading size={{ base: "lg", md: "xl" }}>
-                Let’s architect a roadmap that delivers clarity and confidence.
+                Need a clearer path from strategy to delivery?
               </Heading>
-              <Text color="accent.100" lineHeight="tall">
-                Share your goals, timelines, and constraints—we’ll configure a boutique squad ready to move with you from discovery to scale.
+              <Text color="whiteAlpha.800" lineHeight="tall">
+                We align on outcomes, architecture, and operating constraints before execution begins.
               </Text>
             </VStack>
-            <HStack spacing={4}>
-              <Button as={RouterLink} to="/contact" colorScheme="accent" size="lg" fontWeight="semibold">
+            <HStack spacing={4} flexWrap="wrap">
+              <Button as={RouterLink} to="/contact" colorScheme="accent" size="lg">
                 Talk to Misron
               </Button>
-              <Button as={RouterLink} to="/projects" variant="outline" colorScheme="whiteAlpha" size="lg">
-                View Case Studies
+              <Button as={RouterLink} to="/coinnovationservices" variant="outline" colorScheme="whiteAlpha" size="lg">
+                View Co-Innovation
               </Button>
             </HStack>
           </Stack>

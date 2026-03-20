@@ -1,8 +1,8 @@
 import {
+  Badge,
   Box,
   Button,
   Container,
-  Divider,
   Heading,
   HStack,
   Icon,
@@ -14,33 +14,30 @@ import {
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import {
+  FaChartLine,
+  FaCogs,
   FaHandshake,
   FaLightbulb,
-  FaRocket,
-  FaUsers,
   FaPuzzlePiece,
-  FaChartLine,
+  FaRocket,
   FaShieldAlt,
-  FaCogs,
+  FaUsers,
 } from "react-icons/fa";
 
 const collaborationModels = [
   {
     title: "Venture Studio Sprints",
-    description:
-      "Rapid co-creation programmes for founders and intrapreneurs bringing net-new concepts to market. We build joint squads, validate product-market fit, and move from hypothesis to pilot in weeks.",
+    description: "Joint product sprints to move new concepts from idea to pilot with speed and discipline.",
     icon: FaRocket,
   },
   {
     title: "Industry Alliances",
-    description:
-      "Partner with domain leaders to modernise core operations or unlock new revenue streams. Misron orchestrates governance, compliance, and data-sharing frameworks that keep partnerships aligned.",
+    description: "Partnership models for modernizing operations or launching new revenue lines with shared governance.",
     icon: FaHandshake,
   },
   {
     title: "Platform Integrations",
-    description:
-      "Embed your technology into our data and AI ecosystems—or integrate ours into yours. We design extensible architectures, APIs, and SDKs so products scale seamlessly across customer portfolios.",
+    description: "Extensible integrations, APIs, and shared architectures built to scale across partner ecosystems.",
     icon: FaPuzzlePiece,
   },
 ];
@@ -48,139 +45,168 @@ const collaborationModels = [
 const valuePillars = [
   {
     title: "Strategic Product Vision",
-    description:
-      "Facilitated ideation backed by market intelligence to define the ‘why’, target segments, and value proposition before engineering begins.",
+    description: "Clear market framing, target use cases, and value definition before engineering begins.",
     icon: FaLightbulb,
   },
   {
     title: "Operational Readiness",
-    description:
-      "Delivery leadership, agile rituals, and change management support that embed co-innovation into existing operating models.",
+    description: "Delivery controls, decision-making rhythms, and enablement that fit existing operating models.",
     icon: FaUsers,
   },
   {
-    title: "Risk & Compliance Guardrails",
-    description:
-      "Responsible AI, data privacy, and IP frameworks that let legal and security stakeholders champion the collaboration.",
+    title: "Risk and Compliance Guardrails",
+    description: "Responsible AI, privacy, and IP frameworks that stand up to legal and security review.",
     icon: FaShieldAlt,
   },
   {
-    title: "Measurable Growth",
-    description:
-      "Business cases grounded in metrics—adoption, retention, efficiency gains, revenue expansion—tracked from day one.",
+    title: "Measured Growth",
+    description: "Progress tied to adoption, efficiency, retention, and revenue from the start.",
     icon: FaChartLine,
   },
 ];
 
 const serviceTracks = [
   {
-    title: "Discovery & Alignment",
+    title: "Discovery and Alignment",
     points: [
-      "Executive workshops capturing user needs, regulatory considerations, and commercial goals.",
-      "Market and trend landscaping to prioritise high-value opportunity spaces.",
-      "Joint success scorecards aligning stakeholders on measurable outcomes.",
+      "Executive workshops on user needs, regulation, and commercial goals.",
+      "Market scanning to prioritize viable opportunities.",
+      "Shared success scorecards across stakeholders.",
     ],
   },
   {
     title: "Product Architecture",
     points: [
-      "Reference architectures blending partner capabilities with Misron’s data and AI components.",
-      "Security, governance, and integration blueprints signed off by both organisations.",
-      "Experience design journeys illustrating user impact across touchpoints.",
+      "Reference architectures combining partner and Misron capabilities.",
+      "Security, governance, and integration blueprints.",
+      "Experience flows mapping user impact across touchpoints.",
     ],
   },
   {
-    title: "Build & Validate",
+    title: "Build and Validate",
     points: [
-      "Cross-functional pods with shared PMO oversight and transparent burndown reporting.",
-      "Pilot deployments with instrumentation to capture qualitative and quantitative feedback.",
-      "Iterative release strategy ensuring momentum without sacrificing quality.",
+      "Cross-functional delivery pods with shared oversight.",
+      "Pilot deployments with clear instrumentation.",
+      "Release planning that preserves speed and control.",
     ],
   },
   {
-    title: "Scale & Operate",
+    title: "Scale and Operate",
     points: [
-      "Runbooks for enablement, support, and ongoing data stewardship.",
-      "Commercial go-to-market alignment: packaging, pricing, partner incentives.",
-      "Continuous optimisation loops, informed by telemetry and partner retrospectives.",
+      "Runbooks for support, stewardship, and enablement.",
+      "Commercial alignment on packaging and incentives.",
+      "Ongoing optimization informed by telemetry and partner review.",
     ],
   },
 ];
 
 const deliveryRhythm = [
   {
-    phase: "Immersion (Weeks 1-2)",
-    description:
-      "Form the joint leadership council, align on hypotheses, and establish compliance pathways.",
+    phase: "01",
+    title: "Immersion",
+    description: "Form the joint leadership group, align on hypotheses, and establish governance pathways.",
   },
   {
-    phase: "Design Sprints (Weeks 3-6)",
-    description:
-      "Prototype concepts, validate with users, and de-risk data access, integration, and security.",
+    phase: "02",
+    title: "Design Sprints",
+    description: "Prototype concepts and de-risk data access, integration, and security decisions.",
   },
   {
-    phase: "Build Cycles (Weeks 7-14)",
-    description:
-      "Iterative development with shared sprint reviews, technical showcases, and governance checkpoints.",
+    phase: "03",
+    title: "Build Cycles",
+    description: "Run iterative development with shared reviews, checkpoints, and visible progress.",
   },
   {
-    phase: "Launch & Iterate (Weeks 15+)",
-    description:
-      "Co-own go-to-market, monitor adoption metrics, and feed learnings into the partnership backlog.",
+    phase: "04",
+    title: "Launch and Iterate",
+    description: "Monitor adoption, refine the offer, and feed learning back into the roadmap.",
   },
 ];
 
 const proofPoints = [
-  "Co-created AI Bee Health alongside Wildflower Bee Farm, building an edge-ready disease detection platform now piloted across multiple apiaries.",
-  "Accelerated fintech compliance automation with a partner network, reducing audit preparation cycles by 45%.",
-  "Delivered joint NLP accelerators for professional services firms, enabling secure knowledge retrieval across global practices.",
+  "AI Bee Health co-developed with Wildflower Bee Farm.",
+  "Fintech compliance automation accelerated through partner delivery.",
+  "Secure NLP accelerators launched for professional services teams.",
 ];
 
 const CoInnovationServices = () => {
   const pageBg = useColorModeValue("gray.50", "gray.900");
+  const heroBg = useColorModeValue("linear(to-br, #f4f6f8, #e9eef2)", "linear(to-br, brand.900, brand.800)");
   const cardBg = useColorModeValue("white", "gray.800");
   const borderColor = useColorModeValue("gray.200", "gray.700");
-  const accent = useColorModeValue("brand.600", "brand.200");
+  const accent = useColorModeValue("brand.700", "brand.200");
+  const sectionLabel = useColorModeValue("brand.600", "accent.200");
+  const sectionTitle = useColorModeValue("brand.900", "white");
   const textColor = useColorModeValue("gray.600", "gray.300");
+  const heroText = useColorModeValue("brand.900", "white");
+  const heroSubtext = useColorModeValue("gray.600", "gray.200");
+  const cardShadow = useColorModeValue("0 10px 30px rgba(15, 23, 42, 0.06)", "dark-lg");
+  const badgeBg = useColorModeValue("gray.100", "whiteAlpha.100");
 
   return (
     <Box bg={pageBg} minH="100vh">
-      {/* Hero */}
-      <Box position="relative" bgGradient="linear(to-r, brand.900, brand.700)" color="white" py={{ base: 16, md: 24 }}>
-        <Container maxW="container.xl">
-          <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 10, md: 16 }} align="center">
-            <VStack align="start" spacing={6} flex={2}>
-              <Text textTransform="uppercase" letterSpacing="widest" fontWeight="semibold" color="accent.200">
-                Co-Innovation Programmes
-              </Text>
-              <Heading as="h1" size={{ base: "2xl", md: "3xl" }} fontWeight="extrabold" lineHeight="shorter">
-                Build strategic products with a boutique engineering partner by your side
+      <Box bgGradient={heroBg} borderBottom="1px solid" borderColor={borderColor}>
+        <Container maxW="container.xl" py={{ base: 14, md: 20 }}>
+          <Stack direction={{ base: "column", lg: "row" }} spacing={{ base: 10, lg: 16 }} align="stretch">
+            <VStack align="start" spacing={6} flex={1.3} maxW="2xl">
+              <Badge
+                px={3}
+                py={1}
+                borderRadius="full"
+                bg={useColorModeValue("brand.100", "whiteAlpha.200")}
+                color={heroText}
+                borderWidth="1px"
+                borderColor={useColorModeValue("brand.200", "whiteAlpha.300")}
+                letterSpacing="0.12em"
+                textTransform="uppercase"
+              >
+                Co-Innovation
+              </Badge>
+              <Heading as="h1" size={{ base: "2xl", md: "3xl" }} lineHeight="shorter" color={heroText}>
+                Build strategic products through structured partnership
               </Heading>
-              <Text fontSize={{ base: "md", md: "xl" }} maxW="3xl" lineHeight="tall" color="accent.100">
-                Misron teams with enterprises, venture studios, and technology providers to bring data and AI products to market faster—without sacrificing compliance, user trust, or operational excellence.
+              <Text fontSize={{ base: "lg", md: "xl" }} color={heroSubtext} lineHeight="tall">
+                Misron works with enterprises, venture teams, and technology partners to bring data and AI products to
+                market with speed, governance, and operational discipline.
               </Text>
               <HStack spacing={4} flexWrap="wrap">
-                <Button as={RouterLink} to="/contact" colorScheme="accent" size="lg" fontWeight="semibold">
-                  Request a Co-Innovation Session
+                <Button as={RouterLink} to="/contact" colorScheme="accent" size="lg">
+                  Request a Session
                 </Button>
-                <Button as={RouterLink} to="/projects" variant="outline" colorScheme="whiteAlpha" size="lg">
-                  View Flagship Work
+                <Button as={RouterLink} to="/services" variant="outline" colorScheme="blackAlpha" size="lg">
+                  View Services
                 </Button>
               </HStack>
             </VStack>
-            <Box flex={1} bg="whiteAlpha.100" borderRadius="2xl" p={{ base: 6, md: 8 }} backdropFilter="blur(10px)">
-              <VStack align="start" spacing={4}>
-                <Heading size="md" color="accent.200">
-                  Partnership Snapshot
-                </Heading>
-                {proofPoints.map((item) => (
-                  <HStack key={item} align="start" spacing={3}>
-                    <Icon as={FaCogs} color="accent.200" mt={1} />
-                    <Text color="accent.100" lineHeight="tall">
-                      {item}
-                    </Text>
-                  </HStack>
-                ))}
+
+            <Box
+              flex={1}
+              bg={cardBg}
+              borderWidth="1px"
+              borderColor={borderColor}
+              borderRadius="2xl"
+              p={{ base: 6, md: 8 }}
+              boxShadow={cardShadow}
+            >
+              <VStack align="start" spacing={5}>
+                <Box>
+                  <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
+                    Partnership Snapshot
+                  </Text>
+                  <Heading size="md" color={sectionTitle}>
+                    Joint execution with clear governance
+                  </Heading>
+                </Box>
+                <VStack align="start" spacing={4}>
+                  {proofPoints.map((item) => (
+                    <HStack key={item} align="start" spacing={3}>
+                      <Icon as={FaCogs} color={accent} mt={1} />
+                      <Text color={textColor} lineHeight="tall">
+                        {item}
+                      </Text>
+                    </HStack>
+                  ))}
+                </VStack>
               </VStack>
             </Box>
           </Stack>
@@ -188,11 +214,15 @@ const CoInnovationServices = () => {
       </Box>
 
       <Container maxW="container.xl" py={{ base: 16, md: 20 }}>
-        {/* Collaboration Models */}
         <VStack align="start" spacing={{ base: 6, md: 8 }} mb={{ base: 16, md: 20 }}>
-          <Heading size={{ base: "lg", md: "xl" }} color={accent}>
-            Collaboration Models
-          </Heading>
+          <Box>
+            <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
+              Collaboration Models
+            </Text>
+            <Heading size={{ base: "lg", md: "xl" }} color={sectionTitle}>
+              Partnership structures we support
+            </Heading>
+          </Box>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }} width="100%">
             {collaborationModels.map((model) => (
               <VStack
@@ -204,10 +234,10 @@ const CoInnovationServices = () => {
                 borderWidth={1}
                 borderColor={borderColor}
                 p={{ base: 6, md: 8 }}
-                boxShadow="md"
+                boxShadow={cardShadow}
               >
-                <Icon as={model.icon} boxSize={8} color={accent} />
-                <Heading size="md" color={accent}>
+                <Icon as={model.icon} boxSize={7} color={accent} />
+                <Heading size="md" color={sectionTitle}>
                   {model.title}
                 </Heading>
                 <Text color={textColor} lineHeight="tall">
@@ -218,11 +248,15 @@ const CoInnovationServices = () => {
           </SimpleGrid>
         </VStack>
 
-        {/* Value Pillars */}
         <VStack align="start" spacing={{ base: 6, md: 8 }} mb={{ base: 16, md: 20 }}>
-          <Heading size={{ base: "lg", md: "xl" }} color={accent}>
-            What Sets Misron Apart
-          </Heading>
+          <Box>
+            <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
+              Value Pillars
+            </Text>
+            <Heading size={{ base: "lg", md: "xl" }} color={sectionTitle}>
+              What keeps the model grounded
+            </Heading>
+          </Box>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 6, md: 8 }} width="100%">
             {valuePillars.map((pillar) => (
               <Box
@@ -232,11 +266,11 @@ const CoInnovationServices = () => {
                 borderWidth={1}
                 borderColor={borderColor}
                 p={{ base: 6, md: 8 }}
-                boxShadow="md"
+                boxShadow={cardShadow}
               >
                 <HStack spacing={3} mb={3}>
-                  <Icon as={pillar.icon} boxSize={7} color={accent} />
-                  <Heading size="md" color={accent}>
+                  <Icon as={pillar.icon} boxSize={6} color={accent} />
+                  <Heading size="md" color={sectionTitle}>
                     {pillar.title}
                   </Heading>
                 </HStack>
@@ -248,11 +282,15 @@ const CoInnovationServices = () => {
           </SimpleGrid>
         </VStack>
 
-        {/* Service Tracks */}
         <VStack align="start" spacing={{ base: 6, md: 8 }} mb={{ base: 16, md: 20 }}>
-          <Heading size={{ base: "lg", md: "xl" }} color={accent}>
-            Co-Innovation Tracks
-          </Heading>
+          <Box>
+            <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
+              Co-Innovation Tracks
+            </Text>
+            <Heading size={{ base: "lg", md: "xl" }} color={sectionTitle}>
+              How the work is structured
+            </Heading>
+          </Box>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 6, md: 8 }} width="100%">
             {serviceTracks.map((track) => (
               <Box
@@ -262,9 +300,9 @@ const CoInnovationServices = () => {
                 borderWidth={1}
                 borderColor={borderColor}
                 p={{ base: 6, md: 8 }}
-                boxShadow="md"
+                boxShadow={cardShadow}
               >
-                <Heading size="md" color={accent} mb={3}>
+                <Heading size="md" color={sectionTitle} mb={3}>
                   {track.title}
                 </Heading>
                 <VStack align="start" spacing={3}>
@@ -282,62 +320,60 @@ const CoInnovationServices = () => {
           </SimpleGrid>
         </VStack>
 
-        {/* Delivery Rhythm */}
         <VStack align="start" spacing={{ base: 6, md: 8 }} mb={{ base: 16, md: 20 }}>
-          <Heading size={{ base: "lg", md: "xl" }} color={accent}>
-            Delivery Rhythm
-          </Heading>
-          <Stack spacing={6}>
-            {deliveryRhythm.map((stage, index) => (
-              <Box
+          <Box>
+            <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
+              Delivery Rhythm
+            </Text>
+            <Heading size={{ base: "lg", md: "xl" }} color={sectionTitle}>
+              A structured partnership cadence
+            </Heading>
+          </Box>
+          <SimpleGrid columns={{ base: 1, md: 2, xl: 4 }} spacing={{ base: 6, md: 6 }} width="100%">
+            {deliveryRhythm.map((stage) => (
+              <VStack
                 key={stage.phase}
+                align="start"
+                spacing={4}
                 bg={cardBg}
                 borderRadius="xl"
                 borderWidth={1}
                 borderColor={borderColor}
-                p={{ base: 6, md: 7 }}
-                boxShadow="sm"
+                p={{ base: 5, md: 6 }}
+                boxShadow={cardShadow}
               >
-                <HStack justify="space-between" mb={2}>
-                  <Text fontWeight="bold" color={accent}>
-                    {stage.phase}
-                  </Text>
-                  <Text color={textColor} fontSize="sm">
-                    Phase {index + 1}
-                  </Text>
-                </HStack>
+                <Badge px={3} py={1} borderRadius="full" bg={badgeBg} color={accent}>
+                  Phase {stage.phase}
+                </Badge>
+                <Heading size="sm" color={sectionTitle}>
+                  {stage.title}
+                </Heading>
                 <Text color={textColor} lineHeight="tall">
                   {stage.description}
                 </Text>
-              </Box>
+              </VStack>
             ))}
-          </Stack>
+          </SimpleGrid>
         </VStack>
 
-        {/* CTA */}
-        <Box
-          bg={cardBg}
-          borderRadius="2xl"
-          borderWidth={1}
-          borderColor={borderColor}
-          p={{ base: 8, md: 12 }}
-          boxShadow="xl"
-        >
+        <Box bg={cardBg} borderRadius="2xl" borderWidth={1} borderColor={borderColor} p={{ base: 8, md: 10 }} boxShadow={cardShadow}>
           <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 6, md: 10 }} align="center">
             <VStack align="start" spacing={3} flex={1}>
-              <Heading size={{ base: "lg", md: "xl" }} color={accent}>
-                Ready to co-create the next generation of products?
+              <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel}>
+                Start a conversation
+              </Text>
+              <Heading size={{ base: "lg", md: "xl" }} color={sectionTitle}>
+                Ready to shape a product through partnership?
               </Heading>
               <Text color={textColor} fontSize={{ base: "md", md: "lg" }} lineHeight="tall">
-                Bring your strategy, we’ll bring boutique engineering depth. Together we’ll design the roadmap, define
-                the governance, and execute with momentum.
+                We can align on the model, governance, and delivery plan before work begins.
               </Text>
             </VStack>
-            <HStack spacing={4}>
-              <Button as={RouterLink} to="/contact" colorScheme="brand" size="lg" fontWeight="semibold">
+            <HStack spacing={4} flexWrap="wrap">
+              <Button as={RouterLink} to="/contact" colorScheme="accent" size="lg">
                 Start the Conversation
               </Button>
-              <Button as={RouterLink} to="/services" variant="outline" colorScheme="brand" size="lg">
+              <Button as={RouterLink} to="/services" variant="outline" colorScheme="blackAlpha" size="lg">
                 Explore Services
               </Button>
             </HStack>
@@ -349,4 +385,3 @@ const CoInnovationServices = () => {
 };
 
 export default CoInnovationServices;
-
