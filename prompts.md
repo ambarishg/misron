@@ -15,3 +15,5 @@ Make the whole site more
 2. Smart
 3. Professional
 4. World Class
+
+The boxes in the site sometimes have lot of open spaces. make them crisp and professional and sharp. Increase the sharpness of the site

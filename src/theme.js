@@ -1,6 +1,18 @@
 import { extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
+  radii: {
+    sm: "8px",
+    md: "12px",
+    lg: "16px",
+    xl: "20px",
+    "2xl": "28px",
+  },
+  shadows: {
+    outline: "0 0 0 3px rgba(16, 42, 67, 0.14)",
+    elevated: "0 18px 44px rgba(15, 23, 42, 0.08)",
+    crisp: "0 8px 24px rgba(15, 23, 42, 0.08)",
+  },
   colors: {
     brand: {
       50: "#F2F6F9",
@@ -33,9 +45,18 @@ const theme = extendTheme({
   },
   styles: {
     global: {
+      "html, body, #root": {
+        minHeight: "100%",
+      },
       body: {
         color: "#102A43",
-        bg: "#F7F8FA",
+        bg: "linear-gradient(180deg, #F8FAFC 0%, #F2F5F8 46%, #EEF2F6 100%)",
+      },
+      "::placeholder": {
+        color: "#7B8794",
+      },
+      "*:focus-visible": {
+        boxShadow: "outline",
       },
     },
   },
@@ -43,7 +64,33 @@ const theme = extendTheme({
     Button: {
       baseStyle: {
         fontWeight: "600",
-        borderRadius: "full",
+        borderRadius: "lg",
+        letterSpacing: "-0.01em",
+        transitionProperty: "transform, box-shadow, background-color, border-color, color",
+        transitionDuration: "180ms",
+        _hover: {
+          transform: "translateY(-1px)",
+        },
+        _active: {
+          transform: "translateY(0)",
+        },
+      },
+      sizes: {
+        sm: {
+          px: 4,
+          h: 9,
+          fontSize: "sm",
+        },
+        md: {
+          px: 5,
+          h: 11,
+          fontSize: "sm",
+        },
+        lg: {
+          px: 6,
+          h: 12,
+          fontSize: "md",
+        },
       },
       variants: {
         solid: (props) => ({
@@ -54,6 +101,7 @@ const theme = extendTheme({
                 ? "brand.900"
                 : undefined,
           color: "white",
+          boxShadow: "crisp",
           _hover: {
             bg:
               props.colorScheme === "brand"
@@ -61,14 +109,59 @@ const theme = extendTheme({
                 : props.colorScheme === "accent"
                   ? "brand.800"
                   : undefined,
+            boxShadow: "elevated",
           },
         }),
+        outline: (props) => ({
+          borderWidth: "1px",
+          borderColor:
+            props.colorScheme === "whiteAlpha"
+              ? "whiteAlpha.300"
+              : props.colorScheme === "blackAlpha"
+                ? "rgba(16, 42, 67, 0.16)"
+                : "brand.200",
+          color: props.colorScheme === "whiteAlpha" ? "white" : "brand.900",
+          bg: props.colorScheme === "whiteAlpha" ? "whiteAlpha.50" : "rgba(255,255,255,0.72)",
+          _hover: {
+            bg: props.colorScheme === "whiteAlpha" ? "whiteAlpha.120" : "white",
+            borderColor: props.colorScheme === "whiteAlpha" ? "whiteAlpha.500" : "brand.300",
+          },
+        }),
+        ghost: (props) => ({
+          color: props.colorScheme === "brand" ? "brand.800" : undefined,
+          _hover: {
+            bg: props.colorScheme === "brand" ? "brand.50" : "blackAlpha.50",
+          },
+        }),
+        link: {
+          color: "brand.800",
+          textDecorationThickness: "1px",
+          textUnderlineOffset: "0.18em",
+          _hover: {
+            color: "brand.900",
+            textDecoration: "none",
+          },
+        },
       },
     },
     Heading: {
       baseStyle: {
         fontWeight: "700",
-        letterSpacing: "-0.02em",
+        letterSpacing: "-0.03em",
+        lineHeight: "1.05",
+      },
+    },
+    Link: {
+      baseStyle: {
+        transitionProperty: "color, opacity",
+        transitionDuration: "160ms",
+      },
+    },
+    Badge: {
+      baseStyle: {
+        borderRadius: "lg",
+        fontWeight: "700",
+        letterSpacing: "0.08em",
       },
     },
   },

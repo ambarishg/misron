@@ -79,7 +79,10 @@ const leadershipPrinciples = [
 
 const About = () => {
   const bg = useColorModeValue("gray.50", "gray.900");
-  const heroBg = useColorModeValue("linear(to-br, #f4f6f8, #e9eef2)", "linear(to-br, brand.900, brand.800)");
+  const heroBg = useColorModeValue(
+    "linear(to-br, rgba(248, 250, 252, 0.96), rgba(236, 242, 247, 0.96), rgba(226, 234, 241, 0.96))",
+    "linear(to-br, brand.900, brand.800)"
+  );
   const cardBg = useColorModeValue("white", "gray.800");
   const textColor = useColorModeValue("gray.600", "gray.300");
   const sectionLabel = useColorModeValue("brand.600", "accent.200");
@@ -88,13 +91,13 @@ const About = () => {
   const border = useColorModeValue("gray.200", "gray.700");
   const heroText = useColorModeValue("brand.900", "white");
   const heroSubtext = useColorModeValue("gray.600", "gray.200");
-  const cardShadow = useColorModeValue("0 10px 30px rgba(15, 23, 42, 0.06)", "dark-lg");
+  const cardShadow = useColorModeValue("0 14px 34px rgba(15, 23, 42, 0.07)", "dark-lg");
 
   return (
     <Box bg={bg} minH="100vh">
       <Box bgGradient={heroBg} borderBottom="1px solid" borderColor={border}>
-        <Container maxW="container.xl" py={{ base: 14, md: 20 }}>
-          <VStack spacing={6} align="start" maxW="3xl">
+        <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
+            <VStack spacing={4} align="start" maxW="3xl">
             <Badge
               px={3}
               py={1}
@@ -118,18 +121,18 @@ const About = () => {
         </Container>
       </Box>
 
-      <Container maxW="container.xl" py={{ base: 16, md: 20 }}>
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }} mb={{ base: 16, md: 20 }}>
+      <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, md: 6 }} mb={{ base: 12, md: 16 }}>
           {identityStatements.map((item) => (
             <VStack
               key={item.title}
               align="start"
-              spacing={4}
+              spacing={3}
               bg={cardBg}
               borderWidth={1}
               borderColor={border}
-              borderRadius="xl"
-              p={{ base: 6, md: 8 }}
+              borderRadius="lg"
+              p={{ base: 5, md: 6 }}
               boxShadow={cardShadow}
             >
               <Icon as={item.icon} boxSize={7} color={accent} />
@@ -145,14 +148,14 @@ const About = () => {
 
         <Box
           bg={cardBg}
-          borderRadius="2xl"
+          borderRadius="xl"
           borderWidth={1}
           borderColor={border}
-          p={{ base: 8, md: 10 }}
-          mb={{ base: 16, md: 20 }}
+          p={{ base: 6, md: 8 }}
+          mb={{ base: 12, md: 16 }}
           boxShadow={cardShadow}
         >
-          <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 6, md: 10 }}>
+          <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 5, md: 8 }}>
             <VStack align="start" spacing={4} flex={2}>
               <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel}>
                 Perspective
@@ -185,7 +188,7 @@ const About = () => {
           </Stack>
         </Box>
 
-        <VStack align="start" spacing={{ base: 6, md: 8 }} mb={{ base: 16, md: 20 }}>
+        <VStack align="start" spacing={{ base: 5, md: 6 }} mb={{ base: 12, md: 16 }}>
           <Box>
             <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
               Engagement Style
@@ -194,17 +197,17 @@ const About = () => {
               How Misron leads delivery
             </Heading>
           </Box>
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }} width="100%">
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, md: 6 }} width="100%">
             {leadershipPrinciples.map((principle) => (
               <VStack
                 key={principle.title}
                 align="start"
-                spacing={4}
+                spacing={3}
                 bg={cardBg}
-                borderRadius="xl"
+                borderRadius="lg"
                 borderWidth={1}
                 borderColor={border}
-                p={{ base: 6, md: 7 }}
+                p={{ base: 5, md: 6 }}
                 boxShadow={cardShadow}
               >
                 <Icon as={principle.icon} boxSize={6} color={accent} />
@@ -219,7 +222,7 @@ const About = () => {
           </SimpleGrid>
         </VStack>
 
-        <VStack align="start" spacing={{ base: 6, md: 8 }}>
+        <VStack align="start" spacing={{ base: 5, md: 6 }}>
           <Box>
             <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
               Values
@@ -228,15 +231,15 @@ const About = () => {
               Principles behind the work
             </Heading>
           </Box>
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 6, md: 8 }} width="100%">
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, md: 6 }} width="100%">
             {values.map((value) => (
               <Box
                 key={value.title}
                 bg={cardBg}
-                borderRadius="xl"
+                borderRadius="lg"
                 borderWidth={1}
                 borderColor={border}
-                p={{ base: 6, md: 7 }}
+                p={{ base: 5, md: 6 }}
                 boxShadow={cardShadow}
               >
                 <Heading size="md" color={sectionTitle} mb={3}>

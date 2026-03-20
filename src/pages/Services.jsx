@@ -126,7 +126,10 @@ const highlights = [
 
 const Services = () => {
   const pageBg = useColorModeValue("gray.50", "gray.900");
-  const heroBg = useColorModeValue("linear(to-br, #f4f6f8, #e9eef2)", "linear(to-br, brand.900, brand.800)");
+  const heroBg = useColorModeValue(
+    "linear(to-br, rgba(248, 250, 252, 0.96), rgba(236, 242, 247, 0.96), rgba(226, 234, 241, 0.96))",
+    "linear(to-br, brand.900, brand.800)"
+  );
   const cardBg = useColorModeValue("white", "gray.800");
   const borderColor = useColorModeValue("gray.200", "gray.700");
   const accent = useColorModeValue("brand.700", "brand.200");
@@ -135,15 +138,15 @@ const Services = () => {
   const textColor = useColorModeValue("gray.600", "gray.300");
   const heroText = useColorModeValue("brand.900", "white");
   const heroSubtext = useColorModeValue("gray.600", "gray.200");
-  const cardShadow = useColorModeValue("0 10px 30px rgba(15, 23, 42, 0.06)", "dark-lg");
+  const cardShadow = useColorModeValue("0 14px 34px rgba(15, 23, 42, 0.07)", "dark-lg");
   const badgeBg = useColorModeValue("gray.100", "whiteAlpha.100");
 
   return (
     <Box bg={pageBg} minH="100vh">
       <Box bgGradient={heroBg} borderBottom="1px solid" borderColor={borderColor}>
-        <Container maxW="container.xl" py={{ base: 14, md: 20 }}>
-          <Stack direction={{ base: "column", lg: "row" }} spacing={{ base: 10, lg: 16 }} align="stretch">
-            <VStack align="start" spacing={6} flex={1.3} maxW="2xl">
+        <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
+          <Stack direction={{ base: "column", lg: "row" }} spacing={{ base: 8, lg: 12 }} align="stretch">
+            <VStack align="start" spacing={5} flex={1.3} maxW="2xl">
               <Badge
                 px={3}
                 py={1}
@@ -181,28 +184,30 @@ const Services = () => {
             </VStack>
 
             <Box
-              flex={1}
+              flex={{ lg: "0 0 360px" }}
+              maxW={{ lg: "360px" }}
+              alignSelf="flex-start"
               bg={cardBg}
               borderWidth="1px"
               borderColor={borderColor}
-              borderRadius="2xl"
-              p={{ base: 6, md: 8 }}
+              borderRadius="xl"
+              p={{ base: 4, md: 5 }}
               boxShadow={cardShadow}
             >
-              <VStack align="start" spacing={5}>
+              <VStack align="start" spacing={3}>
                 <Box>
-                  <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
+                  <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={1}>
                     Engagement Highlights
                   </Text>
-                  <Heading size="md" color={sectionTitle}>
+                  <Heading size="sm" color={sectionTitle}>
                     Delivery with clarity and control
                   </Heading>
                 </Box>
-                <VStack align="start" spacing={4}>
+                <VStack align="start" spacing={2}>
                   {highlights.map((item) => (
                     <HStack key={item} align="start" spacing={3}>
                       <Icon as={CheckCircleIcon} color={accent} mt={1} />
-                      <Text color={textColor} lineHeight="tall">
+                      <Text color={textColor} lineHeight="1.6">
                         {item}
                       </Text>
                     </HStack>
@@ -214,8 +219,8 @@ const Services = () => {
         </Container>
       </Box>
 
-      <Container maxW="container.xl" py={{ base: 16, md: 20 }}>
-        <VStack align="start" spacing={{ base: 6, md: 8 }} mb={{ base: 16, md: 20 }}>
+      <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
+        <VStack align="start" spacing={{ base: 5, md: 6 }} mb={{ base: 12, md: 16 }}>
           <Box>
             <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
               Core Services
@@ -224,17 +229,17 @@ const Services = () => {
               Delivery areas we lead
             </Heading>
           </Box>
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 6, md: 8 }} width="100%">
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, md: 6 }} width="100%">
             {serviceGroups.map((group) => (
               <VStack
                 key={group.title}
                 align="start"
-                spacing={4}
+                spacing={3}
                 bg={cardBg}
-                borderRadius="xl"
+                borderRadius="lg"
                 borderWidth={1}
                 borderColor={borderColor}
-                p={{ base: 6, md: 8 }}
+                p={{ base: 5, md: 6 }}
                 boxShadow={cardShadow}
               >
                 <HStack spacing={3}>
@@ -259,7 +264,7 @@ const Services = () => {
           </SimpleGrid>
         </VStack>
 
-        <VStack align="start" spacing={{ base: 6, md: 8 }} mb={{ base: 16, md: 20 }}>
+        <VStack align="start" spacing={{ base: 5, md: 6 }} mb={{ base: 12, md: 16 }}>
           <Box>
             <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
               Delivery Accelerators
@@ -268,15 +273,15 @@ const Services = () => {
               Controls that sustain momentum
             </Heading>
           </Box>
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={{ base: 6, md: 8 }} width="100%">
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={{ base: 5, md: 6 }} width="100%">
             {accelerators.map((item) => (
               <Box
                 key={item.title}
                 bg={cardBg}
-                borderRadius="xl"
+                borderRadius="lg"
                 borderWidth={1}
                 borderColor={borderColor}
-                p={{ base: 6, md: 7 }}
+                p={{ base: 5, md: 6 }}
                 boxShadow={cardShadow}
               >
                 <HStack spacing={3} mb={3}>
@@ -293,7 +298,7 @@ const Services = () => {
           </SimpleGrid>
         </VStack>
 
-        <VStack align="start" spacing={{ base: 6, md: 8 }}>
+        <VStack align="start" spacing={{ base: 5, md: 6 }}>
           <Box>
             <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
               Engagement Model
@@ -302,20 +307,20 @@ const Services = () => {
               A clear delivery cadence
             </Heading>
           </Box>
-          <SimpleGrid columns={{ base: 1, md: 2, xl: 4 }} spacing={{ base: 6, md: 6 }} width="100%">
+          <SimpleGrid columns={{ base: 1, md: 2, xl: 4 }} spacing={{ base: 5, md: 5 }} width="100%">
             {engagementSteps.map((step) => (
               <VStack
                 key={step.phase}
                 align="start"
-                spacing={4}
+                spacing={3}
                 bg={cardBg}
-                borderRadius="xl"
+                borderRadius="lg"
                 borderWidth={1}
                 borderColor={borderColor}
-                p={{ base: 5, md: 6 }}
+                p={{ base: 4, md: 5 }}
                 boxShadow={cardShadow}
               >
-                <Badge px={3} py={1} borderRadius="full" bg={badgeBg} color={accent}>
+                <Badge px={3} py={1} borderRadius="lg" bg={badgeBg} color={accent}>
                   Phase {step.phase}
                 </Badge>
                 <Heading size="sm" color={sectionTitle}>
@@ -330,9 +335,9 @@ const Services = () => {
         </VStack>
       </Container>
 
-      <Box bg={useColorModeValue("brand.900", "brand.800")} color="white" py={{ base: 12, md: 16 }}>
+      <Box bg={useColorModeValue("brand.900", "brand.800")} color="white" py={{ base: 10, md: 14 }}>
         <Container maxW="container.xl">
-          <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 6, md: 10 }} align="center">
+          <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 5, md: 8 }} align="center">
             <VStack align="start" spacing={3} flex={1}>
               <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color="whiteAlpha.700">
                 Start a conversation

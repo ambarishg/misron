@@ -35,8 +35,8 @@ const productLinks = [
 const Header = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
   const location = useLocation();
-  const bg = useColorModeValue("rgba(247, 248, 250, 0.96)", "rgba(16, 42, 67, 0.96)");
-  const borderColor = useColorModeValue("gray.200", "whiteAlpha.200");
+  const bg = useColorModeValue("rgba(248, 250, 252, 0.88)", "rgba(16, 42, 67, 0.92)");
+  const borderColor = useColorModeValue("rgba(16, 42, 67, 0.08)", "whiteAlpha.200");
   const linkColor = useColorModeValue("gray.700", "whiteAlpha.800");
   const mutedText = useColorModeValue("gray.500", "whiteAlpha.600");
   const activeColor = useColorModeValue("brand.900", "white");
@@ -46,6 +46,7 @@ const Header = () => {
   const menuColor = useColorModeValue("gray.800", "gray.100");
   const menuHoverBg = useColorModeValue("gray.50", "brand.700");
   const menuActiveBg = useColorModeValue("gray.100", "brand.600");
+  const activeBg = useColorModeValue("rgba(16, 42, 67, 0.06)", "whiteAlpha.200");
   const isProductActive = productLinks.some((link) => location.pathname === link.to);
 
   const renderLink = (link) => {
@@ -60,7 +61,11 @@ const Header = () => {
         textTransform="uppercase"
         fontWeight={isActive ? "semibold" : "medium"}
         color={isActive ? activeColor : linkColor}
-        _hover={{ color: hoverColor }}
+        px={3}
+        py={2}
+        borderRadius="md"
+        bg={isActive ? activeBg : "transparent"}
+        _hover={{ color: hoverColor, bg: activeBg }}
         onClick={onClose}
       >
         {link.label}
@@ -72,7 +77,7 @@ const Header = () => {
     <Box
       as="header"
       bg={bg}
-      backdropFilter="blur(8px)"
+      backdropFilter="blur(16px)"
       borderBottom="1px solid"
       borderColor={borderColor}
       position="sticky"
@@ -83,13 +88,13 @@ const Header = () => {
         maxW="container.xl"
         mx="auto"
         px={{ base: 4, md: 6 }}
-        py={{ base: 4, md: 5 }}
+        py={{ base: 3, md: 4 }}
         align="center"
         justify="space-between"
       >
-        <HStack spacing={4} align="center">
+        <HStack spacing={3} align="center">
           <Link as={RouterLink} to="/" display="flex" alignItems="center" onClick={onClose}>
-            <Image src="./MISRONLOGO.png" alt="Misron Logo" height="44px" objectFit="contain" />
+            <Image src="./MISRONLOGO.png" alt="Misron Logo" height="40px" objectFit="contain" />
           </Link>
           <Box>
             <Link
@@ -103,13 +108,13 @@ const Header = () => {
             >
               Misron
             </Link>
-            <Text fontSize="xs" letterSpacing="0.14em" textTransform="uppercase" color={mutedText}>
+            <Text fontSize="10px" letterSpacing="0.18em" textTransform="uppercase" color={mutedText}>
               Data and AI delivery
             </Text>
           </Box>
         </HStack>
 
-        <HStack spacing={8} display={{ base: "none", lg: "flex" }} align="center">
+        <HStack spacing={6} display={{ base: "none", lg: "flex" }} align="center">
           {primaryLinks.map(renderLink)}
           <Menu>
             <MenuButton
@@ -121,12 +126,16 @@ const Header = () => {
               textTransform="uppercase"
               fontWeight={isProductActive ? "semibold" : "medium"}
               color={isProductActive ? activeColor : linkColor}
-              _hover={{ color: hoverColor, bg: "transparent" }}
-              _active={{ bg: "transparent" }}
+              px={3}
+              py={2}
+              borderRadius="md"
+              bg={isProductActive ? activeBg : "transparent"}
+              _hover={{ color: hoverColor, bg: activeBg }}
+              _active={{ bg: activeBg }}
             >
               Products
             </MenuButton>
-            <MenuList bg={menuBg} color={menuColor} borderColor={borderColor} zIndex="popover">
+            <MenuList bg={menuBg} color={menuColor} borderColor={borderColor} zIndex="popover" borderRadius="lg" boxShadow="elevated" p={1}>
               {productLinks.map((link) => (
                 <MenuItem
                   key={link.to}
@@ -136,6 +145,7 @@ const Header = () => {
                   letterSpacing="0.06em"
                   textTransform="uppercase"
                   fontWeight="medium"
+                  borderRadius="md"
                   _hover={{ bg: menuHoverBg }}
                   _focus={{ bg: menuHoverBg }}
                   _active={{ bg: menuActiveBg }}
@@ -164,7 +174,7 @@ const Header = () => {
 
       {isOpen && (
         <Box display={{ lg: "none" }} borderTop="1px solid" borderColor={borderColor} bg={menuBg}>
-          <VStack align="stretch" px={6} py={4} spacing={4}>
+          <VStack align="stretch" px={6} py={4} spacing={3}>
             {primaryLinks.map(renderLink)}
             <Divider borderColor={borderColor} />
             <Box>
@@ -177,7 +187,7 @@ const Header = () => {
               >
                 Products
               </Text>
-              <VStack align="stretch" pl={2} mt={2} spacing={3}>
+              <VStack align="stretch" pl={2} mt={2} spacing={2}>
                 {productLinks.map(renderLink)}
               </VStack>
             </Box>

@@ -55,7 +55,10 @@ const engagementMoments = [
 const Contact = () => {
   const toast = useToast();
   const pageBg = useColorModeValue("gray.50", "gray.900");
-  const heroBg = useColorModeValue("linear(to-br, #f4f6f8, #e9eef2)", "linear(to-br, brand.900, brand.800)");
+  const heroBg = useColorModeValue(
+    "linear(to-br, rgba(248, 250, 252, 0.96), rgba(236, 242, 247, 0.96), rgba(226, 234, 241, 0.96))",
+    "linear(to-br, brand.900, brand.800)"
+  );
   const cardBg = useColorModeValue("white", "gray.800");
   const cardBorder = useColorModeValue("gray.200", "gray.700");
   const accent = useColorModeValue("brand.700", "brand.200");
@@ -64,7 +67,7 @@ const Contact = () => {
   const textColor = useColorModeValue("gray.600", "gray.300");
   const heroText = useColorModeValue("brand.900", "white");
   const heroSubtext = useColorModeValue("gray.600", "gray.200");
-  const cardShadow = useColorModeValue("0 10px 30px rgba(15, 23, 42, 0.06)", "dark-lg");
+  const cardShadow = useColorModeValue("0 14px 34px rgba(15, 23, 42, 0.07)", "dark-lg");
 
   const handleCopy = async (value) => {
     try {
@@ -90,9 +93,9 @@ const Contact = () => {
   return (
     <Box bg={pageBg} minH="100vh">
       <Box bgGradient={heroBg} borderBottom="1px solid" borderColor={cardBorder}>
-        <Container maxW="container.xl" py={{ base: 14, md: 20 }}>
-          <Stack spacing={{ base: 8, md: 12 }} direction={{ base: "column", lg: "row" }} align="stretch">
-            <VStack align="start" spacing={6} flex={1.2} maxW="2xl">
+        <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
+          <Stack spacing={{ base: 6, md: 8 }} direction={{ base: "column", lg: "row" }} align="stretch">
+            <VStack align="start" spacing={5} flex={1.2} maxW="2xl">
               <Badge
                 px={3}
                 py={1}
@@ -122,22 +125,24 @@ const Contact = () => {
               </HStack>
             </VStack>
             <Box
-              flex={1}
+              flex={{ lg: "0 0 340px" }}
+              maxW={{ lg: "340px" }}
+              alignSelf="flex-start"
               bg={cardBg}
-              borderRadius="2xl"
+              borderRadius="xl"
               borderWidth={1}
               borderColor={cardBorder}
-              p={{ base: 6, md: 8 }}
+              p={{ base: 4, md: 5 }}
               boxShadow={cardShadow}
             >
-              <VStack align="start" spacing={4}>
+              <VStack align="start" spacing={3}>
                 <HStack spacing={3}>
                   <Icon as={FiClock} boxSize={5} color={accent} />
-                  <Heading size="md" color={sectionTitle}>
+                  <Heading size="sm" color={sectionTitle}>
                     Availability
                   </Heading>
                 </HStack>
-                <Text color={textColor} lineHeight="tall">
+                <Text color={textColor} lineHeight="1.6">
                   Monday to Friday, 9:00 to 18:00 IST.
                   <br />
                   North America and Europe overlap hours available on request.
@@ -148,18 +153,18 @@ const Contact = () => {
         </Container>
       </Box>
 
-      <Container maxW="container.xl" py={{ base: 16, md: 20 }}>
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }}>
+      <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, md: 6 }}>
           {contactChannels.map((channel) => (
             <VStack
               key={channel.label}
               align="start"
-              spacing={4}
+              spacing={3}
               bg={cardBg}
-              borderRadius="xl"
+              borderRadius="lg"
               borderWidth={1}
               borderColor={cardBorder}
-              p={{ base: 6, md: 8 }}
+              p={{ base: 5, md: 6 }}
               boxShadow={cardShadow}
             >
               <HStack spacing={3}>
@@ -181,16 +186,16 @@ const Contact = () => {
           ))}
         </SimpleGrid>
 
-        <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 10, md: 16 }} mt={{ base: 16, md: 20 }} align="stretch">
+        <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 8, md: 10 }} mt={{ base: 12, md: 16 }} align="stretch">
           <VStack
             flex={2}
             align="start"
-            spacing={5}
+            spacing={4}
             bg={cardBg}
-            borderRadius="2xl"
+            borderRadius="xl"
             borderWidth={1}
             borderColor={cardBorder}
-            p={{ base: 6, md: 8 }}
+            p={{ base: 5, md: 6 }}
             boxShadow={cardShadow}
           >
             <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel}>
@@ -213,12 +218,12 @@ const Contact = () => {
           <VStack
             flex={1}
             align="stretch"
-            spacing={4}
+            spacing={3}
             bg={cardBg}
-            borderRadius="2xl"
+            borderRadius="xl"
             borderWidth={1}
             borderColor={cardBorder}
-            p={{ base: 6, md: 8 }}
+            p={{ base: 5, md: 6 }}
             boxShadow={cardShadow}
           >
             <HStack spacing={3}>

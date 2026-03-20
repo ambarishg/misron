@@ -30,7 +30,10 @@ const AskHank = () => {
   ];
 
   const pageBg = useColorModeValue("gray.50", "gray.900");
-  const heroBg = useColorModeValue("linear(to-br, #f4f6f8, #e9eef2)", "linear(to-br, brand.900, brand.800)");
+  const heroBg = useColorModeValue(
+    "linear(to-br, rgba(248, 250, 252, 0.96), rgba(236, 242, 247, 0.96), rgba(226, 234, 241, 0.96))",
+    "linear(to-br, brand.900, brand.800)"
+  );
   const cardBg = useColorModeValue("white", "gray.800");
   const borderColor = useColorModeValue("gray.200", "gray.700");
   const accent = useColorModeValue("brand.700", "brand.200");
@@ -39,14 +42,14 @@ const AskHank = () => {
   const textColor = useColorModeValue("gray.600", "gray.300");
   const heroText = useColorModeValue("brand.900", "white");
   const heroSubtext = useColorModeValue("gray.600", "gray.200");
-  const cardShadow = useColorModeValue("0 10px 30px rgba(15, 23, 42, 0.06)", "dark-lg");
+  const cardShadow = useColorModeValue("0 14px 34px rgba(15, 23, 42, 0.07)", "dark-lg");
 
   return (
     <Box bg={pageBg} minH="100vh">
       <Box bgGradient={heroBg} borderBottom="1px solid" borderColor={borderColor}>
-        <Container maxW="container.xl" py={{ base: 14, md: 20 }}>
-          <Stack direction={{ base: "column", lg: "row" }} spacing={{ base: 10, lg: 16 }} align="stretch">
-            <VStack spacing={{ base: 6, md: 8 }} align="start" flex={1.2} maxW="2xl">
+        <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
+          <Stack direction={{ base: "column", lg: "row" }} spacing={{ base: 8, lg: 12 }} align="stretch">
+            <VStack spacing={{ base: 5, md: 6 }} align="start" flex={1.2} maxW="2xl">
               <Badge
                 px={3}
                 py={1}
@@ -84,25 +87,27 @@ const AskHank = () => {
             </VStack>
 
             <Box
-              flex={1}
+              flex={{ lg: "0 0 340px" }}
               w="100%"
+              maxW={{ lg: "340px" }}
+              alignSelf="flex-start"
               bg={cardBg}
               borderWidth={1}
               borderColor={borderColor}
-              borderRadius="2xl"
-              p={{ base: 6, md: 8 }}
+              borderRadius="xl"
+              p={{ base: 4, md: 5 }}
               boxShadow={cardShadow}
             >
-              <VStack align="start" spacing={5}>
+              <VStack align="start" spacing={3}>
                 <Box>
-                  <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
+                  <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={1}>
                     Coaching Snapshot
                   </Text>
-                  <Heading size="md" color={sectionTitle}>
+                  <Heading size="sm" color={sectionTitle}>
                     Discreet, personal, practical
                   </Heading>
                 </Box>
-                <Text color={textColor} lineHeight="tall">
+                <Text color={textColor} lineHeight="1.6">
                   Henry Svec brings advisory experience and calm judgment to conversations that often involve stress,
                   uncertainty, and family dynamics.
                 </Text>
@@ -112,15 +117,15 @@ const AskHank = () => {
         </Container>
       </Box>
 
-      <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 8, md: 12 }}>
+      <Container maxW="container.xl" py={{ base: 10, md: 14 }}>
+        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 6, md: 8 }}>
           <VStack
-            spacing={4}
+            spacing={3}
             align="start"
-            p={{ base: 6, md: 8 }}
+            p={{ base: 5, md: 6 }}
             bg={cardBg}
             borderWidth={1}
-            borderRadius="xl"
+            borderRadius="lg"
             borderColor={borderColor}
             boxShadow={cardShadow}
           >
@@ -141,12 +146,12 @@ const AskHank = () => {
           </VStack>
 
           <VStack
-            spacing={4}
+            spacing={3}
             align="start"
-            p={{ base: 6, md: 8 }}
+            p={{ base: 5, md: 6 }}
             bg={cardBg}
             borderWidth={1}
-            borderRadius="xl"
+            borderRadius="lg"
             borderColor={borderColor}
             boxShadow={cardShadow}
           >
@@ -167,7 +172,7 @@ const AskHank = () => {
           </VStack>
         </SimpleGrid>
 
-        <Box mt={{ base: 12, md: 16 }} bg={cardBg} borderRadius="2xl" borderWidth={1} borderColor={borderColor} p={{ base: 6, md: 10 }} boxShadow={cardShadow}>
+        <Box mt={{ base: 10, md: 14 }} bg={cardBg} borderRadius="xl" borderWidth={1} borderColor={borderColor} p={{ base: 5, md: 8 }} boxShadow={cardShadow}>
           <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={3} textAlign="center">
             Positioning
           </Text>

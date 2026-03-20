@@ -137,12 +137,12 @@ const integrationHighlights = [
 const HighlightCard = ({ icon, title, description, accent, cardBg, borderColor, sectionTitle, textColor, cardShadow }) => (
   <VStack
     align="start"
-    spacing={3}
+    spacing={2}
     borderWidth={1}
     borderColor={borderColor}
-    borderRadius="xl"
+    borderRadius="lg"
     bg={cardBg}
-    p={{ base: 5, md: 6 }}
+    p={{ base: 4, md: 5 }}
     boxShadow={cardShadow}
     h="full"
   >
@@ -159,12 +159,12 @@ const HighlightCard = ({ icon, title, description, accent, cardBg, borderColor, 
 const UseCaseCard = ({ heading, audience, bullets, accent, cardBg, borderColor, sectionTitle, textColor, cardShadow }) => (
   <VStack
     align="start"
-    spacing={4}
+    spacing={3}
     borderWidth={1}
     borderColor={borderColor}
-    borderRadius="xl"
+    borderRadius="lg"
     bg={cardBg}
-    p={{ base: 5, md: 6 }}
+    p={{ base: 4, md: 5 }}
     boxShadow={cardShadow}
     h="full"
   >
@@ -191,7 +191,10 @@ const UseCaseCard = ({ heading, audience, bullets, accent, cardBg, borderColor, 
 
 const SearchAssistant = () => {
   const pageBg = useColorModeValue("gray.50", "gray.900");
-  const heroBg = useColorModeValue("linear(to-br, #f4f6f8, #e9eef2)", "linear(to-br, brand.900, brand.800)");
+  const heroBg = useColorModeValue(
+    "linear(to-br, rgba(248, 250, 252, 0.96), rgba(236, 242, 247, 0.96), rgba(226, 234, 241, 0.96))",
+    "linear(to-br, brand.900, brand.800)"
+  );
   const cardBg = useColorModeValue("white", "gray.800");
   const borderColor = useColorModeValue("gray.200", "gray.700");
   const accent = useColorModeValue("brand.700", "brand.200");
@@ -200,15 +203,15 @@ const SearchAssistant = () => {
   const textColor = useColorModeValue("gray.600", "gray.300");
   const heroText = useColorModeValue("brand.900", "white");
   const heroSubtext = useColorModeValue("gray.600", "gray.200");
-  const cardShadow = useColorModeValue("0 10px 30px rgba(15, 23, 42, 0.06)", "dark-lg");
+  const cardShadow = useColorModeValue("0 14px 34px rgba(15, 23, 42, 0.07)", "dark-lg");
   const badgeBg = useColorModeValue("gray.100", "whiteAlpha.100");
 
   return (
     <Box bg={pageBg} minH="100vh" pb={{ base: 16, md: 24 }}>
       <Box bgGradient={heroBg} borderBottom="1px solid" borderColor={borderColor}>
-        <Container maxW="container.xl" py={{ base: 14, md: 20 }}>
-          <Stack direction={{ base: "column", lg: "row" }} spacing={{ base: 10, lg: 16 }} align="stretch">
-            <VStack align="start" spacing={6} flex={1.2} maxW="2xl">
+        <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
+          <Stack direction={{ base: "column", lg: "row" }} spacing={{ base: 8, lg: 12 }} align="stretch">
+            <VStack align="start" spacing={5} flex={1.2} maxW="2xl">
               <Badge
                 px={3}
                 py={1}
@@ -240,24 +243,26 @@ const SearchAssistant = () => {
             </VStack>
 
             <Box
-              flex={1}
+              flex={{ lg: "0 0 360px" }}
+              maxW={{ lg: "360px" }}
+              alignSelf="flex-start"
               bg={cardBg}
               borderWidth={1}
               borderColor={borderColor}
-              borderRadius="2xl"
-              p={{ base: 6, md: 8 }}
+              borderRadius="xl"
+              p={{ base: 4, md: 5 }}
               boxShadow={cardShadow}
             >
-              <VStack align="start" spacing={5}>
+              <VStack align="start" spacing={3}>
                 <Box>
-                  <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
+                  <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={1}>
                     Product Snapshot
                   </Text>
-                  <Heading size="md" color={sectionTitle}>
+                  <Heading size="sm" color={sectionTitle}>
                     Built for controlled environments
                   </Heading>
                 </Box>
-                <List spacing={3}>
+                <List spacing={2}>
                   {[
                     "Document-grounded answers",
                     "Traceable references",
@@ -266,7 +271,7 @@ const SearchAssistant = () => {
                     <ListItem key={item}>
                       <HStack spacing={3} align="start">
                         <Icon as={CheckCircleIcon} color={accent} mt={1} />
-                        <Text color={textColor}>{item}</Text>
+                        <Text color={textColor} lineHeight="1.6">{item}</Text>
                       </HStack>
                     </ListItem>
                   ))}
@@ -277,8 +282,8 @@ const SearchAssistant = () => {
         </Container>
       </Box>
 
-      <Container maxW="container.xl" pt={{ base: 16, md: 20 }}>
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }}>
+      <Container maxW="container.xl" pt={{ base: 12, md: 16 }}>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, md: 6 }}>
           {differentiators.map((item) => (
             <HighlightCard
               key={item.title}
@@ -294,8 +299,8 @@ const SearchAssistant = () => {
         </SimpleGrid>
       </Container>
 
-      <Container maxW="container.xl" pt={{ base: 16, md: 20 }} id="workflow">
-        <VStack spacing={{ base: 6, md: 8 }} align="start">
+      <Container maxW="container.xl" pt={{ base: 12, md: 16 }} id="workflow">
+        <VStack spacing={{ base: 5, md: 6 }} align="start">
           <Box>
             <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
               Workflow
@@ -308,10 +313,10 @@ const SearchAssistant = () => {
             The product fits into existing research, compliance, and review processes without compromising governance.
           </Text>
 
-          <Stack direction={{ base: "column", lg: "row" }} spacing={{ base: 8, md: 10 }} width="100%">
-            <VStack align="stretch" spacing={{ base: 6, md: 8 }} flex={1}>
+          <Stack direction={{ base: "column", lg: "row" }} spacing={{ base: 6, md: 8 }} width="100%">
+            <VStack align="stretch" spacing={{ base: 5, md: 6 }} flex={1}>
               {workflowSteps.map((step, index) => (
-                <Box key={step.title} borderLeft="3px solid" borderColor={accent} pl={6} py={2}>
+                <Box key={step.title} borderLeft="3px solid" borderColor={accent} pl={5} py={1}>
                   <Text fontSize="sm" color={sectionLabel} fontWeight="bold">
                     Step {index + 1}
                   </Text>
@@ -325,14 +330,14 @@ const SearchAssistant = () => {
               ))}
             </VStack>
             <VStack
-              spacing={5}
+              spacing={4}
               align="start"
               flex={1}
               borderWidth={1}
               borderColor={borderColor}
-              borderRadius="xl"
+              borderRadius="lg"
               bg={cardBg}
-              p={{ base: 6, md: 8 }}
+              p={{ base: 5, md: 6 }}
               boxShadow={cardShadow}
             >
               <Heading size="md" color={sectionTitle}>
@@ -357,8 +362,8 @@ const SearchAssistant = () => {
         </VStack>
       </Container>
 
-      <Container maxW="container.xl" pt={{ base: 16, md: 20 }}>
-        <VStack spacing={{ base: 6, md: 8 }} align="start">
+      <Container maxW="container.xl" pt={{ base: 12, md: 16 }}>
+        <VStack spacing={{ base: 5, md: 6 }} align="start">
           <Box>
             <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
               Industry Use Cases
@@ -370,7 +375,7 @@ const SearchAssistant = () => {
           <Text fontSize="lg" color={textColor} maxW="3xl">
             Misron Assistant supports teams that work with complex documents, high accountability, and time-sensitive decisions.
           </Text>
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 6, md: 8 }}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, md: 6 }}>
             {industryUseCases.map((useCase) => (
               <UseCaseCard
                 key={useCase.heading}
@@ -387,8 +392,8 @@ const SearchAssistant = () => {
         </VStack>
       </Container>
 
-      <Container maxW="container.xl" pt={{ base: 16, md: 20 }}>
-        <VStack spacing={{ base: 6, md: 8 }} align="start">
+      <Container maxW="container.xl" pt={{ base: 12, md: 16 }}>
+        <VStack spacing={{ base: 5, md: 6 }} align="start">
           <Box>
             <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
               Team Use Cases
@@ -397,7 +402,7 @@ const SearchAssistant = () => {
               Everyday value for leadership and delivery teams
             </Heading>
           </Box>
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }}>
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, md: 6 }}>
             {everydayUseCases.map((useCase) => (
               <UseCaseCard
                 key={useCase.heading}
@@ -414,9 +419,9 @@ const SearchAssistant = () => {
         </VStack>
       </Container>
 
-      <Container maxW="container.xl" pt={{ base: 16, md: 20 }}>
-        <Box bg={cardBg} borderRadius="2xl" borderWidth={1} borderColor={borderColor} p={{ base: 8, md: 10 }} boxShadow={cardShadow}>
-          <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 6, md: 10 }} align="center">
+      <Container maxW="container.xl" pt={{ base: 12, md: 16 }}>
+        <Box bg={cardBg} borderRadius="xl" borderWidth={1} borderColor={borderColor} p={{ base: 6, md: 8 }} boxShadow={cardShadow}>
+          <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 5, md: 8 }} align="center">
             <VStack align="start" spacing={4} flex={1}>
               <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel}>
                 Start a conversation

@@ -7,12 +7,12 @@ const Partners = () => {
   const sectionLabel = useColorModeValue("brand.600", "accent.200");
   const sectionTitle = useColorModeValue("brand.900", "white");
   const textColor = useColorModeValue("gray.600", "gray.300");
-  const cardShadow = useColorModeValue("0 10px 30px rgba(15, 23, 42, 0.06)", "dark-lg");
+  const cardShadow = useColorModeValue("0 14px 34px rgba(15, 23, 42, 0.07)", "dark-lg");
 
   return (
     <Box bg={pageBg} minH="100vh">
-      <Container maxW="container.xl" py={{ base: 14, md: 20 }}>
-        <VStack spacing={6} align="start" maxW="3xl">
+      <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
+        <VStack spacing={5} align="start" maxW="3xl">
           <Badge px={3} py={1} borderRadius="full" bg={useColorModeValue("brand.100", "whiteAlpha.200")} color={sectionTitle}>
             Partners
           </Badge>
@@ -24,7 +24,7 @@ const Partners = () => {
           </Text>
         </VStack>
 
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }} mt={{ base: 12, md: 16 }}>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, md: 6 }} mt={{ base: 10, md: 14 }}>
           {[
             "Strategic technology partners",
             "Industry collaborators",
@@ -35,8 +35,8 @@ const Partners = () => {
               bg={cardBg}
               borderWidth={1}
               borderColor={borderColor}
-              borderRadius="xl"
-              p={{ base: 6, md: 8 }}
+              borderRadius="lg"
+              p={{ base: 5, md: 6 }}
               boxShadow={cardShadow}
             >
               <Heading size="md" color={sectionTitle} mb={3}>

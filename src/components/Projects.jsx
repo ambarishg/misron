@@ -45,7 +45,10 @@ const resultMetrics = [
 
 const Projects = () => {
   const pageBg = useColorModeValue("gray.50", "gray.900");
-  const heroBg = useColorModeValue("linear(to-br, #f4f6f8, #e9eef2)", "linear(to-br, brand.900, brand.800)");
+  const heroBg = useColorModeValue(
+    "linear(to-br, rgba(248, 250, 252, 0.96), rgba(236, 242, 247, 0.96), rgba(226, 234, 241, 0.96))",
+    "linear(to-br, brand.900, brand.800)"
+  );
   const cardBg = useColorModeValue("white", "gray.800");
   const cardBorder = useColorModeValue("gray.200", "gray.700");
   const sectionLabel = useColorModeValue("brand.600", "accent.200");
@@ -54,15 +57,15 @@ const Projects = () => {
   const accentText = useColorModeValue("brand.700", "brand.200");
   const heroText = useColorModeValue("brand.900", "white");
   const heroSubtext = useColorModeValue("gray.600", "gray.200");
-  const cardShadow = useColorModeValue("0 10px 30px rgba(15, 23, 42, 0.06)", "dark-lg");
+  const cardShadow = useColorModeValue("0 14px 34px rgba(15, 23, 42, 0.07)", "dark-lg");
   const badgeBg = useColorModeValue("gray.100", "whiteAlpha.100");
 
   return (
     <Box bg={pageBg}>
       <Box bgGradient={heroBg} borderBottom="1px solid" borderColor={cardBorder}>
-        <Container maxW="container.xl" py={{ base: 14, md: 20 }}>
-          <Stack direction={{ base: "column", lg: "row" }} spacing={{ base: 10, lg: 16 }} align="stretch">
-            <VStack align="start" spacing={6} flex={1.2} maxW="2xl">
+        <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
+          <Stack direction={{ base: "column", lg: "row" }} spacing={{ base: 8, lg: 12 }} align="stretch">
+            <VStack align="start" spacing={5} flex={1.2} maxW="2xl">
               <Badge
                 px={3}
                 py={1}
@@ -108,28 +111,30 @@ const Projects = () => {
               </HStack>
             </VStack>
             <Box
-              flex={1}
+              flex={{ lg: "0 0 360px" }}
+              maxW={{ lg: "360px" }}
+              alignSelf="flex-start"
               bg={cardBg}
               borderWidth={1}
               borderColor={cardBorder}
-              borderRadius="2xl"
-              p={{ base: 6, md: 8 }}
+              borderRadius="xl"
+              p={{ base: 4, md: 5 }}
               boxShadow={cardShadow}
             >
-              <VStack align="start" spacing={5}>
+              <VStack align="start" spacing={3}>
                 <Box>
-                  <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={2}>
+                  <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel} mb={1}>
                     Product Snapshot
                   </Text>
-                  <Heading size="md" color={sectionTitle}>
+                  <Heading size="sm" color={sectionTitle}>
                     Built for field use and operational clarity
                   </Heading>
                 </Box>
                 <Image
                   src="./aibeehealth.png"
                   alt="AI Bee Health Dashboard"
-                  maxW={{ base: "260px", md: "340px" }}
-                  borderRadius="lg"
+                  maxW={{ base: "240px", md: "300px" }}
+                  borderRadius="md"
                   boxShadow="md"
                   alignSelf="center"
                 />
@@ -139,18 +144,18 @@ const Projects = () => {
         </Container>
       </Box>
 
-      <Container maxW="container.xl" py={{ base: 16, md: 20 }}>
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }}>
+      <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, md: 6 }}>
           {impactHighlights.map((item) => (
             <VStack
               key={item.title}
               align="start"
-              spacing={4}
+              spacing={3}
               bg={cardBg}
               borderWidth={1}
               borderColor={cardBorder}
-              borderRadius="xl"
-              p={{ base: 6, md: 8 }}
+              borderRadius="lg"
+              p={{ base: 5, md: 6 }}
               boxShadow={cardShadow}
             >
               <Icon as={item.icon} boxSize={7} color={accentText} />
@@ -165,8 +170,8 @@ const Projects = () => {
         </SimpleGrid>
 
         <Box
-          mt={{ base: 16, md: 20 }}
-          borderRadius="2xl"
+          mt={{ base: 12, md: 16 }}
+          borderRadius="xl"
           overflow="hidden"
           boxShadow={cardShadow}
           bg={cardBg}
@@ -183,7 +188,7 @@ const Projects = () => {
             />
           </Box>
           <Stack direction={{ base: "column", md: "row" }} spacing={0}>
-            <Box flex={2} p={{ base: 6, md: 8 }}>
+            <Box flex={2} p={{ base: 5, md: 6 }}>
               <Heading size="lg" mb={3} color={sectionTitle}>
                 From Hive to Insight
               </Heading>
@@ -192,7 +197,7 @@ const Projects = () => {
                 single operating view for field teams and research partners.
               </Text>
             </Box>
-            <VStack flex={1} spacing={5} p={{ base: 6, md: 8 }} align="stretch" bg={useColorModeValue("gray.50", "gray.700")}>
+            <VStack flex={1} spacing={4} p={{ base: 5, md: 6 }} align="stretch" bg={useColorModeValue("gray.50", "gray.700")}>
               {resultMetrics.map((metric) => (
                 <Box key={metric.label}>
                   <Heading size="2xl" color={accentText} fontWeight="extrabold">
@@ -208,15 +213,15 @@ const Projects = () => {
         </Box>
 
         <Box
-          mt={{ base: 16, md: 20 }}
-          borderRadius="2xl"
+          mt={{ base: 12, md: 16 }}
+          borderRadius="xl"
           bg={cardBg}
           borderWidth={1}
           borderColor={cardBorder}
-          p={{ base: 8, md: 10 }}
+          p={{ base: 6, md: 8 }}
           boxShadow={cardShadow}
         >
-          <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 8, md: 12 }}>
+          <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 6, md: 8 }}>
             <VStack align="start" spacing={4} flex={2}>
               <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel}>
                 Delivery Model

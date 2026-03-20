@@ -24,7 +24,9 @@ body {
   min-width: 320px;
   min-height: 100vh;
   color: #102a43;
-  background: #f7f8fa;
+  background:
+    radial-gradient(circle at top left, rgba(188, 204, 220, 0.2), transparent 32%),
+    linear-gradient(180deg, #f8fafc 0%, #f2f5f8 46%, #eef2f6 100%);
 }
 
 a {
@@ -38,6 +40,6 @@ img {
 }
 
 ::selection {
-  background: rgba(51, 78, 104, 0.16);
+  background: rgba(51, 78, 104, 0.2);
   color: #102a43;
 }
