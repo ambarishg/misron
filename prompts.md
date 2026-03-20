@@ -31,3 +31,8 @@ Make the Footer more crisp and minimalistic and not overbearing
 Make the Footer more shorter and more crisp and not occupying such real estate
 
 Alignment needs to improve
+
+In the Home Page , "the Ready to move with a clearer plan?
+We align on outcomes, architecture, and delivery constraints before execution begins" , the portion needs to be shorter , more crisp and professional
+
+Send a Brief in the Contact Page is compressed. The layout needs to be fixed so as to make it properly visible

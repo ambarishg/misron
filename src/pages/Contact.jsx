@@ -186,9 +186,8 @@ const Contact = () => {
           ))}
         </SimpleGrid>
 
-        <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 8, md: 10 }} mt={{ base: 12, md: 16 }} align="stretch">
+        <VStack mt={{ base: 12, md: 16 }} spacing={{ base: 6, md: 8 }} align="stretch">
           <VStack
-            flex={2}
             align="start"
             spacing={4}
             bg={cardBg}
@@ -215,10 +214,12 @@ const Contact = () => {
               </Box>
             ))}
           </VStack>
-          <VStack
-            flex={1}
-            align="stretch"
-            spacing={3}
+
+          <Stack
+            direction={{ base: "column", md: "row" }}
+            spacing={{ base: 4, md: 6 }}
+            align={{ base: "start", md: "center" }}
+            justify="space-between"
             bg={cardBg}
             borderRadius="xl"
             borderWidth={1}
@@ -226,20 +227,29 @@ const Contact = () => {
             p={{ base: 5, md: 6 }}
             boxShadow={cardShadow}
           >
-            <HStack spacing={3}>
-              <Icon as={FiMessageSquare} boxSize={5} color={accent} />
-              <Heading size="md" color={sectionTitle}>
-                Prefer a written brief?
-              </Heading>
-            </HStack>
-            <Text color={textColor} lineHeight="tall">
-              Share context, timing, and what good looks like. We will align the right leads before the first session.
-            </Text>
-            <Button as="a" href="mailto:misron@misron.in?subject=Misron%20Consulting%20Inquiry" colorScheme="accent" rightIcon={<ArrowForwardIcon />}>
+            <VStack align="start" spacing={3} maxW="2xl">
+              <HStack spacing={3}>
+                <Icon as={FiMessageSquare} boxSize={5} color={accent} />
+                <Heading size="md" color={sectionTitle}>
+                  Prefer a written brief?
+                </Heading>
+              </HStack>
+              <Text color={textColor} lineHeight="tall">
+                Share context, timing, and what good looks like. We will align the right leads before the first session.
+              </Text>
+            </VStack>
+            <Button
+              as="a"
+              href="mailto:misron@misron.in?subject=Misron%20Consulting%20Inquiry"
+              colorScheme="accent"
+              rightIcon={<ArrowForwardIcon />}
+              size="lg"
+              minW={{ md: "220px" }}
+            >
               Send a Brief
             </Button>
-          </VStack>
-        </Stack>
+          </Stack>
+        </VStack>
       </Container>
     </Box>
   );
