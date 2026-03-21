@@ -143,7 +143,6 @@ const Home = () => {
   const heroText = useColorModeValue("brand.900", "white");
   const heroSubtext = useColorModeValue("gray.600", "gray.200");
   const cardShadow = useColorModeValue("0 14px 34px rgba(15, 23, 42, 0.07)", "dark-lg");
-  const ctaBg = useColorModeValue("brand.900", "brand.800");
 
   return (
     <Box bg={pageBg}>
@@ -403,31 +402,31 @@ const Home = () => {
         </VStack>
       </Container>
 
-      <Box bg={ctaBg} color="white" py={{ base: 10, md: 14 }}>
-        <Container maxW="container.xl">
+      <Container maxW="container.xl" pb={{ base: 12, md: 16 }}>
+        <Box bg={cardBg} borderRadius="xl" borderWidth={1} borderColor={cardBorder} p={{ base: 6, md: 8 }} boxShadow={cardShadow}>
           <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 5, md: 8 }} align="center">
             <VStack align="start" spacing={3} flex={1}>
-              <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color="whiteAlpha.700">
+              <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel}>
                 Start a conversation
               </Text>
-              <Heading size={{ base: "lg", md: "xl" }}>
+              <Heading size={{ base: "lg", md: "xl" }} color={sectionTitle}>
                 Ready to move with a clearer plan?
               </Heading>
-              <Text color="whiteAlpha.800" lineHeight="tall">
-                We align on outcomes, architecture, and delivery constraints before execution begins.
+              <Text color={mutedText} fontSize={{ base: "md", md: "lg" }} lineHeight="tall">
+                We align on outcomes, architecture, and delivery constraints before work begins.
               </Text>
             </VStack>
             <HStack spacing={4} flexWrap="wrap">
               <Button as={RouterLink} to="/contact" colorScheme="accent" size="lg">
                 Start the Conversation
               </Button>
-              <Button as={RouterLink} to="/coinnovationservices" variant="outline" colorScheme="whiteAlpha" size="lg">
+              <Button as={RouterLink} to="/coinnovationservices" variant="outline" colorScheme="blackAlpha" size="lg">
                 View Services
               </Button>
             </HStack>
           </Stack>
-        </Container>
-      </Box>
+        </Box>
+      </Container>
     </Box>
   );
 };

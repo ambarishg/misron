@@ -335,31 +335,31 @@ const Services = () => {
         </VStack>
       </Container>
 
-      <Box bg={useColorModeValue("brand.900", "brand.800")} color="white" py={{ base: 10, md: 14 }}>
-        <Container maxW="container.xl">
+      <Container maxW="container.xl" pb={{ base: 12, md: 16 }}>
+        <Box bg={cardBg} borderRadius="xl" borderWidth={1} borderColor={borderColor} p={{ base: 6, md: 8 }} boxShadow={cardShadow}>
           <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 5, md: 8 }} align="center">
             <VStack align="start" spacing={3} flex={1}>
-              <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color="whiteAlpha.700">
+              <Text fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color={sectionLabel}>
                 Start a conversation
               </Text>
-              <Heading size={{ base: "lg", md: "xl" }}>
+              <Heading size={{ base: "lg", md: "xl" }} color={sectionTitle}>
                 Need a clearer path from strategy to delivery?
               </Heading>
-              <Text color="whiteAlpha.800" lineHeight="tall">
-                We align on outcomes, architecture, and operating constraints before execution begins.
+              <Text color={textColor} fontSize={{ base: "md", md: "lg" }} lineHeight="tall">
+                We align on outcomes, architecture, and operating constraints before work begins.
               </Text>
             </VStack>
             <HStack spacing={4} flexWrap="wrap">
               <Button as={RouterLink} to="/contact" colorScheme="accent" size="lg">
-                Talk to Misron
+                Start the Conversation
               </Button>
-              <Button as={RouterLink} to="/coinnovationservices" variant="outline" colorScheme="whiteAlpha" size="lg">
+              <Button as={RouterLink} to="/coinnovationservices" variant="outline" colorScheme="blackAlpha" size="lg">
                 View Co-Innovation
               </Button>
             </HStack>
           </Stack>
-        </Container>
-      </Box>
+        </Box>
+      </Container>
     </Box>
   );
 };

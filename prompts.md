@@ -36,3 +36,9 @@ In the Home Page , "the Ready to move with a clearer plan?
 We align on outcomes, architecture, and delivery constraints before execution begins" , the portion needs to be shorter , more crisp and professional
 
 Send a Brief in the Contact Page is compressed. The layout needs to be fixed so as to make it properly visible
+
+This section the height needs to get reduced, more crisp , sharp , less templatized , more premium but minimalistic
+
+Can we replicate the same design system for this section as we have done in the Coinnovation Page -Start the Conversation Block
+
+Repeat the same design system for the Services Page
