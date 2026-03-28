@@ -9,7 +9,6 @@ import Contact from "./pages/Contact";
 import theme from "./theme";
 import Partners from "./components/Partners";
 import Projects from "./components/Projects";
-import CoInnovationServices from "./pages/CoInnovationServices";
 import SearchAssistant from "./pages/SearchAssistant";
 import AskHank from "./pages/AskHank";
 
@@ -31,7 +30,6 @@ function App() {
               <Route path="/partners" element={<Partners />} />
               <Route path="/ai-bee-health" element={<Projects />} />
               <Route path="/ask-hank" element={<AskHank />} />
-              <Route path= "/coinnovationservices" element={<CoInnovationServices />} />
               <Route path= "/searchassistant" element={<SearchAssistant />} />
             </Routes>
           </Box>

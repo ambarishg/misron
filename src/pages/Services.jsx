@@ -177,8 +177,8 @@ const Services = () => {
                 >
                   Schedule a Consultation
                 </Button>
-                <Button as={RouterLink} to="/coinnovationservices" variant="outline" colorScheme="blackAlpha" size="lg">
-                  Explore Co-Innovation
+                <Button as={RouterLink} to="/services" variant="outline" colorScheme="blackAlpha" size="lg">
+                  Explore Services
                 </Button>
               </HStack>
             </VStack>
@@ -353,8 +353,8 @@ const Services = () => {
               <Button as={RouterLink} to="/contact" colorScheme="accent" size="lg">
                 Start the Conversation
               </Button>
-              <Button as={RouterLink} to="/coinnovationservices" variant="outline" colorScheme="blackAlpha" size="lg">
-                View Co-Innovation
+              <Button as={RouterLink} to="/services" variant="outline" colorScheme="blackAlpha" size="lg">
+                View Services
               </Button>
             </HStack>
           </Stack>

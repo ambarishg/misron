@@ -13,7 +13,6 @@ import { FaEnvelope } from "react-icons/fa";
 const capabilityLinks = [
   { label: "Data Platforms", to: "/services" },
   { label: "Applied AI", to: "/searchassistant" },
-  { label: "Co-Innovation", to: "/coinnovationservices" },
   { label: "Ask Hank", to: "/ask-hank" },
   { label: "AI Bee Health", to: "/ai-bee-health" },
 ];

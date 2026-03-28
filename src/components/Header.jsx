@@ -23,7 +23,6 @@ const primaryLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
-  { label: "Co-Innovation", to: "/coinnovationservices" },
 ];
 
 const productLinks = [
