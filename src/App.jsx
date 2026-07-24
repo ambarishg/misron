@@ -11,6 +11,7 @@ import Partners from "./components/Partners";
 import Projects from "./components/Projects";
 import SearchAssistant from "./pages/SearchAssistant";
 import AskHank from "./pages/AskHank";
+import SchoolOfAI from "./pages/SchoolOfAI";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
               <Route path="/ai-bee-health" element={<Projects />} />
               <Route path="/ask-hank" element={<AskHank />} />
               <Route path= "/searchassistant" element={<SearchAssistant />} />
+              <Route path="/schoolofai" element={<SchoolOfAI />} />
             </Routes>
           </Box>
           <Footer />

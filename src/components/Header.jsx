@@ -22,6 +22,7 @@ import { Link as RouterLink, useLocation } from "react-router-dom";
 const primaryLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
+  { label: "School of AI", to: "/schoolofai" },
   { label: "Services", to: "/services" },
 ];
 
