@@ -11,6 +11,7 @@ import {
   Stack,
   Text,
   VStack,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 import {
@@ -20,12 +21,6 @@ import {
   FaUserGraduate,
   FaCheckCircle,
 } from "react-icons/fa";
-
-// ---- Design tokens ------------------------------------------------------
-// Ink navy (headings, primary text), gold (single credential accent)
-const INK = "#111C2E";
-const NAVY = "#1E3A5F";
-const GOLD = "#B7791F";
 
 const features = [
   {
@@ -70,20 +65,36 @@ const stats = [
 ];
 
 export default function SchoolOfAI() {
+  const pageBg = useColorModeValue("gray.50", "gray.900");
+  const heroBg = useColorModeValue(
+    "linear(to-br, rgba(248, 250, 252, 0.96), rgba(236, 242, 247, 0.96), rgba(226, 234, 241, 0.96))",
+    "linear(to-br, brand.900, brand.800)"
+  );
+  const cardBg = useColorModeValue("white", "gray.800");
+  const borderColor = useColorModeValue("gray.200", "gray.700");
+  const accent = useColorModeValue("brand.700", "brand.200");
+  const sectionLabel = useColorModeValue("brand.600", "accent.200");
+  const sectionTitle = useColorModeValue("brand.900", "white");
+  const textColor = useColorModeValue("gray.600", "gray.300");
+  const heroText = useColorModeValue("brand.900", "white");
+  const heroSubtext = useColorModeValue("gray.600", "gray.200");
+  const cardShadow = useColorModeValue("0 14px 34px rgba(15, 23, 42, 0.07)", "dark-lg");
+  const badgeBg = useColorModeValue("gray.100", "whiteAlpha.100");
+  const accentBar = useColorModeValue("brand.600", "brand.300");
   return (
-    <Box bg="#F8FAFC">
-      {/* HERO */}
-      <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
+    <Box bg={pageBg} minH="100vh">
+      <Box bgGradient={heroBg} borderBottom="1px solid" borderColor={borderColor}>
+        <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
         <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={16} alignItems="center">
           {/* Left */}
           <Stack spacing={8}>
             <HStack spacing={3}>
-              <Box w="28px" h="2px" bg={GOLD} />
+              <Box w="28px" h="2px" bg={accentBar} />
               <Text
                 fontSize="xs"
                 letterSpacing="0.15em"
                 fontWeight="600"
-                color={NAVY}
+                color={sectionLabel}
                 textTransform="uppercase"
               >
                 School of AI &amp; Computing
@@ -94,14 +105,14 @@ export default function SchoolOfAI() {
               fontSize={{ base: "4xl", md: "5xl", lg: "6xl" }}
               lineHeight="1.1"
               fontWeight="800"
-              color={INK}
+              color={heroText}
             >
               A rigorous AI education
               <br />
               for CBSE Class IX &amp; X
             </Heading>
 
-            <Text fontSize="lg" color="gray.600" maxW="520px" lineHeight="1.7">
+            <Text fontSize="lg" color={heroSubtext} maxW="520px" lineHeight="1.7">
               Students build Artificial Intelligence, Python programming and
               computational thinking skills through structured, project-based
               instruction aligned with the current CBSE curriculum.
@@ -115,7 +126,7 @@ export default function SchoolOfAI() {
                   <Text
                     fontSize={{ base: "sm", md: "md" }}
                     fontWeight="700"
-                    color={INK}
+                    color={heroText}
                   >
                     {s.value}
                   </Text>
@@ -134,37 +145,37 @@ export default function SchoolOfAI() {
 
           {/* Right: credential card */}
           <Box
-            bg="white"
+            bg={cardBg}
             borderRadius="2xl"
             border="1px solid"
-            borderColor="gray.200"
+            borderColor={borderColor}
             shadow="lg"
             position="relative"
             overflow="hidden"
           >
-            <Box h="6px" bg={GOLD} />
+            <Box h="6px" bg={accentBar} />
 
             <Box p={10}>
               <Text
                 fontSize="xs"
                 letterSpacing="0.15em"
                 fontWeight="600"
-                color={GOLD}
+                color={accentBar}
                 textTransform="uppercase"
                 mb={4}
               >
                 Why Parents Choose Us
               </Text>
 
-              <Heading size="lg" fontWeight="700" color={INK} mb={8}>
+              <Heading size="lg" fontWeight="700" color={sectionTitle} mb={8}>
                 Preparing students for an AI-driven future
               </Heading>
 
               <VStack align="stretch" spacing={5}>
                 {credentials.map((item) => (
                   <HStack key={item} align="start" spacing={3}>
-                    <Icon as={FaCheckCircle} color={NAVY} mt={1} boxSize={4} />
-                    <Text color="gray.700" lineHeight="1.6">
+                    <Icon as={FaCheckCircle} color={accent} mt={1} boxSize={4} />
+                    <Text color={textColor} lineHeight="1.6">
                       {item}
                     </Text>
                   </HStack>
@@ -173,37 +184,38 @@ export default function SchoolOfAI() {
             </Box>
           </Box>
         </SimpleGrid>
-      </Container>
+        </Container>
+      </Box>
 
       {/* WHY CHOOSE US */}
-      <Container maxW="7xl" py={24}>
+      <Container maxW="container.xl" py={24}>
         <VStack spacing={4} mb={16}>
           <HStack spacing={3}>
-            <Box w="28px" h="2px" bg={GOLD} />
+            <Box w="28px" h="2px" bg={accentBar} />
             <Text
               fontSize="xs"
               letterSpacing="0.15em"
               fontWeight="600"
-              color={NAVY}
+              color={sectionLabel}
               textTransform="uppercase"
             >
               Why Misron
             </Text>
-            <Box w="28px" h="2px" bg={GOLD} />
+            <Box w="28px" h="2px" bg={accentBar} />
           </HStack>
 
           <Heading
             textAlign="center"
             fontSize={{ base: "3xl", md: "4xl" }}
             fontWeight="800"
-            color={INK}
+            color={sectionTitle}
           >
             Building the next generation
             <br />
             of AI innovators
           </Heading>
 
-          <Text color="gray.600" maxW="650px" textAlign="center" lineHeight="1.7">
+          <Text color={textColor} maxW="650px" textAlign="center" lineHeight="1.7">
             We combine industry expertise, project-based learning and the CBSE
             curriculum to help students build durable, future-ready skills.
           </Text>
@@ -213,14 +225,15 @@ export default function SchoolOfAI() {
           {features.map((feature) => (
             <Box
               key={feature.title}
-              bg="white"
+              bg={cardBg}
               p={8}
               rounded="xl"
               border="1px solid"
-              borderColor="gray.200"
+              borderColor={borderColor}
               transition="all .2s ease"
+              boxShadow={cardShadow}
               _hover={{
-                borderColor: NAVY,
+                borderColor: accent,
                 shadow: "md",
               }}
             >
@@ -228,19 +241,19 @@ export default function SchoolOfAI() {
                 w="52px"
                 h="52px"
                 rounded="lg"
-                bg="#F1F5F9"
+                bg={badgeBg}
                 align="center"
                 justify="center"
                 mb={6}
               >
-                <Icon as={feature.icon} boxSize={6} color={NAVY} />
+                <Icon as={feature.icon} boxSize={6} color={accent} />
               </Flex>
 
-              <Heading size="md" fontWeight="700" color={INK} mb={3}>
+              <Heading size="md" fontWeight="700" color={sectionTitle} mb={3}>
                 {feature.title}
               </Heading>
 
-              <Text color="gray.600" lineHeight="1.6" fontSize="sm">
+              <Text color={textColor} lineHeight="1.6" fontSize="sm">
                 {feature.description}
               </Text>
             </Box>
