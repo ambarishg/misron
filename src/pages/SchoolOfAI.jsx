@@ -84,10 +84,10 @@ export default function SchoolOfAI() {
   return (
     <Box bg={pageBg} minH="100vh">
       <Box bgGradient={heroBg} borderBottom="1px solid" borderColor={borderColor}>
-        <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
-        <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={16} alignItems="center">
+        <Container maxW="container.xl" py={{ base: 8, md: 12 }}>
+        <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12} alignItems="center">
           {/* Left */}
-          <Stack spacing={8}>
+          <Stack spacing={6}>
             <HStack spacing={3}>
               <Box w="28px" h="2px" bg={accentBar} />
               <Text
@@ -102,9 +102,9 @@ export default function SchoolOfAI() {
             </HStack>
 
             <Heading
-              fontSize={{ base: "4xl", md: "5xl", lg: "6xl" }}
-              lineHeight="1.1"
-              fontWeight="800"
+              as="h1"
+              size={{ base: "2xl", md: "3xl" }}
+              lineHeight="shorter"
               color={heroText}
             >
               A rigorous AI education
@@ -112,19 +112,19 @@ export default function SchoolOfAI() {
               for CBSE Class IX &amp; X
             </Heading>
 
-            <Text fontSize="lg" color={heroSubtext} maxW="520px" lineHeight="1.7">
+            <Text fontSize={{ base: "lg", md: "xl" }} color={heroSubtext} maxW="520px" lineHeight="tall">
               Students build Artificial Intelligence, Python programming and
               computational thinking skills through structured, project-based
               instruction aligned with the current CBSE curriculum.
             </Text>
 
-            <Divider borderColor="gray.200" pt={2} />
+            <Divider borderColor="gray.200" py={1} />
 
-            <SimpleGrid columns={4} spacing={4} pt={2}>
+            <SimpleGrid columns={4} spacing={3} pt={1}>
               {stats.map((s) => (
                 <VStack key={s.label} align="start" spacing={1}>
                   <Text
-                    fontSize={{ base: "sm", md: "md" }}
+                    fontSize={{ base: "xs", md: "sm" }}
                     fontWeight="700"
                     color={heroText}
                   >
@@ -149,13 +149,13 @@ export default function SchoolOfAI() {
             borderRadius="2xl"
             border="1px solid"
             borderColor={borderColor}
-            shadow="lg"
+            shadow="md"
             position="relative"
             overflow="hidden"
           >
-            <Box h="6px" bg={accentBar} />
+            <Box h="4px" bg={accentBar} />
 
-            <Box p={10}>
+            <Box p={8}>
               <Text
                 fontSize="xs"
                 letterSpacing="0.15em"
@@ -167,15 +167,15 @@ export default function SchoolOfAI() {
                 Why Parents Choose Us
               </Text>
 
-              <Heading size="lg" fontWeight="700" color={sectionTitle} mb={8}>
+              <Heading size="lg" fontWeight="700" color={sectionTitle} mb={6}>
                 Preparing students for an AI-driven future
               </Heading>
 
-              <VStack align="stretch" spacing={5}>
+              <VStack align="stretch" spacing={4}>
                 {credentials.map((item) => (
                   <HStack key={item} align="start" spacing={3}>
                     <Icon as={FaCheckCircle} color={accent} mt={1} boxSize={4} />
-                    <Text color={textColor} lineHeight="1.6">
+                    <Text color={textColor} lineHeight="tall">
                       {item}
                     </Text>
                   </HStack>
@@ -188,8 +188,8 @@ export default function SchoolOfAI() {
       </Box>
 
       {/* WHY CHOOSE US */}
-      <Container maxW="container.xl" py={24}>
-        <VStack spacing={4} mb={16}>
+      <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
+        <VStack spacing={3} mb={12}>
           <HStack spacing={3}>
             <Box w="28px" h="2px" bg={accentBar} />
             <Text
@@ -206,8 +206,8 @@ export default function SchoolOfAI() {
 
           <Heading
             textAlign="center"
-            fontSize={{ base: "3xl", md: "4xl" }}
-            fontWeight="800"
+            size={{ base: "lg", md: "xl" }}
+            lineHeight="shorter"
             color={sectionTitle}
           >
             Building the next generation
@@ -215,18 +215,18 @@ export default function SchoolOfAI() {
             of AI innovators
           </Heading>
 
-          <Text color={textColor} maxW="650px" textAlign="center" lineHeight="1.7">
+          <Text color={textColor} maxW="650px" textAlign="center" lineHeight="tall">
             We combine industry expertise, project-based learning and the CBSE
             curriculum to help students build durable, future-ready skills.
           </Text>
         </VStack>
 
-        <SimpleGrid columns={{ base: 1, md: 2, xl: 4 }} spacing={8}>
+        <SimpleGrid columns={{ base: 1, md: 2, xl: 4 }} spacing={6}>
           {features.map((feature) => (
             <Box
               key={feature.title}
               bg={cardBg}
-              p={8}
+              p={6}
               rounded="xl"
               border="1px solid"
               borderColor={borderColor}
@@ -238,22 +238,22 @@ export default function SchoolOfAI() {
               }}
             >
               <Flex
-                w="52px"
-                h="52px"
+                w="48px"
+                h="48px"
                 rounded="lg"
                 bg={badgeBg}
                 align="center"
                 justify="center"
-                mb={6}
+                mb={4}
               >
-                <Icon as={feature.icon} boxSize={6} color={accent} />
+                <Icon as={feature.icon} boxSize={5} color={accent} />
               </Flex>
 
               <Heading size="md" fontWeight="700" color={sectionTitle} mb={3}>
                 {feature.title}
               </Heading>
 
-              <Text color={textColor} lineHeight="1.6" fontSize="sm">
+              <Text color={textColor} lineHeight="tall">
                 {feature.description}
               </Text>
             </Box>
