@@ -122,23 +122,33 @@ export default function SchoolOfAI() {
 
             <SimpleGrid columns={4} spacing={3} pt={1}>
               {stats.map((s) => (
-                <VStack key={s.label} align="start" spacing={1}>
+                <Box
+                  key={s.label}
+                  bg={cardBg}
+                  border="1px solid"
+                  borderColor={borderColor}
+                  rounded="lg"
+                  p={4}
+                  textAlign="center"
+                >
                   <Text
-                    fontSize={{ base: "xs", md: "sm" }}
+                    fontSize={{ base: "sm", md: "base" }}
                     fontWeight="700"
                     color={heroText}
+                    mb={2}
                   >
                     {s.value}
                   </Text>
                   <Text
                     fontSize="xs"
-                    color="gray.500"
+                    color={sectionLabel}
                     textTransform="uppercase"
                     letterSpacing="0.05em"
+                    fontWeight="600"
                   >
                     {s.label}
                   </Text>
-                </VStack>
+                </Box>
               ))}
             </SimpleGrid>
           </Stack>
