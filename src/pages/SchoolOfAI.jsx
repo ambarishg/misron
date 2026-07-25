@@ -208,6 +208,138 @@ export default function SchoolOfAI() {
         </Container>
       </Box>
 
+      {/* ADMISSIONS OPEN */}
+      <Box bg={useColorModeValue("gray.50", "gray.900")} py={{ base: 12, md: 16 }}>
+        <Container maxW="container.xl">
+          <VStack spacing={10}>
+            {/* Section Header */}
+            <VStack spacing={4} w="full">
+              <HStack spacing={3}>
+                <Box w="28px" h="2px" bg={accentBar} />
+                <Text
+                  fontSize="xs"
+                  letterSpacing="0.15em"
+                  fontWeight="600"
+                  color={sectionLabel}
+                  textTransform="uppercase"
+                >
+                  Admissions
+                </Text>
+                <Box w="28px" h="2px" bg={accentBar} />
+              </HStack>
+
+              <Heading
+                textAlign="center"
+                size={{ base: "lg", md: "xl" }}
+                lineHeight="shorter"
+                color={sectionTitle}
+              >
+                Admissions Open
+              </Heading>
+
+              <Text
+                color={textColor}
+                maxW="650px"
+                textAlign="center"
+                lineHeight="tall"
+                fontSize="sm"
+              >
+                Limited seats available for the next batch. Join our rigorous AI and computational thinking program for CBSE Class IX & X students.
+              </Text>
+            </VStack>
+
+            {/* Contact Card - Professional Premium Style */}
+            <Box
+              bg={cardBg}
+              border="1px solid"
+              borderColor={borderColor}
+              rounded="2xl"
+              p={{ base: 8, md: 10 }}
+              textAlign="center"
+              w={{ base: "full", md: "auto" }}
+              minW={{ md: "500px" }}
+              position="relative"
+              overflow="hidden"
+              boxShadow={cardShadow}
+              transition="all 0.3s ease"
+              _hover={{
+                shadow: "xl",
+                borderColor: accent,
+              }}
+            >
+              {/* Accent bar at top */}
+              <Box h="3px" bg={accentBar} position="absolute" top="0" left="0" right="0" />
+
+              <VStack spacing={6}>
+                <VStack spacing={2}>
+                  <Text
+                    fontSize="xs"
+                    letterSpacing="0.12em"
+                    fontWeight="600"
+                    color={accentBar}
+                    textTransform="uppercase"
+                  >
+                    Get in Touch
+                  </Text>
+                  
+                  <Heading
+                    size="md"
+                    fontWeight="700"
+                    color={sectionTitle}
+                  >
+                    Speak with our admissions team
+                  </Heading>
+                </VStack>
+
+                <Box
+                  bg={useColorModeValue("brand.50", "gray.800")}
+                  rounded="lg"
+                  p={6}
+                  w="full"
+                  border="1px solid"
+                  borderColor={borderColor}
+                >
+                  <HStack spacing={4} justify="center" align="center">
+                    <Box
+                      w="56px"
+                      h="56px"
+                      rounded="lg"
+                      bg={useColorModeValue("brand.100", "brand.900")}
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                      fontSize="2xl"
+                      fontWeight="700"
+                    >
+                      📞
+                    </Box>
+                    <VStack spacing={1} align="flex-start">
+                      <Text
+                        fontSize="xs"
+                        letterSpacing="0.12em"
+                        fontWeight="600"
+                        color={sectionLabel}
+                        textTransform="uppercase"
+                      >
+                        Call us
+                      </Text>
+                      <Text
+                        fontSize={{ base: "xl", md: "2xl" }}
+                        fontWeight="700"
+                        color={sectionTitle}
+                        letterSpacing="0.02em"
+                      >
+                        94773 98764
+                      </Text>
+                    </VStack>
+                  </HStack>
+                </Box>
+              </VStack>
+            </Box>
+          </VStack>
+        </Container>
+      </Box>
+
       {/* WHY CHOOSE US */}
       <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
         <VStack spacing={3} mb={12}>
