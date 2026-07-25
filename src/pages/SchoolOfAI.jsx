@@ -112,15 +112,25 @@ export default function SchoolOfAI() {
               for CBSE Class IX &amp; X
             </Heading>
 
-            <Text fontSize={{ base: "lg", md: "xl" }} color={heroSubtext} maxW="520px" lineHeight="tall">
-              Students build Artificial Intelligence, Python programming and
-              computational thinking skills through structured, project-based
-              instruction aligned with the current CBSE curriculum.
-            </Text>
+            <HStack align="flex-start" spacing={6} wrap="wrap">
+              <Box flex="1" minW="220px">
+                <Text fontSize={{ base: "lg", md: "xl" }} color={heroSubtext} maxW="520px" lineHeight="tall">
+                  Students build Artificial Intelligence, Python programming and
+                  computational thinking skills through structured, project-based
+                  instruction aligned with the current CBSE curriculum.
+                </Text>
+              </Box>
+
+              <Box display={{ base: "none", md: "block" }}>
+                <Box bg={badgeBg} rounded="xl" p={6} boxShadow={cardShadow} textAlign="center">
+                  <Icon as={FaRobot} boxSize={12} color={accent} />
+                </Box>
+              </Box>
+            </HStack>
 
             <Divider borderColor="gray.200" py={1} />
 
-            <SimpleGrid columns={4} spacing={3} pt={1}>
+            <SimpleGrid columns={{ base: 2, md: 4 }} spacing={3} pt={1}>
               {stats.map((s) => (
                 <Box
                   key={s.label}
@@ -132,10 +142,10 @@ export default function SchoolOfAI() {
                   textAlign="center"
                 >
                   <Text
-                    fontSize={{ base: "sm", md: "base" }}
+                    fontSize={{ base: "sm", md: "lg" }}
                     fontWeight="700"
                     color={heroText}
-                    mb={2}
+                    mb={1}
                   >
                     {s.value}
                   </Text>
@@ -159,33 +169,34 @@ export default function SchoolOfAI() {
             borderRadius="2xl"
             border="1px solid"
             borderColor={borderColor}
-            shadow="md"
+            shadow="lg"
             position="relative"
             overflow="hidden"
           >
             <Box h="4px" bg={accentBar} />
 
             <Box p={8}>
-              <Text
-                fontSize="xs"
-                letterSpacing="0.15em"
-                fontWeight="600"
-                color={accentBar}
-                textTransform="uppercase"
-                mb={4}
-              >
-                Why Parents Choose Us
-              </Text>
+              <Box mb={4}>
+                <Text
+                  fontSize="xs"
+                  letterSpacing="0.12em"
+                  fontWeight="600"
+                  color={accentBar}
+                  textTransform="uppercase"
+                >
+                  Why Parents Choose Us
+                </Text>
+              </Box>
 
               <Heading size="lg" fontWeight="700" color={sectionTitle} mb={6}>
                 Preparing students for an AI-driven future
               </Heading>
 
-              <VStack align="stretch" spacing={4}>
+              <VStack align="stretch" spacing={3}>
                 {credentials.map((item) => (
                   <HStack key={item} align="start" spacing={3}>
                     <Icon as={FaCheckCircle} color={accent} mt={1} boxSize={4} />
-                    <Text color={textColor} lineHeight="tall">
+                    <Text color={textColor} lineHeight="tall" fontSize="sm">
                       {item}
                     </Text>
                   </HStack>
